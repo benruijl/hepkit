@@ -1,0 +1,231 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evaluator — HEPkit documentation</title>
+<meta name="description" content="Reuse a numerical evaluator for one scalar one-loop master family.">
+<meta name="theme-color" content="#176f5e"><meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://hepkit.org/docs/hepkit/oneloop/Evaluator.html">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<script src="/theme.js"></script><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/docs.css">
+</head><body class="docs-page"><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="wrap header-inner">
+<a class="brand" href="/" aria-label="HEPkit home"><img class="brand-light" src="/assets/hepkit.svg" width="369" height="158" alt="HEPkit"><img class="brand-dark" src="/assets/hepkit-dark.svg" width="369" height="158" alt="HEPkit"></a>
+<nav class="site-nav" aria-label="Main navigation"><a href="/#examples">Examples</a><a href="/#projects">Projects</a><a class="nav-docs" aria-current="page" href="/docs/" aria-label="Documentation"><span class="nav-label-full">Documentation</span><span class="nav-label-short" aria-hidden="true">Docs</span></a><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" title="Switch to dark mode" hidden><svg class="theme-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.7 13.1A8.6 8.6 0 0 1 10.9 3.3 8.7 8.7 0 1 0 20.7 13.1Z"/></svg><svg class="theme-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4m0-14.2-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg></button></nav>
+</div></header>
+<div class="docs-layout"><aside class="docs-sidebar" aria-label="Documentation navigation">
+<label class="docs-search-label" for="docs-search">Find a page or method</label>
+<input id="docs-search" type="search" placeholder="Search the reference…" autocomplete="off" aria-controls="docs-search-results" aria-describedby="docs-search-status">
+<p id="docs-search-status" class="docs-search-status" role="status"></p>
+<ul id="docs-search-results" class="docs-search-results" hidden></ul>
+<details class="docs-menu" open><summary>Browse documentation</summary><nav aria-label="API reference"><a class="docs-home" href="/docs/">Documentation overview</a><details class="docs-nav-group"><summary>HEPkit <span>79</span></summary><ul><li><a href="/docs/hepkit/index.html">Overview</a></li><li><a href="/docs/hepkit/Amplitude.html">Amplitude</a></li><li><a href="/docs/hepkit/AmplitudeError.html">AmplitudeError</a></li><li><a href="/docs/hepkit/AmplitudeLeg.html">AmplitudeLeg</a></li><li><a href="/docs/hepkit/Axis.html">Axis</a></li><li><a href="/docs/hepkit/Boost.html">Boost</a></li><li><a href="/docs/hepkit/CancellationToken.html">CancellationToken</a></li><li><a href="/docs/hepkit/CffError.html">CffError</a></li><li><a href="/docs/hepkit/CffGenerator.html">CffGenerator</a></li><li><a href="/docs/hepkit/CffOrientation.html">CffOrientation</a></li><li><a href="/docs/hepkit/CffReport.html">CffReport</a></li><li><a href="/docs/hepkit/CffResult.html">CffResult</a></li><li><a href="/docs/hepkit/CffSurface.html">CffSurface</a></li><li><a href="/docs/hepkit/CffSurfaceGroup.html">CffSurfaceGroup</a></li><li><a href="/docs/hepkit/ClusteringResult.html">ClusteringResult</a></li><li><a href="/docs/hepkit/Coupling.html">Coupling</a></li><li><a href="/docs/hepkit/CutPropagator.html">CutPropagator</a></li><li><a href="/docs/hepkit/DiagramCut.html">DiagramCut</a></li><li><a href="/docs/hepkit/DiagramCutSide.html">DiagramCutSide</a></li><li><a href="/docs/hepkit/DiagramEdge.html">DiagramEdge</a></li><li><a href="/docs/hepkit/DiagramError.html">DiagramError</a></li><li><a href="/docs/hepkit/DiagramGroup.html">DiagramGroup</a></li><li><a href="/docs/hepkit/DiagramThresholdCandidate.html">DiagramThresholdCandidate</a></li><li><a href="/docs/hepkit/DiagramVertex.html">DiagramVertex</a></li><li><a href="/docs/hepkit/EvaluatedValues.html">EvaluatedValues</a></li><li><a href="/docs/hepkit/EvaluationRequest.html">EvaluationRequest</a></li><li><a href="/docs/hepkit/FeynkitError.html">FeynkitError</a></li><li><a href="/docs/hepkit/FeynmanDiagram.html">FeynmanDiagram</a></li><li><a href="/docs/hepkit/FormFactor.html">FormFactor</a></li><li><a href="/docs/hepkit/FourMomentum.html">FourMomentum</a></li><li><a href="/docs/hepkit/GenerationError.html">GenerationError</a></li><li><a href="/docs/hepkit/GenerationProgress.html">GenerationProgress</a></li><li><a href="/docs/hepkit/GenerationReport.html">GenerationReport</a></li><li><a href="/docs/hepkit/GenerationResult.html">GenerationResult</a></li><li><a href="/docs/hepkit/GroupMember.html">GroupMember</a></li><li><a href="/docs/hepkit/Helicity.html">Helicity</a></li><li><a href="/docs/hepkit/IBPFamily.html">IBPFamily</a></li><li><a href="/docs/hepkit/IBPRule.html">IBPRule</a></li><li><a href="/docs/hepkit/IBPSolution.html">IBPSolution</a></li><li><a href="/docs/hepkit/IntegralFamily.html">IntegralFamily</a></li><li><a href="/docs/hepkit/IntegralFamilyError.html">IntegralFamilyError</a></li><li><a href="/docs/hepkit/IntegralMapping.html">IntegralMapping</a></li><li><a href="/docs/hepkit/Jet.html">Jet</a></li><li><a href="/docs/hepkit/JetAlgorithm.html">JetAlgorithm</a></li><li><a href="/docs/hepkit/JetDefinition.html">JetDefinition</a></li><li><a href="/docs/hepkit/Kinematics.html">Kinematics</a></li><li><a href="/docs/hepkit/KinematicsError.html">KinematicsError</a></li><li><a href="/docs/hepkit/LoadedModel.html">LoadedModel</a></li><li><a href="/docs/hepkit/LoopMomentumBasis.html">LoopMomentumBasis</a></li><li><a href="/docs/hepkit/LorentzStructure.html">LorentzStructure</a></li><li><a href="/docs/hepkit/Model.html">Model</a></li><li><a href="/docs/hepkit/ModelError.html">ModelError</a></li><li><a href="/docs/hepkit/ModelExpression.html">ModelExpression</a></li><li><a href="/docs/hepkit/ModelFunction.html">ModelFunction</a></li><li><a href="/docs/hepkit/MomentumSignature.html">MomentumSignature</a></li><li><a href="/docs/hepkit/NumeratorGrouping.html">NumeratorGrouping</a></li><li><a href="/docs/hepkit/Parameter.html">Parameter</a></li><li><a href="/docs/hepkit/ParameterCard.html">ParameterCard</a></li><li><a href="/docs/hepkit/ParameterNature.html">ParameterNature</a></li><li><a href="/docs/hepkit/ParameterType.html">ParameterType</a></li><li><a href="/docs/hepkit/Particle.html">Particle</a></li><li><a href="/docs/hepkit/ParticleSelector.html">ParticleSelector</a></li><li><a href="/docs/hepkit/Process.html">Process</a></li><li><a href="/docs/hepkit/Propagator.html">Propagator</a></li><li><a href="/docs/hepkit/PropagatorMapping.html">PropagatorMapping</a></li><li><a href="/docs/hepkit/Rotation.html">Rotation</a></li><li><a href="/docs/hepkit/SelfEnergyFilterOptions.html">SelfEnergyFilterOptions</a></li><li><a href="/docs/hepkit/SnailFilterOptions.html">SnailFilterOptions</a></li><li><a href="/docs/hepkit/SquaredAmplitude.html">SquaredAmplitude</a></li><li><a href="/docs/hepkit/Subgraph.html">Subgraph</a></li><li><a href="/docs/hepkit/Symbols.html">Symbols</a></li><li><a href="/docs/hepkit/TadpoleFilterOptions.html">TadpoleFilterOptions</a></li><li><a href="/docs/hepkit/TensorReducer.html">TensorReducer</a></li><li><a href="/docs/hepkit/TensorReductionError.html">TensorReductionError</a></li><li><a href="/docs/hepkit/ThreeMomentum.html">ThreeMomentum</a></li><li><a href="/docs/hepkit/UfoLoadDiagnostics.html">UfoLoadDiagnostics</a></li><li><a href="/docs/hepkit/UfoLoader.html">UfoLoader</a></li><li><a href="/docs/hepkit/UfoLoadError.html">UfoLoadError</a></li><li><a href="/docs/hepkit/VertexRule.html">VertexRule</a></li></ul></details><details class="docs-nav-group"><summary>Tensor algebra <span>27</span></summary><ul><li><a href="/docs/tensor/index.html">Overview</a></li><li><a href="/docs/tensor/BroadcastFunction.html">BroadcastFunction</a></li><li><a href="/docs/tensor/CanonicalizationError.html">CanonicalizationError</a></li><li><a href="/docs/tensor/CompiledTensorEvaluator.html">CompiledTensorEvaluator</a></li><li><a href="/docs/tensor/CookingError.html">CookingError</a></li><li><a href="/docs/tensor/DiracAdjointError.html">DiracAdjointError</a></li><li><a href="/docs/tensor/DisplaySettings.html">DisplaySettings</a></li><li><a href="/docs/tensor/ExecutionMode.html">ExecutionMode</a></li><li><a href="/docs/tensor/ExecutionStatus.html">ExecutionStatus</a></li><li><a href="/docs/tensor/FactorProjector.html">FactorProjector</a></li><li><a href="/docs/tensor/NetworkToolingError.html">NetworkToolingError</a></li><li><a href="/docs/tensor/PortPattern.html">PortPattern</a></li><li><a href="/docs/tensor/ReductionStatus.html">ReductionStatus</a></li><li><a href="/docs/tensor/Representation.html">Representation</a></li><li><a href="/docs/tensor/RepresentationName.html">RepresentationName</a></li><li><a href="/docs/tensor/Slot.html">Slot</a></li><li><a href="/docs/tensor/SymbolicParallelism.html">SymbolicParallelism</a></li><li><a href="/docs/tensor/Tensor.html">Tensor</a></li><li><a href="/docs/tensor/TensorEvaluator.html">TensorEvaluator</a></li><li><a href="/docs/tensor/TensorExpression.html">TensorExpression</a></li><li><a href="/docs/tensor/TensorFunctionLibrary.html">TensorFunctionLibrary</a></li><li><a href="/docs/tensor/TensorLibrary.html">TensorLibrary</a></li><li><a href="/docs/tensor/TensorName.html">TensorName</a></li><li><a href="/docs/tensor/TensorNetwork.html">TensorNetwork</a></li><li><a href="/docs/tensor/TensorPattern.html">TensorPattern</a></li><li><a href="/docs/tensor/TensorRule.html">TensorRule</a></li><li><a href="/docs/tensor/TensorStructure.html">TensorStructure</a></li></ul></details><details class="docs-nav-group" open><summary>One-loop integrals <span>5</span></summary><ul><li><a href="/docs/hepkit/oneloop/index.html">Overview</a></li><li><a href="/docs/hepkit/oneloop/DecimalComplex.html">DecimalComplex</a></li><li><a href="/docs/hepkit/oneloop/Evaluator.html" aria-current="page">Evaluator</a></li><li><a href="/docs/hepkit/oneloop/MasterIntegral.html">MasterIntegral</a></li><li><a href="/docs/hepkit/oneloop/Reduction.html">Reduction</a></li></ul></details><details class="docs-nav-group"><summary>Integration by parts <span>1</span></summary><ul><li><a href="/docs/hepkit/ibp/index.html">Overview</a></li></ul></details><details class="docs-nav-group"><summary>Vacuum integrals <span>5</span></summary><ul><li><a href="/docs/hepkit/vakint/index.html">Overview</a></li><li><a href="/docs/hepkit/vakint/Vakint.html">Vakint</a></li><li><a href="/docs/hepkit/vakint/VakintEvaluationMethod.html">VakintEvaluationMethod</a></li><li><a href="/docs/hepkit/vakint/VakintExpression.html">VakintExpression</a></li><li><a href="/docs/hepkit/vakint/VakintNumericalResult.html">VakintNumericalResult</a></li></ul></details></nav></details>
+</aside><main id="main" class="docs-main">
+<div class="docs-breadcrumb"><a href="/docs/">Documentation</a><span aria-hidden="true">/</span> <a href="/docs/hepkit/oneloop/">One-loop integrals</a></div>
+<article class="docs-content"><h1 id="symbolica.community.hepkit.oneloop.Evaluator">Evaluator</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Evaluator</span></code></pre></div>
+<p>Reuse a numerical evaluator for one scalar one-loop master family.</p>
+<p>Pass a bare primitive symbol: <code>oneloop.A0</code>, <code>B0</code>, <code>dB0</code>, <code>C0</code> or <code>D0</code>. Every evaluation takes physical arguments in that primitive’s order, with the squared renormalization scale last. Unlike the lowercase convenience functions, <code>evaluate</code> requires the scale explicitly.</p>
+<p>Results are ordered <code>(finite, 1/eps, 1/eps**2)</code>. <code>prec</code> counts decimal significant digits. Binary64 evaluation returns Python complex values; arbitrary-precision evaluation returns DecimalComplex components. Use decimal strings through Decimal to avoid rounding your inputs before evaluation. Per-call precision/backend overrides do not change the stored defaults.</p>
+<h3 id="examples">Examples</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica <span class="im">import</span> S, E</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community <span class="im">import</span> hepkit <span class="im">as</span> hep</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.hepkit <span class="im">import</span> oneloop</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>evaluator <span class="op">=</span> oneloop.Evaluator(oneloop.A0)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>finite, pole, double_pole <span class="op">=</span> evaluator.evaluate([<span class="fl">1.0</span>, <span class="fl">1.0</span>])</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> pole <span class="op">==</span> <span class="dv">1</span><span class="op">+</span><span class="ot">0j</span> <span class="kw">and</span> double_pole <span class="op">==</span> <span class="ot">0j</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> evaluator.evaluate_batch([[<span class="fl">1.0</span>, <span class="fl">1.0</span>], [<span class="fl">2.0</span>, <span class="fl">1.0</span>]])</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">len</span>(rows) <span class="op">==</span> <span class="dv">2</span></span></code></pre></div>
+<h2 id="attributes">Attributes</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#symbolica.community.hepkit.oneloop.Evaluator.arity"><code>arity</code></a></td>
+<td>Number of physical arguments including the final squared scale.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.oneloop.Evaluator.backend"><code>backend</code></a></td>
+<td>Requested default backend name; “auto” remains “auto” after backend selection.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.oneloop.Evaluator.family"><code>family</code></a></td>
+<td>Primitive family name, such as “A0” or “B0”.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.oneloop.Evaluator.prec"><code>prec</code></a></td>
+<td>Default decimal significant-digit count; per-call overrides leave it unchanged.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="symbolica.community.hepkit.oneloop.Evaluator.arity"><code>arity</code></h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Evaluator.arity: <span class="bu">int</span></span></code></pre></div>
+<p>Number of physical arguments including the final squared scale.</p>
+<h3 id="examples-1">Examples</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica <span class="im">import</span> S, E</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community <span class="im">import</span> hepkit <span class="im">as</span> hep</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.hepkit <span class="im">import</span> oneloop</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>evaluator <span class="op">=</span> oneloop.Evaluator(oneloop.A0)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> evaluator.arity <span class="op">==</span> <span class="dv">2</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> oneloop.Evaluator(oneloop.B0).arity <span class="op">==</span> <span class="dv">4</span></span></code></pre></div>
+<h2 id="symbolica.community.hepkit.oneloop.Evaluator.backend"><code>backend</code></h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Evaluator.backend: <span class="bu">str</span></span></code></pre></div>
+<p>Requested default backend name; “auto” remains “auto” after backend selection.</p>
+<h3 id="examples-2">Examples</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica <span class="im">import</span> S, E</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community <span class="im">import</span> hepkit <span class="im">as</span> hep</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.hepkit <span class="im">import</span> oneloop</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>evaluator <span class="op">=</span> oneloop.Evaluator(oneloop.A0)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> evaluator.backend <span class="op">==</span> <span class="st">&quot;auto&quot;</span></span></code></pre></div>
+<h2 id="symbolica.community.hepkit.oneloop.Evaluator.family"><code>family</code></h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Evaluator.family: <span class="bu">str</span></span></code></pre></div>
+<p>Primitive family name, such as “A0” or “B0”.</p>
+<h3 id="examples-3">Examples</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica <span class="im">import</span> S, E</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community <span class="im">import</span> hepkit <span class="im">as</span> hep</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.hepkit <span class="im">import</span> oneloop</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>evaluator <span class="op">=</span> oneloop.Evaluator(oneloop.A0)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> evaluator.family <span class="op">==</span> <span class="st">&quot;A0&quot;</span></span></code></pre></div>
+<h2 id="symbolica.community.hepkit.oneloop.Evaluator.prec"><code>prec</code></h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Evaluator.prec: <span class="bu">int</span></span></code></pre></div>
+<p>Default decimal significant-digit count; per-call overrides leave it unchanged.</p>
+<h3 id="examples-4">Examples</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica <span class="im">import</span> S, E</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community <span class="im">import</span> hepkit <span class="im">as</span> hep</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.hepkit <span class="im">import</span> oneloop</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>evaluator <span class="op">=</span> oneloop.Evaluator(oneloop.A0)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> evaluator.prec <span class="op">==</span> <span class="dv">16</span></span></code></pre></div>
+<h2 id="methods">Methods</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#symbolica.community.hepkit.oneloop.Evaluator.__init__"><code>__init__</code></a></td>
+<td>Prepare an evaluator and retain default precision and backend choices</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.oneloop.Evaluator.__repr__"><code>__repr__</code></a></td>
+<td>Summarize the selected family, precision and requested backend.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.oneloop.Evaluator.evaluate"><code>evaluate</code></a></td>
+<td>Evaluate one kinematic point and return (finite, simple pole, double pole)</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.oneloop.Evaluator.evaluate_batch"><code>evaluate_batch</code></a></td>
+<td>Evaluate a sequence of kinematic rows, returning one coefficient tuple per row</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.oneloop.Evaluator.rebuild"><code>rebuild</code></a></td>
+<td>Recreate cached evaluator workspaces while preserving the configured family and defaults</td>
+</tr>
+</tbody>
+</table>
+<h2 id="symbolica.community.hepkit.oneloop.Evaluator.__init__"><code>__init__</code></h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Evaluator.<span class="fu">__init__</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    family: Expression,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    rebuild: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    prec: <span class="bu">int</span> <span class="op">=</span> <span class="dv">16</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    backend: Backend <span class="op">=</span> <span class="st">&#39;auto&#39;</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> <span class="va">None</span></span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related type:</em> <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a></p>
+</div>
+<p>Prepare an evaluator and retain default precision and backend choices.</p>
+<p><code>auto</code> selects a supported backend for the requested precision. <code>native</code> uses native numerical evaluation; <code>symjit</code> supports binary64 only. <code>expression</code> (also named <code>symbolica</code>) evaluates Symbolica formulas. Unsupported backend/precision combinations raise an error.</p>
+<h3 id="examples-5">Examples</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica <span class="im">import</span> S, E</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community <span class="im">import</span> hepkit <span class="im">as</span> hep</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.hepkit <span class="im">import</span> oneloop</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>evaluator <span class="op">=</span> oneloop.Evaluator(oneloop.A0)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> evaluator.family <span class="op">==</span> <span class="st">&quot;A0&quot;</span> <span class="kw">and</span> evaluator.arity <span class="op">==</span> <span class="dv">2</span></span></code></pre></div>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li><code>family</code> (<code class="doc-type-annotation">Expression</code>) Bare primitive symbol such as oneloop.B0, not a B0(…) call.</li>
+<li><code>rebuild</code> (<code class="doc-type-annotation">bool, optional</code>) Recreate the evaluator’s workspace; default False.</li>
+<li><code>prec</code> (<code class="doc-type-annotation">int, optional</code>) Positive number of decimal significant digits; default 16.</li>
+<li><code>backend</code> (<code class="doc-type-annotation">str, optional</code>) “auto”, “native”, “symjit”, “expression” or “symbolica”; default “auto”.</li>
+</ul>
+<h2 id="symbolica.community.hepkit.oneloop.Evaluator.__repr__"><code>__repr__</code></h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Evaluator.<span class="fu">__repr__</span>() <span class="op">-&gt;</span> <span class="bu">str</span></span></code></pre></div>
+<p>Summarize the selected family, precision and requested backend.</p>
+<h3 id="examples-6">Examples</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.hepkit <span class="im">import</span> oneloop</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> <span class="bu">repr</span>(oneloop.Evaluator(oneloop.A0))</span></code></pre></div>
+<h2 id="symbolica.community.hepkit.oneloop.Evaluator.evaluate"><code>evaluate</code></h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Evaluator.evaluate(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    arguments: Sequence[Number],</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    prec: <span class="bu">int</span> <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    backend: Backend <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> Coefficients</span></code></pre></div>
+<p>Evaluate one kinematic point and return (finite, simple pole, double pole).</p>
+<p>Supply exactly <code>arity</code> numeric arguments including the squared scale. Inputs must satisfy the selected primitive’s kinematic domain. A per-call <code>prec</code> or <code>backend</code> override changes only this evaluation.</p>
+<h3 id="examples-7">Examples</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica <span class="im">import</span> S, E</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community <span class="im">import</span> hepkit <span class="im">as</span> hep</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.hepkit <span class="im">import</span> oneloop</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>evaluator <span class="op">=</span> oneloop.Evaluator(oneloop.A0)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>finite, pole, double_pole <span class="op">=</span> evaluator.evaluate([<span class="fl">1.0</span>, <span class="fl">1.0</span>])</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> pole <span class="op">==</span> <span class="dv">1</span><span class="op">+</span><span class="ot">0j</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> decimal <span class="im">import</span> Decimal</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>high_precision <span class="op">=</span> evaluator.evaluate([Decimal(<span class="st">&quot;1&quot;</span>), Decimal(<span class="st">&quot;1&quot;</span>)], prec<span class="op">=</span><span class="dv">40</span>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> high_precision[<span class="dv">1</span>].real <span class="op">==</span> Decimal(<span class="st">&quot;1&quot;</span>)</span></code></pre></div>
+<h3 id="parameters-1">Parameters</h3>
+<ul>
+<li><code>arguments</code> (<code class="doc-type-annotation">sequence[Number]</code>) Ordered invariants, squared masses and squared scale for the primitive.</li>
+<li><code>prec</code> (<code class="doc-type-annotation">int or None, optional</code>) Decimal significant digits; None uses the constructor default.</li>
+<li><code>backend</code> (<code class="doc-type-annotation">str or None, optional</code>) Backend override; None uses the constructor default.</li>
+</ul>
+<h2 id="symbolica.community.hepkit.oneloop.Evaluator.evaluate_batch"><code>evaluate_batch</code></h2>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Evaluator.evaluate_batch(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    rows: Sequence[Sequence[Number]],</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    prec: <span class="bu">int</span> <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    backend: Backend <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> <span class="bu">list</span>[Coefficients]</span></code></pre></div>
+<p>Evaluate a sequence of kinematic rows, returning one coefficient tuple per row.</p>
+<p>All rows have <code>arity</code> entries and use the same precision/backend choice. An empty batch returns an empty list. No NumPy array is required.</p>
+<h3 id="examples-8">Examples</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica <span class="im">import</span> S, E</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community <span class="im">import</span> hepkit <span class="im">as</span> hep</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.hepkit <span class="im">import</span> oneloop</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>evaluator <span class="op">=</span> oneloop.Evaluator(oneloop.A0)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> evaluator.evaluate_batch([[<span class="fl">1.0</span>, <span class="fl">1.0</span>], [<span class="fl">2.0</span>, <span class="fl">1.0</span>]])</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> rows[<span class="dv">0</span>] <span class="op">==</span> evaluator.evaluate([<span class="fl">1.0</span>, <span class="fl">1.0</span>])</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> evaluator.evaluate_batch([]) <span class="op">==</span> []</span></code></pre></div>
+<h3 id="parameters-2">Parameters</h3>
+<ul>
+<li><code>rows</code> (<code class="doc-type-annotation">sequence[sequence[Number]]</code>) Ordered physical arguments, including the squared scale, for each point.</li>
+<li><code>prec</code> (<code class="doc-type-annotation">int or None, optional</code>) Decimal significant digits; None uses the constructor default.</li>
+<li><code>backend</code> (<code class="doc-type-annotation">str or None, optional</code>) Backend override; None uses the constructor default.</li>
+</ul>
+<h2 id="symbolica.community.hepkit.oneloop.Evaluator.rebuild"><code>rebuild</code></h2>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Evaluator.rebuild() <span class="op">-&gt;</span> <span class="va">None</span></span></code></pre></div>
+<p>Recreate cached evaluator workspaces while preserving the configured family and defaults.</p>
+<p>Native evaluation refreshes constants/workspaces; a SymJIT evaluator is recompiled. This is usually unnecessary between evaluations at new points.</p>
+<h3 id="examples-9">Examples</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica <span class="im">import</span> S, E</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community <span class="im">import</span> hepkit <span class="im">as</span> hep</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.hepkit <span class="im">import</span> oneloop</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>evaluator <span class="op">=</span> oneloop.Evaluator(oneloop.A0)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>before <span class="op">=</span> evaluator.evaluate([<span class="fl">1.0</span>, <span class="fl">1.0</span>])</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>evaluator.rebuild()</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> evaluator.evaluate([<span class="fl">1.0</span>, <span class="fl">1.0</span>]) <span class="op">==</span> before</span></code></pre></div>
+</article><p class="docs-source">Reference synced from <a href="https://symbolica.io/docs/python_api/community/hepkit/oneloop/Evaluator.html">Symbolica documentation</a>.</p>
+</main><aside class="docs-toc" aria-label="On this page"><p>On this page</p><ul><li><a href="#attributes">Attributes</a></li><li><a href="#symbolica.community.hepkit.oneloop.Evaluator.arity">arity</a></li><li><a href="#symbolica.community.hepkit.oneloop.Evaluator.backend">backend</a></li><li><a href="#symbolica.community.hepkit.oneloop.Evaluator.family">family</a></li><li><a href="#symbolica.community.hepkit.oneloop.Evaluator.prec">prec</a></li><li><a href="#methods">Methods</a></li><li><a href="#symbolica.community.hepkit.oneloop.Evaluator.__init__">__init__</a></li><li><a href="#symbolica.community.hepkit.oneloop.Evaluator.__repr__">__repr__</a></li><li><a href="#symbolica.community.hepkit.oneloop.Evaluator.evaluate">evaluate</a></li><li><a href="#symbolica.community.hepkit.oneloop.Evaluator.evaluate_batch">evaluate_batch</a></li><li><a href="#symbolica.community.hepkit.oneloop.Evaluator.rebuild">rebuild</a></li></ul></aside></div><script src="/docs.js" defer></script></body></html>

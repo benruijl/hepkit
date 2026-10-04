@@ -1,0 +1,556 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IntegralFamily — HEPkit documentation</title>
+<meta name="description" content="An ordered set of inverse propagators sharing loop momenta and external kinematics.">
+<meta name="theme-color" content="#176f5e"><meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://hepkit.org/docs/hepkit/IntegralFamily.html">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<script src="/theme.js"></script><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/docs.css">
+</head><body class="docs-page"><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="wrap header-inner">
+<a class="brand" href="/" aria-label="HEPkit home"><img class="brand-light" src="/assets/hepkit.svg" width="369" height="158" alt="HEPkit"><img class="brand-dark" src="/assets/hepkit-dark.svg" width="369" height="158" alt="HEPkit"></a>
+<nav class="site-nav" aria-label="Main navigation"><a href="/#examples">Examples</a><a href="/#projects">Projects</a><a class="nav-docs" aria-current="page" href="/docs/" aria-label="Documentation"><span class="nav-label-full">Documentation</span><span class="nav-label-short" aria-hidden="true">Docs</span></a><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" title="Switch to dark mode" hidden><svg class="theme-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.7 13.1A8.6 8.6 0 0 1 10.9 3.3 8.7 8.7 0 1 0 20.7 13.1Z"/></svg><svg class="theme-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4m0-14.2-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg></button></nav>
+</div></header>
+<div class="docs-layout"><aside class="docs-sidebar" aria-label="Documentation navigation">
+<label class="docs-search-label" for="docs-search">Find a page or method</label>
+<input id="docs-search" type="search" placeholder="Search the reference…" autocomplete="off" aria-controls="docs-search-results" aria-describedby="docs-search-status">
+<p id="docs-search-status" class="docs-search-status" role="status"></p>
+<ul id="docs-search-results" class="docs-search-results" hidden></ul>
+<details class="docs-menu" open><summary>Browse documentation</summary><nav aria-label="API reference"><a class="docs-home" href="/docs/">Documentation overview</a><details class="docs-nav-group" open><summary>HEPkit <span>79</span></summary><ul><li><a href="/docs/hepkit/index.html">Overview</a></li><li><a href="/docs/hepkit/Amplitude.html">Amplitude</a></li><li><a href="/docs/hepkit/AmplitudeError.html">AmplitudeError</a></li><li><a href="/docs/hepkit/AmplitudeLeg.html">AmplitudeLeg</a></li><li><a href="/docs/hepkit/Axis.html">Axis</a></li><li><a href="/docs/hepkit/Boost.html">Boost</a></li><li><a href="/docs/hepkit/CancellationToken.html">CancellationToken</a></li><li><a href="/docs/hepkit/CffError.html">CffError</a></li><li><a href="/docs/hepkit/CffGenerator.html">CffGenerator</a></li><li><a href="/docs/hepkit/CffOrientation.html">CffOrientation</a></li><li><a href="/docs/hepkit/CffReport.html">CffReport</a></li><li><a href="/docs/hepkit/CffResult.html">CffResult</a></li><li><a href="/docs/hepkit/CffSurface.html">CffSurface</a></li><li><a href="/docs/hepkit/CffSurfaceGroup.html">CffSurfaceGroup</a></li><li><a href="/docs/hepkit/ClusteringResult.html">ClusteringResult</a></li><li><a href="/docs/hepkit/Coupling.html">Coupling</a></li><li><a href="/docs/hepkit/CutPropagator.html">CutPropagator</a></li><li><a href="/docs/hepkit/DiagramCut.html">DiagramCut</a></li><li><a href="/docs/hepkit/DiagramCutSide.html">DiagramCutSide</a></li><li><a href="/docs/hepkit/DiagramEdge.html">DiagramEdge</a></li><li><a href="/docs/hepkit/DiagramError.html">DiagramError</a></li><li><a href="/docs/hepkit/DiagramGroup.html">DiagramGroup</a></li><li><a href="/docs/hepkit/DiagramThresholdCandidate.html">DiagramThresholdCandidate</a></li><li><a href="/docs/hepkit/DiagramVertex.html">DiagramVertex</a></li><li><a href="/docs/hepkit/EvaluatedValues.html">EvaluatedValues</a></li><li><a href="/docs/hepkit/EvaluationRequest.html">EvaluationRequest</a></li><li><a href="/docs/hepkit/FeynkitError.html">FeynkitError</a></li><li><a href="/docs/hepkit/FeynmanDiagram.html">FeynmanDiagram</a></li><li><a href="/docs/hepkit/FormFactor.html">FormFactor</a></li><li><a href="/docs/hepkit/FourMomentum.html">FourMomentum</a></li><li><a href="/docs/hepkit/GenerationError.html">GenerationError</a></li><li><a href="/docs/hepkit/GenerationProgress.html">GenerationProgress</a></li><li><a href="/docs/hepkit/GenerationReport.html">GenerationReport</a></li><li><a href="/docs/hepkit/GenerationResult.html">GenerationResult</a></li><li><a href="/docs/hepkit/GroupMember.html">GroupMember</a></li><li><a href="/docs/hepkit/Helicity.html">Helicity</a></li><li><a href="/docs/hepkit/IBPFamily.html">IBPFamily</a></li><li><a href="/docs/hepkit/IBPRule.html">IBPRule</a></li><li><a href="/docs/hepkit/IBPSolution.html">IBPSolution</a></li><li><a href="/docs/hepkit/IntegralFamily.html" aria-current="page">IntegralFamily</a></li><li><a href="/docs/hepkit/IntegralFamilyError.html">IntegralFamilyError</a></li><li><a href="/docs/hepkit/IntegralMapping.html">IntegralMapping</a></li><li><a href="/docs/hepkit/Jet.html">Jet</a></li><li><a href="/docs/hepkit/JetAlgorithm.html">JetAlgorithm</a></li><li><a href="/docs/hepkit/JetDefinition.html">JetDefinition</a></li><li><a href="/docs/hepkit/Kinematics.html">Kinematics</a></li><li><a href="/docs/hepkit/KinematicsError.html">KinematicsError</a></li><li><a href="/docs/hepkit/LoadedModel.html">LoadedModel</a></li><li><a href="/docs/hepkit/LoopMomentumBasis.html">LoopMomentumBasis</a></li><li><a href="/docs/hepkit/LorentzStructure.html">LorentzStructure</a></li><li><a href="/docs/hepkit/Model.html">Model</a></li><li><a href="/docs/hepkit/ModelError.html">ModelError</a></li><li><a href="/docs/hepkit/ModelExpression.html">ModelExpression</a></li><li><a href="/docs/hepkit/ModelFunction.html">ModelFunction</a></li><li><a href="/docs/hepkit/MomentumSignature.html">MomentumSignature</a></li><li><a href="/docs/hepkit/NumeratorGrouping.html">NumeratorGrouping</a></li><li><a href="/docs/hepkit/Parameter.html">Parameter</a></li><li><a href="/docs/hepkit/ParameterCard.html">ParameterCard</a></li><li><a href="/docs/hepkit/ParameterNature.html">ParameterNature</a></li><li><a href="/docs/hepkit/ParameterType.html">ParameterType</a></li><li><a href="/docs/hepkit/Particle.html">Particle</a></li><li><a href="/docs/hepkit/ParticleSelector.html">ParticleSelector</a></li><li><a href="/docs/hepkit/Process.html">Process</a></li><li><a href="/docs/hepkit/Propagator.html">Propagator</a></li><li><a href="/docs/hepkit/PropagatorMapping.html">PropagatorMapping</a></li><li><a href="/docs/hepkit/Rotation.html">Rotation</a></li><li><a href="/docs/hepkit/SelfEnergyFilterOptions.html">SelfEnergyFilterOptions</a></li><li><a href="/docs/hepkit/SnailFilterOptions.html">SnailFilterOptions</a></li><li><a href="/docs/hepkit/SquaredAmplitude.html">SquaredAmplitude</a></li><li><a href="/docs/hepkit/Subgraph.html">Subgraph</a></li><li><a href="/docs/hepkit/Symbols.html">Symbols</a></li><li><a href="/docs/hepkit/TadpoleFilterOptions.html">TadpoleFilterOptions</a></li><li><a href="/docs/hepkit/TensorReducer.html">TensorReducer</a></li><li><a href="/docs/hepkit/TensorReductionError.html">TensorReductionError</a></li><li><a href="/docs/hepkit/ThreeMomentum.html">ThreeMomentum</a></li><li><a href="/docs/hepkit/UfoLoadDiagnostics.html">UfoLoadDiagnostics</a></li><li><a href="/docs/hepkit/UfoLoader.html">UfoLoader</a></li><li><a href="/docs/hepkit/UfoLoadError.html">UfoLoadError</a></li><li><a href="/docs/hepkit/VertexRule.html">VertexRule</a></li></ul></details><details class="docs-nav-group"><summary>Tensor algebra <span>27</span></summary><ul><li><a href="/docs/tensor/index.html">Overview</a></li><li><a href="/docs/tensor/BroadcastFunction.html">BroadcastFunction</a></li><li><a href="/docs/tensor/CanonicalizationError.html">CanonicalizationError</a></li><li><a href="/docs/tensor/CompiledTensorEvaluator.html">CompiledTensorEvaluator</a></li><li><a href="/docs/tensor/CookingError.html">CookingError</a></li><li><a href="/docs/tensor/DiracAdjointError.html">DiracAdjointError</a></li><li><a href="/docs/tensor/DisplaySettings.html">DisplaySettings</a></li><li><a href="/docs/tensor/ExecutionMode.html">ExecutionMode</a></li><li><a href="/docs/tensor/ExecutionStatus.html">ExecutionStatus</a></li><li><a href="/docs/tensor/FactorProjector.html">FactorProjector</a></li><li><a href="/docs/tensor/NetworkToolingError.html">NetworkToolingError</a></li><li><a href="/docs/tensor/PortPattern.html">PortPattern</a></li><li><a href="/docs/tensor/ReductionStatus.html">ReductionStatus</a></li><li><a href="/docs/tensor/Representation.html">Representation</a></li><li><a href="/docs/tensor/RepresentationName.html">RepresentationName</a></li><li><a href="/docs/tensor/Slot.html">Slot</a></li><li><a href="/docs/tensor/SymbolicParallelism.html">SymbolicParallelism</a></li><li><a href="/docs/tensor/Tensor.html">Tensor</a></li><li><a href="/docs/tensor/TensorEvaluator.html">TensorEvaluator</a></li><li><a href="/docs/tensor/TensorExpression.html">TensorExpression</a></li><li><a href="/docs/tensor/TensorFunctionLibrary.html">TensorFunctionLibrary</a></li><li><a href="/docs/tensor/TensorLibrary.html">TensorLibrary</a></li><li><a href="/docs/tensor/TensorName.html">TensorName</a></li><li><a href="/docs/tensor/TensorNetwork.html">TensorNetwork</a></li><li><a href="/docs/tensor/TensorPattern.html">TensorPattern</a></li><li><a href="/docs/tensor/TensorRule.html">TensorRule</a></li><li><a href="/docs/tensor/TensorStructure.html">TensorStructure</a></li></ul></details><details class="docs-nav-group"><summary>One-loop integrals <span>5</span></summary><ul><li><a href="/docs/hepkit/oneloop/index.html">Overview</a></li><li><a href="/docs/hepkit/oneloop/DecimalComplex.html">DecimalComplex</a></li><li><a href="/docs/hepkit/oneloop/Evaluator.html">Evaluator</a></li><li><a href="/docs/hepkit/oneloop/MasterIntegral.html">MasterIntegral</a></li><li><a href="/docs/hepkit/oneloop/Reduction.html">Reduction</a></li></ul></details><details class="docs-nav-group"><summary>Integration by parts <span>1</span></summary><ul><li><a href="/docs/hepkit/ibp/index.html">Overview</a></li></ul></details><details class="docs-nav-group"><summary>Vacuum integrals <span>5</span></summary><ul><li><a href="/docs/hepkit/vakint/index.html">Overview</a></li><li><a href="/docs/hepkit/vakint/Vakint.html">Vakint</a></li><li><a href="/docs/hepkit/vakint/VakintEvaluationMethod.html">VakintEvaluationMethod</a></li><li><a href="/docs/hepkit/vakint/VakintExpression.html">VakintExpression</a></li><li><a href="/docs/hepkit/vakint/VakintNumericalResult.html">VakintNumericalResult</a></li></ul></details></nav></details>
+</aside><main id="main" class="docs-main">
+<div class="docs-breadcrumb"><a href="/docs/">Documentation</a><span aria-hidden="true">/</span> <a href="/docs/hepkit/">HEPkit</a></div>
+<article class="docs-content"><h1 id="symbolica.community.hepkit.IntegralFamily">IntegralFamily</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> IntegralFamily</span></code></pre></div>
+<p>An ordered set of inverse propagators sharing loop momenta and external kinematics.</p>
+<p>Pass denominators such as <code>k.k - m2</code>, not their reciprocals. An integral with powers <code>[a1, a2, ...]</code> has integrand <code>1/(D1**a1 * D2**a2 * ...)</code>: zero powers omit a denominator and negative powers put it in the numerator. All power vectors and denominator labels follow the original input order.</p>
+<p>Declare independent external momenta and their scalar products through <code>Kinematics</code>. <code>is_independent</code> checks the denominator basis for linear dependence; <code>is_complete</code> checks whether it spans every loop scalar product. For L loops and E independent external momenta this space has L<em>(L+1)/2 + L</em>E coordinates. <code>complete()</code> returns a new family with missing coordinates appended; give these auxiliary slots nonpositive integral powers. Use <code>partial_fraction()</code> before completion when denominators are dependent.</p>
+<p>Use this class to rewrite scalar numerators, compare momentum routings, test scalelessness, and construct Symanzik polynomials. Reduction is provided by <code>hep.IBPFamily</code> or, for one loop, <code>hep.oneloop.reduce</code>. No integration prescription or loop-measure normalization is inferred by this container.</p>
+<h3 id="examples">Examples</h3>
+<p>Build a massless bubble with external virtuality <code>p.p = s</code>. The method examples below reuse this family and its symbols.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica <span class="im">import</span> S, E</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community <span class="im">import</span> hepkit <span class="im">as</span> hep</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>D, k, p, s <span class="op">=</span> S(<span class="st">&quot;D&quot;</span>, <span class="st">&quot;k&quot;</span>, <span class="st">&quot;p&quot;</span>, <span class="st">&quot;s&quot;</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>d1, d2, x1, x2 <span class="op">=</span> S(<span class="st">&quot;d1&quot;</span>, <span class="st">&quot;d2&quot;</span>, <span class="st">&quot;x1&quot;</span>, <span class="st">&quot;x2&quot;</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>kin <span class="op">=</span> hep.Kinematics(D, momenta<span class="op">=</span>[k, p]).with_scalar_product(p, p, s)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>denominators <span class="op">=</span> [kin.scalar_product(k, k), kin.scalar_product(k<span class="op">-</span>p, k<span class="op">-</span>p)]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>family <span class="op">=</span> hep.IntegralFamily([k], [p], denominators, kinematics<span class="op">=</span>kin)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> family.rank <span class="op">==</span> <span class="dv">2</span> <span class="kw">and</span> family.is_complete <span class="kw">and</span> family.is_independent</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>rewritten <span class="op">=</span> family.rewrite_numerator(kin.scalar_product(k, p), [d1, d2])</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (rewritten <span class="op">-</span> (d1 <span class="op">-</span> d2 <span class="op">+</span> s)<span class="op">/</span><span class="dv">2</span>).expand() <span class="op">==</span> E(<span class="st">&quot;0&quot;</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>U, F <span class="op">=</span> family.symanzik([x1, x2])</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> U <span class="op">==</span> x1 <span class="op">+</span> x2</span></code></pre></div>
+<h2 id="attributes">Attributes</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.denominators"><code>denominators</code></a></td>
+<td>Ordered inverse propagators, including any auxiliary completion terms.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.external_momenta"><code>external_momenta</code></a></td>
+<td>Independent external momentum names in their original order.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.is_complete"><code>is_complete</code></a></td>
+<td>Whether the inverse propagators span every loop scalar product.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.is_independent"><code>is_independent</code></a></td>
+<td>Whether no denominator can be eliminated by an affine relation.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.kinematics"><code>kinematics</code></a></td>
+<td>Scoped kinematics, including the family momentum declarations.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.loop_momenta"><code>loop_momenta</code></a></td>
+<td>Integrated momentum names in their original order.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.rank"><code>rank</code></a></td>
+<td>Number of independent affine forms in the loop scalar products.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.scalar_products"><code>scalar_products</code></a></td>
+<td>Loop-loop and loop-external products spanning the numerator space.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="symbolica.community.hepkit.IntegralFamily.denominators"><code>denominators</code></h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.denominators: builtins.<span class="bu">list</span>[Expression]</span></code></pre></div>
+<p>Ordered inverse propagators, including any auxiliary completion terms.</p>
+<h3 id="examples-1">Examples</h3>
+<p>Using the setup in the <code>IntegralFamily</code> class example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> family.denominators <span class="op">==</span> denominators</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>weighted <span class="op">=</span> <span class="bu">list</span>(<span class="bu">zip</span>(family.denominators, [<span class="dv">1</span>, <span class="dv">2</span>]))</span></code></pre></div>
+<h2 id="symbolica.community.hepkit.IntegralFamily.external_momenta"><code>external_momenta</code></h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.external_momenta: builtins.<span class="bu">list</span>[Expression]</span></code></pre></div>
+<p>Independent external momentum names in their original order.</p>
+<h3 id="examples-2">Examples</h3>
+<p>Using the setup in the <code>IntegralFamily</code> class example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> family.external_momenta <span class="op">==</span> [p]</span></code></pre></div>
+<h2 id="symbolica.community.hepkit.IntegralFamily.is_complete"><code>is_complete</code></h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.is_complete: builtins.<span class="bu">bool</span></span></code></pre></div>
+<p>Whether the inverse propagators span every loop scalar product.</p>
+<h3 id="examples-3">Examples</h3>
+<p>Using the setup in the <code>IntegralFamily</code> class example:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> family.is_complete</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> family.rank <span class="op">==</span> <span class="bu">len</span>(family.scalar_products)</span></code></pre></div>
+<h2 id="symbolica.community.hepkit.IntegralFamily.is_independent"><code>is_independent</code></h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.is_independent: builtins.<span class="bu">bool</span></span></code></pre></div>
+<p>Whether no denominator can be eliminated by an affine relation.</p>
+<h3 id="examples-4">Examples</h3>
+<p>Using the setup in the <code>IntegralFamily</code> class example:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> family.is_independent</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> family.rank <span class="op">==</span> <span class="bu">len</span>(family.denominators)</span></code></pre></div>
+<h2 id="symbolica.community.hepkit.IntegralFamily.kinematics"><code>kinematics</code></h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.kinematics: Kinematics</span></code></pre></div>
+<p>Scoped kinematics, including the family momentum declarations.</p>
+<h3 id="examples-5">Examples</h3>
+<p>Using the setup in the <code>IntegralFamily</code> class example:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> family.kinematics.scalar_product(p, p) <span class="op">==</span> s</span></code></pre></div>
+<h2 id="symbolica.community.hepkit.IntegralFamily.loop_momenta"><code>loop_momenta</code></h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.loop_momenta: builtins.<span class="bu">list</span>[Expression]</span></code></pre></div>
+<p>Integrated momentum names in their original order.</p>
+<h3 id="examples-6">Examples</h3>
+<p>Using the setup in the <code>IntegralFamily</code> class example:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> family.loop_momenta <span class="op">==</span> [k]</span></code></pre></div>
+<h2 id="symbolica.community.hepkit.IntegralFamily.rank"><code>rank</code></h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.rank: builtins.<span class="bu">int</span></span></code></pre></div>
+<p>Number of independent affine forms in the loop scalar products.</p>
+<h3 id="examples-7">Examples</h3>
+<p>Using the setup in the <code>IntegralFamily</code> class example:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> family.rank <span class="op">==</span> <span class="dv">2</span></span></code></pre></div>
+<h2 id="symbolica.community.hepkit.IntegralFamily.scalar_products"><code>scalar_products</code></h2>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.scalar_products: builtins.<span class="bu">list</span>[Expression]</span></code></pre></div>
+<p>Loop-loop and loop-external products spanning the numerator space.</p>
+<h3 id="examples-8">Examples</h3>
+<p>Using the setup in the <code>IntegralFamily</code> class example:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">len</span>(family.scalar_products) <span class="op">==</span> <span class="dv">2</span></span></code></pre></div>
+<h2 id="methods">Methods</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.__new__"><code>__new__</code></a></td>
+<td>Compute the independent loop scalar products and denominator rank.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.__repr__"><code>__repr__</code></a></td>
+<td>Return a compact summary of the family and its scalar-product rank.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily._repr_html_"><code>_repr_html_</code></a></td>
+<td>Display ordered inverse propagators and family metadata in a notebook</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily._repr_pretty_"><code>_repr_pretty_</code></a></td>
+<td>Write the summary and ordered denominators using Symbolica’s text printer.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.complete"><code>complete</code></a></td>
+<td>Complete a basis, preferring supplied inverse propagators</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.find_mapping"><code>find_mapping</code></a></td>
+<td>Find a verified affine loop-momentum shift into the target family</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.find_mappings"><code>find_mappings</code></a></td>
+<td>Group families and return verified maps to their representatives</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.from_diagram"><code>from_diagram</code></a></td>
+<td>Build a complete family from the diagram’s routed internal propagators</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.mapping_to"><code>mapping_to</code></a></td>
+<td>Verify explicit source-loop images in another family’s coordinates</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.parametric_mapping"><code>parametric_mapping</code></a></td>
+<td>Find a parameter permutation identifying both Symanzik polynomials</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.partial_fraction"><code>partial_fraction</code></a></td>
+<td>Partial-fraction dependent propagators while preserving family order</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.rewrite_numerator"><code>rewrite_numerator</code></a></td>
+<td>Rewrite a numerator in inverse-propagator variables and expand it.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.scalar_product_rules"><code>scalar_product_rules</code></a></td>
+<td>Solve loop scalar products in terms of inverse-propagator labels.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.scaleless_scaling"><code>scaleless_scaling</code></a></td>
+<td>Find parameter weights proving a sector scaleless in dimensional regularization</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.scaleless_transverse_direction"><code>scaleless_transverse_direction</code></a></td>
+<td>Find an unconstrained transverse loop direction proving scalelessness</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.sector"><code>sector</code></a></td>
+<td>Select the positive-power propagators of an integral’s sector</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.hepkit.IntegralFamily.symanzik"><code>symanzik</code></a></td>
+<td>Compute the Symanzik polynomials U and F in propagator order</td>
+</tr>
+</tbody>
+</table>
+<h2 id="symbolica.community.hepkit.IntegralFamily.__new__"><code>__new__</code></h2>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.<span class="fu">__new__</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    loop_momenta: typing.Sequence[Expression],</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    external_momenta: typing.Sequence[Expression],</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    denominators: typing.Sequence[Expression],</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    kinematics: typing.Optional[Kinematics] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> IntegralFamily</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related types:</em> <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a>, <a href="/docs/hepkit/Kinematics.html#symbolica.community.hepkit.Kinematics"><code>Kinematics</code></a></p>
+</div>
+<p>Compute the independent loop scalar products and denominator rank.</p>
+<h3 id="examples-9">Examples</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica <span class="im">import</span> S, E</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community <span class="im">import</span> hepkit <span class="im">as</span> hep</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>D, k, p, s <span class="op">=</span> S(<span class="st">&quot;D&quot;</span>, <span class="st">&quot;k&quot;</span>, <span class="st">&quot;p&quot;</span>, <span class="st">&quot;s&quot;</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>d1, d2, x1, x2 <span class="op">=</span> S(<span class="st">&quot;d1&quot;</span>, <span class="st">&quot;d2&quot;</span>, <span class="st">&quot;x1&quot;</span>, <span class="st">&quot;x2&quot;</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>kin <span class="op">=</span> hep.Kinematics(D, momenta<span class="op">=</span>[k, p]).with_scalar_product(p, p, s)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>denominators <span class="op">=</span> [kin.scalar_product(k, k), kin.scalar_product(k<span class="op">-</span>p, k<span class="op">-</span>p)]</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>family <span class="op">=</span> hep.IntegralFamily([k], [p], denominators, kinematics<span class="op">=</span>kin)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> family.rank <span class="op">==</span> <span class="dv">2</span></span></code></pre></div>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li><code>loop_momenta</code> (<code class="doc-type-annotation">list[Expression]</code>) Distinct unindexed integrated momentum names.</li>
+<li><code>external_momenta</code> (<code class="doc-type-annotation">list[Expression]</code>) Independent unindexed external momentum names.</li>
+<li><code>denominators</code> (<code class="doc-type-annotation">list[Expression]</code>) Ordered inverse propagators, not their reciprocals.</li>
+<li><code>kinematics</code> (<code class="doc-type-annotation">Kinematics | None</code>) External assumptions and dimension; defaults to unconstrained 4D.</li>
+</ul>
+<h2 id="symbolica.community.hepkit.IntegralFamily.__repr__"><code>__repr__</code></h2>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.<span class="fu">__repr__</span>() <span class="op">-&gt;</span> builtins.<span class="bu">str</span></span></code></pre></div>
+<p>Return a compact summary of the family and its scalar-product rank.</p>
+<h3 id="examples-10">Examples</h3>
+<p>Using the setup in the <code>IntegralFamily</code> class example:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(family)</span></code></pre></div>
+<h2 id="symbolica.community.hepkit.IntegralFamily._repr_html_"><code>_repr_html_</code></h2>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily._repr_html_() <span class="op">-&gt;</span> builtins.<span class="bu">str</span></span></code></pre></div>
+<p>Display ordered inverse propagators and family metadata in a notebook.</p>
+<p>Expressions use Symbolica’s native HTML printer.</p>
+<h3 id="examples-11">Examples</h3>
+<p>Using the setup in the <code>IntegralFamily</code> class example:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>display(family)</span></code></pre></div>
+<h2 id="symbolica.community.hepkit.IntegralFamily._repr_pretty_"><code>_repr_pretty_</code></h2>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily._repr_pretty_(pretty: typing.Any, cycle: builtins.<span class="bu">bool</span>) <span class="op">-&gt;</span> <span class="va">None</span></span></code></pre></div>
+<p>Write the summary and ordered denominators using Symbolica’s text printer.</p>
+<h3 id="examples-12">Examples</h3>
+<p>Using the setup in the <code>IntegralFamily</code> class example:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.lib.pretty <span class="im">import</span> pretty</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> pretty(family)</span></code></pre></div>
+<h3 id="parameters-1">Parameters</h3>
+<ul>
+<li><code>pretty</code> (<code class="doc-type-annotation">object</code>) IPython’s pretty printer, providing a <code>text</code> method.</li>
+<li><code>cycle</code> (<code class="doc-type-annotation">bool</code>) Whether this family is part of a recursive formatting cycle.</li>
+</ul>
+<h2 id="symbolica.community.hepkit.IntegralFamily.complete"><code>complete</code></h2>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.complete(</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>,</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    candidates: typing.Optional[typing.Sequence[Expression]] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> IntegralFamily</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related type:</em> <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a></p>
+</div>
+<p>Complete a basis, preferring supplied inverse propagators.</p>
+<p>Original propagators retain their positions. Dependent families must first be partial-fractioned. Added propagators carry nonpositive powers when used to represent numerator factors in an IBP integral list. Candidates are tried in order after applying this family’s kinematics. Redundant candidates are skipped; bare scalar products fill any missing directions. All candidates must be affine in the loop scalar products.</p>
+<h3 id="examples-13">Examples</h3>
+<p>Using the bubble setup in <code>IntegralFamily</code>:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>incomplete <span class="op">=</span> hep.IntegralFamily([k], [p], denominators[:<span class="dv">1</span>], kinematics<span class="op">=</span>kin)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>completed <span class="op">=</span> incomplete.complete()</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="kw">not</span> incomplete.is_complete <span class="kw">and</span> completed.is_complete</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> completed.denominators[<span class="dv">0</span>] <span class="op">==</span> denominators[<span class="dv">0</span>]</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>powers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">0</span>]  <span class="co"># the appended slot is absent from the original integral</span></span></code></pre></div>
+<h3 id="parameters-2">Parameters</h3>
+<ul>
+<li><code>candidates</code> (<code class="doc-type-annotation">list[Expression] | None</code>) Preferred auxiliary inverse propagators in this family’s momentum coordinates. Defaults to using only bare scalar products.</li>
+</ul>
+<h2 id="symbolica.community.hepkit.IntegralFamily.find_mapping"><code>find_mapping</code></h2>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.find_mapping(</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    target: IntegralFamily,</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>,</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    max_candidates: builtins.<span class="bu">int</span> <span class="op">=</span> <span class="dv">100000</span>,</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> typing.Optional[IntegralMapping]</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related type:</em> <a href="/docs/hepkit/IntegralMapping.html#symbolica.community.hepkit.IntegralMapping"><code>IntegralMapping</code></a></p>
+</div>
+<p>Find a verified affine loop-momentum shift into the target family.</p>
+<p>Search derives candidates from independent quadratic propagators, then checks every propagator, including eikonal and auxiliary entries. It includes loop mixtures, reversals and external shifts. It does not test parametric identities that have no affine loop-momentum map.</p>
+<h3 id="examples-14">Examples</h3>
+<p>Using the bubble setup in <code>IntegralFamily</code>:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> hep.IntegralFamily([k], [p], <span class="bu">list</span>(<span class="bu">reversed</span>(denominators)), kinematics<span class="op">=</span>kin)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>mapping <span class="op">=</span> family.find_mapping(target)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> mapping <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>transformed <span class="op">=</span> mapping.<span class="bu">apply</span>(kin.scalar_product(k, p))</span></code></pre></div>
+<h3 id="parameters-3">Parameters</h3>
+<ul>
+<li><code>target</code> (<code class="doc-type-annotation">IntegralFamily</code>) Target family with the same external kinematics and loop count.</li>
+<li><code>max_candidates</code> (<code class="doc-type-annotation">int</code>) Candidate budget; exhaustion raises IntegralFamilyError.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<ul>
+<li><code>IntegralMapping | None</code> Verified mapping, or None if no supported candidate matches.</li>
+</ul>
+<h2 id="symbolica.community.hepkit.IntegralFamily.find_mappings"><code>find_mappings</code></h2>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.find_mappings(</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    families: typing.Sequence[IntegralFamily],</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>,</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    max_candidates: builtins.<span class="bu">int</span> <span class="op">=</span> <span class="dv">100000</span>,</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> builtins.<span class="bu">list</span>[<span class="bu">tuple</span>[builtins.<span class="bu">int</span>, IntegralMapping]]</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related type:</em> <a href="/docs/hepkit/IntegralMapping.html#symbolica.community.hepkit.IntegralMapping"><code>IntegralMapping</code></a></p>
+</div>
+<p>Group families and return verified maps to their representatives.</p>
+<p>Returns one <code>(target_index, mapping)</code> per input family in input order. Indices refer to the original list. Representatives map to themselves; every other mapping goes directly to a retained representative. The first compatible representative wins. Symbolica canonizes each Symanzik pair once, then native affine-shift search verifies all merges. A parametric equivalence without a verified loop map remains separate.</p>
+<p>Families need compatible external kinematics and nonsingular quadratic forms. Unsupported shift searches and exhausted budgets raise errors. Different propagator counts stay separate. Select sectors and remove certified scaleless integrals before grouping; complete bases afterwards. This does not exchange external momenta or infer integration prescriptions.</p>
+<h3 id="examples-15">Examples</h3>
+<p>Using the bubble setup in <code>IntegralFamily</code>:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>families <span class="op">=</span> [family, family]</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>mappings <span class="op">=</span> hep.IntegralFamily.find_mappings(families)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> [target <span class="cf">for</span> target, mapping <span class="kw">in</span> mappings] <span class="op">==</span> [<span class="dv">0</span>, <span class="dv">0</span>]</span></code></pre></div>
+<h3 id="parameters-4">Parameters</h3>
+<ul>
+<li><code>families</code> (<code class="doc-type-annotation">list[IntegralFamily]</code>) Ordered families; earlier entries are preferred as representatives.</li>
+<li><code>max_candidates</code> (<code class="doc-type-annotation">int</code>) Affine-shift candidate budget per pair; exhaustion raises an error.</li>
+</ul>
+<h3 id="returns-1">Returns</h3>
+<ul>
+<li><code>list[tuple[int, IntegralMapping]]</code> Target index and verified map for each input, including representatives.</li>
+</ul>
+<h2 id="symbolica.community.hepkit.IntegralFamily.from_diagram"><code>from_diagram</code></h2>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.from_diagram(</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    diagram: FeynmanDiagram,</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    independent_dot_products: typing.Optional[typing.Sequence[Expression]] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    kinematics: typing.Optional[Kinematics] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> IntegralFamily</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related types:</em> <a href="/docs/hepkit/FeynmanDiagram.html#symbolica.community.hepkit.FeynmanDiagram"><code>FeynmanDiagram</code></a>, <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a>, <a href="/docs/hepkit/Kinematics.html#symbolica.community.hepkit.Kinematics"><code>Kinematics</code></a></p>
+</div>
+<p>Build a complete family from the diagram’s routed internal propagators.</p>
+<p>Graph propagators retain their edge order and model masses. Preferred independent dot products are appended in order when they increase the rank; automatic scalar products fill any remaining directions. Auxiliary denominators have nonpositive powers when representing the original integral. Tree diagrams and dependent graph propagators raise DiagramError. Use <code>diagram.propagator_family()</code> to extract dependent propagators for partial fractioning before completing the resulting families.</p>
+<h3 id="examples-16">Examples</h3>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica <span class="im">import</span> S, E</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community <span class="im">import</span> hepkit <span class="im">as</span> hep</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> hep.Model.phi4()</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>process <span class="op">=</span> model.process([<span class="st">&quot;phi&quot;</span>, <span class="st">&quot;phi&quot;</span>], [<span class="st">&quot;phi&quot;</span>, <span class="st">&quot;phi&quot;</span>])</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> process.generate_diagrams(loops<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>diagram <span class="op">=</span> result.diagrams[<span class="dv">0</span>]</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>family <span class="op">=</span> hep.IntegralFamily.from_diagram(diagram)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> family.is_complete</span></code></pre></div>
+<h3 id="parameters-5">Parameters</h3>
+<ul>
+<li><code>diagram</code> (<code class="doc-type-annotation">FeynmanDiagram</code>) A complete diagram with its chosen loop-momentum routing.</li>
+<li><code>independent_dot_products</code> (<code class="doc-type-annotation">list[Expression] or None, optional</code>) Preferred auxiliary inverse propagators in the routed momenta. None selects a suitable basis automatically.</li>
+<li><code>kinematics</code> (<code class="doc-type-annotation">Kinematics or None, optional</code>) External assumptions and dimension; defaults to the diagram’s symbolic dimension with no on-shell assumptions.</li>
+</ul>
+<h2 id="symbolica.community.hepkit.IntegralFamily.mapping_to"><code>mapping_to</code></h2>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.mapping_to(</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    target: IntegralFamily,</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    loop_images: typing.Sequence[Expression],</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> typing.Optional[IntegralMapping]</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related types:</em> <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a>, <a href="/docs/hepkit/IntegralMapping.html#symbolica.community.hepkit.IntegralMapping"><code>IntegralMapping</code></a></p>
+</div>
+<p>Verify explicit source-loop images in another family’s coordinates.</p>
+<p>Real affine images must have loop determinant +1 or -1 and map every source propagator to a distinct equal target propagator. External names, dimensions and scalar-product assumptions must agree. Additional target propagators are allowed for subtopology embeddings.</p>
+<h3 id="examples-17">Examples</h3>
+<p>Using the bubble setup in <code>IntegralFamily</code>:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>mapping <span class="op">=</span> family.mapping_to(family, [k])</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> mapping.map_powers([<span class="dv">1</span>, <span class="dv">2</span>]) <span class="op">==</span> [<span class="dv">1</span>, <span class="dv">2</span>]</span></code></pre></div>
+<h3 id="parameters-6">Parameters</h3>
+<ul>
+<li><code>target</code> (<code class="doc-type-annotation">IntegralFamily</code>) Family in whose coordinates the images are expressed.</li>
+<li><code>loop_images</code> (<code class="doc-type-annotation">list[Expression]</code>) One image per source loop momentum, in source order.</li>
+</ul>
+<h3 id="returns-2">Returns</h3>
+<ul>
+<li><code>IntegralMapping | None</code> Verified mapping, or None when the images fail the equivalence checks.</li>
+</ul>
+<h2 id="symbolica.community.hepkit.IntegralFamily.parametric_mapping"><code>parametric_mapping</code></h2>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.parametric_mapping(</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    target: IntegralFamily,</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    parameters: typing.Sequence[Expression],</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> typing.Optional[PropagatorMapping]</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related types:</em> <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a>, <a href="/docs/hepkit/PropagatorMapping.html#symbolica.community.hepkit.PropagatorMapping"><code>PropagatorMapping</code></a></p>
+</div>
+<p>Find a parameter permutation identifying both Symanzik polynomials.</p>
+<p>Symbolica canonizes polynomial incidence graphs, preserving coefficients, powers and the distinction between U and F. This can identify families without a loop shift at fixed external momenta. The result supplies no momentum or tensor-numerator substitution and does not check contours or propagator prescriptions. Both families must have equal denominator counts and the same external kinematics. Singular quadratic forms are rejected because their U/F polynomials can discard physical parameters.</p>
+<h3 id="examples-18">Examples</h3>
+<p>Using the bubble setup in <code>IntegralFamily</code>:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> hep.IntegralFamily([k], [p], <span class="bu">list</span>(<span class="bu">reversed</span>(denominators)), kinematics<span class="op">=</span>kin)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>mapping <span class="op">=</span> family.parametric_mapping(target, [x1, x2])</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> mapping <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>mapped_powers <span class="op">=</span> mapping.map_powers([<span class="dv">1</span>, <span class="dv">2</span>])</span></code></pre></div>
+<h3 id="parameters-7">Parameters</h3>
+<ul>
+<li><code>target</code> (<code class="doc-type-annotation">IntegralFamily</code>) Family whose U and F polynomials are compared.</li>
+<li><code>parameters</code> (<code class="doc-type-annotation">list[Expression]</code>) One distinct new symbol or labeled call per source denominator.</li>
+</ul>
+<h3 id="returns-3">Returns</h3>
+<ul>
+<li><code>PropagatorMapping | None</code> Formal parameter permutation, or None if the polynomials differ.</li>
+</ul>
+<h2 id="symbolica.community.hepkit.IntegralFamily.partial_fraction"><code>partial_fraction</code></h2>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.partial_fraction(</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    powers: typing.Sequence[builtins.<span class="bu">int</span>],</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>,</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    max_states: builtins.<span class="bu">int</span> <span class="op">=</span> <span class="dv">100000</span>,</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> builtins.<span class="bu">list</span>[<span class="bu">tuple</span>[Expression, builtins.<span class="bu">list</span>[builtins.<span class="bu">int</span>]]]</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related type:</em> <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a></p>
+</div>
+<p>Partial-fraction dependent propagators while preserving family order.</p>
+<p>Both affine mass shifts and homogeneous dependencies are supported. The identity is algebraic: no momentum shifts or scaleless-term removal are applied. Impose exceptional kinematics before building the family; generic external invariants may appear in the returned coefficients.</p>
+<h3 id="examples-19">Examples</h3>
+<p>Using the symbols and kinematics in <code>IntegralFamily</code>:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="op">=</span> S(<span class="st">&quot;m2&quot;</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>dependent <span class="op">=</span> hep.IntegralFamily([k], [], [kin.scalar_product(k, k),</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    kin.scalar_product(k, k) <span class="op">-</span> m2], kinematics<span class="op">=</span>kin)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>terms <span class="op">=</span> dependent.partial_fraction([<span class="dv">1</span>, <span class="dv">1</span>])</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">all</span>(<span class="bu">sum</span>(power <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">for</span> power <span class="kw">in</span> powers) <span class="op">==</span> <span class="dv">1</span> <span class="cf">for</span> coefficient, powers <span class="kw">in</span> terms)</span></code></pre></div>
+<h3 id="parameters-8">Parameters</h3>
+<ul>
+<li><code>powers</code> (<code class="doc-type-annotation">list[int]</code>) Signed powers in family order; negative powers are numerator factors.</li>
+<li><code>max_states</code> (<code class="doc-type-annotation">int</code>) Maximum number of intermediate exponent vectors; defaults to 100000.</li>
+</ul>
+<h3 id="returns-4">Returns</h3>
+<ul>
+<li><code>list[tuple[Expression, list[int]]]</code> Coefficients and powers whose positive-power denominators are independent.</li>
+</ul>
+<h2 id="symbolica.community.hepkit.IntegralFamily.rewrite_numerator"><code>rewrite_numerator</code></h2>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.rewrite_numerator(</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    numerator: Expression,</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    labels: typing.Sequence[Expression],</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> Expression</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related type:</em> <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a></p>
+</div>
+<p>Rewrite a numerator in inverse-propagator variables and expand it.</p>
+<h3 id="examples-20">Examples</h3>
+<p>Using the setup in the <code>IntegralFamily</code> class example:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>numerator <span class="op">=</span> kin.scalar_product(k, p)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>reduced <span class="op">=</span> family.rewrite_numerator(numerator, [d1, d2])</span></code></pre></div>
+<h3 id="parameters-9">Parameters</h3>
+<ul>
+<li><code>numerator</code> (<code class="doc-type-annotation">Expression</code>) Scalar numerator after tensor reduction and momentum routing.</li>
+<li><code>labels</code> (<code class="doc-type-annotation">list[Expression]</code>) One distinct symbol or labeled call per denominator, in family order.</li>
+</ul>
+<h2 id="symbolica.community.hepkit.IntegralFamily.scalar_product_rules"><code>scalar_product_rules</code></h2>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.scalar_product_rules(labels: typing.Sequence[Expression]) <span class="op">-&gt;</span> builtins.<span class="bu">list</span>[<span class="bu">tuple</span>[Expression, Expression]]</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related type:</em> <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a></p>
+</div>
+<p>Solve loop scalar products in terms of inverse-propagator labels.</p>
+<h3 id="examples-21">Examples</h3>
+<p>Using the setup in the <code>IntegralFamily</code> class example:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>rules <span class="op">=</span> family.scalar_product_rules([d1, d2])</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">len</span>(rules) <span class="op">==</span> <span class="dv">2</span></span></code></pre></div>
+<h3 id="parameters-10">Parameters</h3>
+<ul>
+<li><code>labels</code> (<code class="doc-type-annotation">list[Expression]</code>) One distinct symbol or labeled call per denominator, in family order.</li>
+</ul>
+<h3 id="returns-5">Returns</h3>
+<ul>
+<li><code>list[tuple[Expression, Expression]]</code> Simultaneous replacement pairs for an independent, complete family.</li>
+</ul>
+<h2 id="symbolica.community.hepkit.IntegralFamily.scaleless_scaling"><code>scaleless_scaling</code></h2>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.scaleless_scaling(parameters: typing.Sequence[Expression]) <span class="op">-&gt;</span> typing.Optional[builtins.<span class="bu">list</span>[Expression]]</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related type:</em> <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a></p>
+</div>
+<p>Find parameter weights proving a sector scaleless in dimensional regularization.</p>
+<p>For G=U+F, the returned weights satisfy sum(w_i<em>x_i</em>dG/dx_i)=G. None means this criterion did not detect scalelessness, not that the integral is nonzero. Every denominator is treated as present; use <code>sector(powers)</code> first to select positive-power entries. Singular quadratic loop forms raise IntegralFamilyError: their algebraic U/F polynomials do not establish this parametric scaling certificate.</p>
+<h3 id="examples-22">Examples</h3>
+<p>Using the bubble setup in <code>IntegralFamily</code>:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>tadpole <span class="op">=</span> family.sector([<span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>weights <span class="op">=</span> tadpole.scaleless_scaling([x1])</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> weights <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>  <span class="co"># massless tadpole vanishes in dimensional regularization</span></span></code></pre></div>
+<h3 id="parameters-11">Parameters</h3>
+<ul>
+<li><code>parameters</code> (<code class="doc-type-annotation">list[Expression]</code>) One distinct new symbol or labeled call per sector denominator.</li>
+</ul>
+<h3 id="returns-6">Returns</h3>
+<ul>
+<li><code>list[Expression] | None</code> Exact scaling weights in parameter order, or no certificate.</li>
+</ul>
+<h2 id="symbolica.community.hepkit.IntegralFamily.scaleless_transverse_direction"><code>scaleless_transverse_direction</code></h2>
+<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.scaleless_transverse_direction() <span class="op">-&gt;</span> typing.Optional[builtins.<span class="bu">list</span>[Expression]]</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related type:</em> <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a></p>
+</div>
+<p>Find an unconstrained transverse loop direction proving scalelessness.</p>
+<p>Returns a nonzero real list <code>w</code> in loop order such that each inverse propagator is invariant under <code>k_i -&gt; k_i + w_i*r_perp</code> for any vector orthogonal to the external span. The corresponding unrestricted transverse integral vanishes in dimensional regularization, including polynomial numerators. Apply <code>sector(powers)</code> first to exclude numerator-only entries.</p>
+<p>Requires a nonsingular external Gram matrix. Symbolic dimension is interpreted generically; a concrete dimension must exceed the external basis size. None means no certificate was found. A vanishing Symanzik U alone is not sufficient, and complex loop directions are not accepted.</p>
+<h3 id="examples-23">Examples</h3>
+<p>Using the bubble setup in <code>IntegralFamily</code>:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>empty_sector <span class="op">=</span> family.sector([<span class="dv">0</span>, <span class="dv">0</span>])</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>direction <span class="op">=</span> empty_sector.scaleless_transverse_direction()</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> direction <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>  <span class="co"># no denominators constrain the loop momentum</span></span></code></pre></div>
+<h3 id="returns-7">Returns</h3>
+<ul>
+<li><code>list[Expression] | None</code> Verified real loop direction, or no certificate.</li>
+</ul>
+<h2 id="symbolica.community.hepkit.IntegralFamily.sector"><code>sector</code></h2>
+<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.sector(powers: typing.Sequence[builtins.<span class="bu">int</span>]) <span class="op">-&gt;</span> IntegralFamily</span></code></pre></div>
+<p>Select the positive-power propagators of an integral’s sector.</p>
+<p>Zero and negative powers are omitted. Loop variables and external kinematics are retained. This selects sector support; it does not remove numerator factors algebraically from the original integrand.</p>
+<h3 id="examples-24">Examples</h3>
+<p>Using the bubble setup in <code>IntegralFamily</code>:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>sector <span class="op">=</span> family.sector([<span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> sector.denominators <span class="op">==</span> denominators[:<span class="dv">1</span>]</span></code></pre></div>
+<h3 id="parameters-12">Parameters</h3>
+<ul>
+<li><code>powers</code> (<code class="doc-type-annotation">list[int]</code>) One signed propagator power per family denominator.</li>
+</ul>
+<h2 id="symbolica.community.hepkit.IntegralFamily.symanzik"><code>symanzik</code></h2>
+<div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>IntegralFamily.symanzik(parameters: typing.Sequence[Expression]) <span class="op">-&gt;</span> <span class="bu">tuple</span>[Expression, Expression]</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related type:</em> <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a></p>
+</div>
+<p>Compute the Symanzik polynomials U and F in propagator order.</p>
+<p>Uses Minkowski inverse propagators: k<sup>2-m</sup>2 gives U=x and F=m<sup>2*x</sup>2. For a weighted denominator k.M.k + 2 k.Q + J, this returns U=det(M) and F=Q.adj(M).Q-U*J, using Symbolica determinants and cofactors. Singular quadratic forms are accepted as algebraic polynomial data; they do not establish a Gaussian integration formula or scalelessness. This prepares polynomials without performing integration.</p>
+<h3 id="examples-25">Examples</h3>
+<p>Using the setup in the <code>IntegralFamily</code> class example:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>U, F <span class="op">=</span> family.symanzik([x1, x2])</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> U <span class="op">==</span> x1 <span class="op">+</span> x2  <span class="co"># two standard one-loop propagators</span></span></code></pre></div>
+<h3 id="parameters-13">Parameters</h3>
+<ul>
+<li><code>parameters</code> (<code class="doc-type-annotation">list[Expression]</code>) One distinct new symbol or labeled call per inverse propagator.</li>
+</ul>
+<h3 id="returns-8">Returns</h3>
+<ul>
+<li><code>tuple[Expression, Expression]</code> First and second Symanzik polynomials, respectively.</li>
+</ul>
+</article><p class="docs-source">Reference synced from <a href="https://symbolica.io/docs/python_api/community/hepkit/IntegralFamily.html">Symbolica documentation</a>.</p>
+</main><aside class="docs-toc" aria-label="On this page"><p>On this page</p><ul><li><a href="#attributes">Attributes</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.denominators">denominators</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.external_momenta">external_momenta</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.is_complete">is_complete</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.is_independent">is_independent</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.kinematics">kinematics</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.loop_momenta">loop_momenta</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.rank">rank</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.scalar_products">scalar_products</a></li><li><a href="#methods">Methods</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.__new__">__new__</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.__repr__">__repr__</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily._repr_html_">_repr_html_</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily._repr_pretty_">_repr_pretty_</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.complete">complete</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.find_mapping">find_mapping</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.find_mappings">find_mappings</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.from_diagram">from_diagram</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.mapping_to">mapping_to</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.parametric_mapping">parametric_mapping</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.partial_fraction">partial_fraction</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.rewrite_numerator">rewrite_numerator</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.scalar_product_rules">scalar_product_rules</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.scaleless_scaling">scaleless_scaling</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.scaleless_transverse_direction">scaleless_transverse_direction</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.sector">sector</a></li><li><a href="#symbolica.community.hepkit.IntegralFamily.symanzik">symanzik</a></li></ul></aside></div><script src="/docs.js" defer></script></body></html>

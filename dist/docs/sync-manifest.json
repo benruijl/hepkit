@@ -1,0 +1,590 @@
+{
+  "synced_at": "2026-10-03T16:57:54.025954+00:00",
+  "pages": [
+    {
+      "relative": "hepkit/Amplitude.html",
+      "source": "docs/python_api/community/hepkit/Amplitude.qmd",
+      "sha256": "56ba8fba62cccfe8fa3bc2574268d67af4baa2a332bed43f632e5082fec6a0eb"
+    },
+    {
+      "relative": "hepkit/AmplitudeError.html",
+      "source": "docs/python_api/community/hepkit/AmplitudeError.qmd",
+      "sha256": "684b479dcaf58983919520254d49a46c1508a6e48cfc0015619f579560d8e795"
+    },
+    {
+      "relative": "hepkit/AmplitudeLeg.html",
+      "source": "docs/python_api/community/hepkit/AmplitudeLeg.qmd",
+      "sha256": "4d53adf32cc8ba5fbc5dd7ee3b09f4f39b6f54024dafa3490e3172e90359d1fa"
+    },
+    {
+      "relative": "hepkit/Axis.html",
+      "source": "docs/python_api/community/hepkit/Axis.qmd",
+      "sha256": "513ab4c9790d8542e95a4b2b72a047db7ae7dcccff9296f641a007d5021f3f6e"
+    },
+    {
+      "relative": "hepkit/Boost.html",
+      "source": "docs/python_api/community/hepkit/Boost.qmd",
+      "sha256": "4e0060a6e0414fe7e07b33017c624412f4040be97ec215da5bbcdaccea667233"
+    },
+    {
+      "relative": "hepkit/CancellationToken.html",
+      "source": "docs/python_api/community/hepkit/CancellationToken.qmd",
+      "sha256": "3d32bc9131246b4d8d4d8b91127ec6eb29e7fd16a169849338071bb7c362be1b"
+    },
+    {
+      "relative": "hepkit/CffError.html",
+      "source": "docs/python_api/community/hepkit/CffError.qmd",
+      "sha256": "352996d4c2d2e40a361387f17f2c0e3c6ebe123ff786bd76bdf8c544136fdd29"
+    },
+    {
+      "relative": "hepkit/CffGenerator.html",
+      "source": "docs/python_api/community/hepkit/CffGenerator.qmd",
+      "sha256": "50d7e97a72cc1549f66944ccd701e84e6bb39a8d5e0d57e311847da73de62a3f"
+    },
+    {
+      "relative": "hepkit/CffOrientation.html",
+      "source": "docs/python_api/community/hepkit/CffOrientation.qmd",
+      "sha256": "8f75182655bc27cd99126987ccc912d06c3011b5c17710cb2a8e5e7f1e27aa44"
+    },
+    {
+      "relative": "hepkit/CffReport.html",
+      "source": "docs/python_api/community/hepkit/CffReport.qmd",
+      "sha256": "7165fbd8f41b55a2152c9731ccfa9f98992893c0b94a408b1a8628ec7b4e9e34"
+    },
+    {
+      "relative": "hepkit/CffResult.html",
+      "source": "docs/python_api/community/hepkit/CffResult.qmd",
+      "sha256": "d0ce0542afaa22ebf27adfc84656d179029f8b41555e1b71c80dc9158e54fff3"
+    },
+    {
+      "relative": "hepkit/CffSurface.html",
+      "source": "docs/python_api/community/hepkit/CffSurface.qmd",
+      "sha256": "aecff60484cd2b6bb4675f258368e576fb80b233c23ab9d7ac343201a0cb027d"
+    },
+    {
+      "relative": "hepkit/CffSurfaceGroup.html",
+      "source": "docs/python_api/community/hepkit/CffSurfaceGroup.qmd",
+      "sha256": "bdc1ec30e85165df85cceedc8048336b5920ea95fdfe6587f2f079176de9336d"
+    },
+    {
+      "relative": "hepkit/ClusteringResult.html",
+      "source": "docs/python_api/community/hepkit/ClusteringResult.qmd",
+      "sha256": "2c9f8ad29cec09b0d54a8d17f5c9e7155554ba4f7791943d5f9f1096227c527e"
+    },
+    {
+      "relative": "hepkit/Coupling.html",
+      "source": "docs/python_api/community/hepkit/Coupling.qmd",
+      "sha256": "058dd124ded31fef33b67093e1c62b5d5191a3f126e18df04f35c1299dbf4bae"
+    },
+    {
+      "relative": "hepkit/CutPropagator.html",
+      "source": "docs/python_api/community/hepkit/CutPropagator.qmd",
+      "sha256": "7beefc4679f0b1fbb8d990ae3ec6c5791255b947b99c41990c913f694045e9bb"
+    },
+    {
+      "relative": "hepkit/DiagramCut.html",
+      "source": "docs/python_api/community/hepkit/DiagramCut.qmd",
+      "sha256": "a150d35ddbd1058a4f899e2273dc35f8cbbdb57611d992d5c9a745e01926cdba"
+    },
+    {
+      "relative": "hepkit/DiagramCutSide.html",
+      "source": "docs/python_api/community/hepkit/DiagramCutSide.qmd",
+      "sha256": "2ea0c5f9cafb5f5e7235012598f9a5c6200536cfa0e15b9842b84c01c4614503"
+    },
+    {
+      "relative": "hepkit/DiagramEdge.html",
+      "source": "docs/python_api/community/hepkit/DiagramEdge.qmd",
+      "sha256": "5e1c480fe53e884287f3151a1eda9f837a96ebc48e8542eb1e722baf69ca839b"
+    },
+    {
+      "relative": "hepkit/DiagramError.html",
+      "source": "docs/python_api/community/hepkit/DiagramError.qmd",
+      "sha256": "848f36e6d0daa1225bae4eb08c3c6546f490b9f68a716b5159dbe4b279b7dfa2"
+    },
+    {
+      "relative": "hepkit/DiagramGroup.html",
+      "source": "docs/python_api/community/hepkit/DiagramGroup.qmd",
+      "sha256": "85fa425692d1e03275ed50180dc08c86c94366764ac85b01a619223f5c238c91"
+    },
+    {
+      "relative": "hepkit/DiagramThresholdCandidate.html",
+      "source": "docs/python_api/community/hepkit/DiagramThresholdCandidate.qmd",
+      "sha256": "aeb1310fe6dc46cfcfa0ad365b9092e9c09a2ce4cfc3f51a304ffb378f121dd2"
+    },
+    {
+      "relative": "hepkit/DiagramVertex.html",
+      "source": "docs/python_api/community/hepkit/DiagramVertex.qmd",
+      "sha256": "f333d7104b7b32c203de831f71a2e165b3e3786d21999bfeedc992c0425b7e37"
+    },
+    {
+      "relative": "hepkit/EvaluatedValues.html",
+      "source": "docs/python_api/community/hepkit/EvaluatedValues.qmd",
+      "sha256": "3c06ffeb8f8fcf86b5833d8ea2925a3145ce1d6ad0d210f065bcdbd706af794f"
+    },
+    {
+      "relative": "hepkit/EvaluationRequest.html",
+      "source": "docs/python_api/community/hepkit/EvaluationRequest.qmd",
+      "sha256": "5e8d9d3751005e5ae324c337c27a0af268202a4ca876851bb9acbed64f716043"
+    },
+    {
+      "relative": "hepkit/FeynkitError.html",
+      "source": "docs/python_api/community/hepkit/FeynkitError.qmd",
+      "sha256": "f583dd76c05069a3ad1aab5edd1b32d2f891b67ec9620f1c7ff7cdd131be8441"
+    },
+    {
+      "relative": "hepkit/FeynmanDiagram.html",
+      "source": "docs/python_api/community/hepkit/FeynmanDiagram.qmd",
+      "sha256": "6d1b4a39784e405b692a9ac7f41f214daf17b2b2a4a355ef92ed4a69933fbd86"
+    },
+    {
+      "relative": "hepkit/FormFactor.html",
+      "source": "docs/python_api/community/hepkit/FormFactor.qmd",
+      "sha256": "e50bce6fc6cc506d9f35ce3ca4688d5901cc0b42f8e11ac04f921450eba28f6e"
+    },
+    {
+      "relative": "hepkit/FourMomentum.html",
+      "source": "docs/python_api/community/hepkit/FourMomentum.qmd",
+      "sha256": "904eb6af3e8f111b2dfafa1e7f42e0ec832f5a00de57c7e29522edea0bcfd5ff"
+    },
+    {
+      "relative": "hepkit/GenerationError.html",
+      "source": "docs/python_api/community/hepkit/GenerationError.qmd",
+      "sha256": "665b1f43f2a6a7d494f86db6086cb2fb08d3d033051f9c0ba9f5c62740894486"
+    },
+    {
+      "relative": "hepkit/GenerationProgress.html",
+      "source": "docs/python_api/community/hepkit/GenerationProgress.qmd",
+      "sha256": "661c9133946965e1770cb485fb600229aad0dd4f842ab0d507ae037e3577c843"
+    },
+    {
+      "relative": "hepkit/GenerationReport.html",
+      "source": "docs/python_api/community/hepkit/GenerationReport.qmd",
+      "sha256": "6562e0eaa22f90ce200effc50a0fe0d3d963aad9df19d4e396de53cda7298c41"
+    },
+    {
+      "relative": "hepkit/GenerationResult.html",
+      "source": "docs/python_api/community/hepkit/GenerationResult.qmd",
+      "sha256": "a4bb9c47c2632b7be64b7ab93ba74d2a16636b54fd52a672c46f32a9cc9fabfe"
+    },
+    {
+      "relative": "hepkit/GroupMember.html",
+      "source": "docs/python_api/community/hepkit/GroupMember.qmd",
+      "sha256": "c4b4f27f7e343da399562c6b74e2975a869da2287927ab8258c509ab360b190e"
+    },
+    {
+      "relative": "hepkit/Helicity.html",
+      "source": "docs/python_api/community/hepkit/Helicity.qmd",
+      "sha256": "7f4d094e0234f79c4c27ed571654f73e4968153385849ab52355175d449dfe7c"
+    },
+    {
+      "relative": "hepkit/IBPFamily.html",
+      "source": "docs/python_api/community/hepkit/IBPFamily.qmd",
+      "sha256": "4d2ea9f676597685c6ffa3a7a3e3524bc6050a4a02587173732aa91b8696968d"
+    },
+    {
+      "relative": "hepkit/IBPRule.html",
+      "source": "docs/python_api/community/hepkit/IBPRule.qmd",
+      "sha256": "9e34f7d821c0072bbf76b34cadcdf45cae798db53ceb895649420be64e6bda07"
+    },
+    {
+      "relative": "hepkit/IBPSolution.html",
+      "source": "docs/python_api/community/hepkit/IBPSolution.qmd",
+      "sha256": "d37bdf15ae899c4983057ef8dc9aff3e69c53c80d05b2288c99701386c4019fd"
+    },
+    {
+      "relative": "hepkit/IntegralFamily.html",
+      "source": "docs/python_api/community/hepkit/IntegralFamily.qmd",
+      "sha256": "ec4fd0cd7c54674b2e713f212794fdfc6e15ea9e8095110c965f3e40a41d72fe"
+    },
+    {
+      "relative": "hepkit/IntegralFamilyError.html",
+      "source": "docs/python_api/community/hepkit/IntegralFamilyError.qmd",
+      "sha256": "5059400cb7421d1bf1fc4ff4052e01223f6b062b3f72a30c7a662316899533cb"
+    },
+    {
+      "relative": "hepkit/IntegralMapping.html",
+      "source": "docs/python_api/community/hepkit/IntegralMapping.qmd",
+      "sha256": "511b24d5ed2ba4815b429762bc42319628d2247ce806235694307f268a2ff28d"
+    },
+    {
+      "relative": "hepkit/Jet.html",
+      "source": "docs/python_api/community/hepkit/Jet.qmd",
+      "sha256": "c1b48758d776914f3f81ddd4599ab9da065eaa2dfa33bd172c3c77dbc6632855"
+    },
+    {
+      "relative": "hepkit/JetAlgorithm.html",
+      "source": "docs/python_api/community/hepkit/JetAlgorithm.qmd",
+      "sha256": "d07485419b1eaa4d37d2db6c2498794c878f68cd76a2cd2df5994a59b14a5618"
+    },
+    {
+      "relative": "hepkit/JetDefinition.html",
+      "source": "docs/python_api/community/hepkit/JetDefinition.qmd",
+      "sha256": "d44e56016c204e549f13d4c1e900d8c0d49b6e07ff1017b417a80feb70d616a8"
+    },
+    {
+      "relative": "hepkit/Kinematics.html",
+      "source": "docs/python_api/community/hepkit/Kinematics.qmd",
+      "sha256": "031aaa210080c16e5cba553bb85a1dfedf10d0388bbad9a14485630213eb148c"
+    },
+    {
+      "relative": "hepkit/KinematicsError.html",
+      "source": "docs/python_api/community/hepkit/KinematicsError.qmd",
+      "sha256": "9a5bdb9152900d7e611ea092625e427ec1eefcaf12b1f14a5bbbc2ad507e3c81"
+    },
+    {
+      "relative": "hepkit/LoadedModel.html",
+      "source": "docs/python_api/community/hepkit/LoadedModel.qmd",
+      "sha256": "9d7455f5a4b4f30266829c6d6cb456bb99d29ef5c1aa7b973084b143454a52e8"
+    },
+    {
+      "relative": "hepkit/LoopMomentumBasis.html",
+      "source": "docs/python_api/community/hepkit/LoopMomentumBasis.qmd",
+      "sha256": "26886932960e86d39323d27c932ce88b880b8e09bbb93b9c1c01f0d61bfa2985"
+    },
+    {
+      "relative": "hepkit/LorentzStructure.html",
+      "source": "docs/python_api/community/hepkit/LorentzStructure.qmd",
+      "sha256": "c41dafe5d6f4b62ddb30a51cb01d37dffc60d96f06f7d12d6866ed7ff4456425"
+    },
+    {
+      "relative": "hepkit/Model.html",
+      "source": "docs/python_api/community/hepkit/Model.qmd",
+      "sha256": "f4c325815cac191da2f0bc8052ae2a7d6d2c91935b3ccacefc80c13d7c89fae2"
+    },
+    {
+      "relative": "hepkit/ModelError.html",
+      "source": "docs/python_api/community/hepkit/ModelError.qmd",
+      "sha256": "2506ac546ebc4671d17d73db4eb94414b1716eab42cd4abe7fbf40c26d512bf6"
+    },
+    {
+      "relative": "hepkit/ModelExpression.html",
+      "source": "docs/python_api/community/hepkit/ModelExpression.qmd",
+      "sha256": "9069f1455194faca28d5919c5ec167ca089186fbfcadaa623169054b7b80604d"
+    },
+    {
+      "relative": "hepkit/ModelFunction.html",
+      "source": "docs/python_api/community/hepkit/ModelFunction.qmd",
+      "sha256": "1cd881613e2e4346bc5f8bef65e78d73986d6b1c0c4b5551661fef4e21098dfe"
+    },
+    {
+      "relative": "hepkit/MomentumSignature.html",
+      "source": "docs/python_api/community/hepkit/MomentumSignature.qmd",
+      "sha256": "a699b23ef860ba853e1fabda8d4d57daa6ee62f525e981b259b579f277518fec"
+    },
+    {
+      "relative": "hepkit/NumeratorGrouping.html",
+      "source": "docs/python_api/community/hepkit/NumeratorGrouping.qmd",
+      "sha256": "c45045ac5de4afea5c0ccbba7c02179f0763d79d0f5b131a7e4d5e33585e32b7"
+    },
+    {
+      "relative": "hepkit/Parameter.html",
+      "source": "docs/python_api/community/hepkit/Parameter.qmd",
+      "sha256": "7f3f57e852f31de59307218abc1ce9a6a61594867c1ec5d8acea4e182687f1c0"
+    },
+    {
+      "relative": "hepkit/ParameterCard.html",
+      "source": "docs/python_api/community/hepkit/ParameterCard.qmd",
+      "sha256": "8a7d158d5d40638d86d00d5d51d9967e0342bf7fa1ce68169d3d46e04ae50a1b"
+    },
+    {
+      "relative": "hepkit/ParameterNature.html",
+      "source": "docs/python_api/community/hepkit/ParameterNature.qmd",
+      "sha256": "6baa0bfd2d1617018b1b1b2dfe1bf035dc8917d276ede245369c6821f4150ea6"
+    },
+    {
+      "relative": "hepkit/ParameterType.html",
+      "source": "docs/python_api/community/hepkit/ParameterType.qmd",
+      "sha256": "f04478dc70e20b6631e1c438691b9bae07fba4c92d08c28c5c654e0d9cc30474"
+    },
+    {
+      "relative": "hepkit/Particle.html",
+      "source": "docs/python_api/community/hepkit/Particle.qmd",
+      "sha256": "67d9ad934c082541402a4d76b19eaa1d72cb8e377e1a75613eb36669285562b3"
+    },
+    {
+      "relative": "hepkit/ParticleSelector.html",
+      "source": "docs/python_api/community/hepkit/ParticleSelector.qmd",
+      "sha256": "a8012b86db967813c405e5e42bd296cd9f6b0a2c58cc7608050e59c2763cdc00"
+    },
+    {
+      "relative": "hepkit/Process.html",
+      "source": "docs/python_api/community/hepkit/Process.qmd",
+      "sha256": "7369ce6c76af21aaf905bf361a95cc35106c65305b81cc09a531bd0fb1911d6a"
+    },
+    {
+      "relative": "hepkit/Propagator.html",
+      "source": "docs/python_api/community/hepkit/Propagator.qmd",
+      "sha256": "b8a36d3d13713046746db68e0c565f61d732f592a0d255024d0c0c936ddc3236"
+    },
+    {
+      "relative": "hepkit/PropagatorMapping.html",
+      "source": "docs/python_api/community/hepkit/PropagatorMapping.qmd",
+      "sha256": "251363598f2fc27e8ca0247fc88909c39ad4c0f1f68f571215b601822b142962"
+    },
+    {
+      "relative": "hepkit/Rotation.html",
+      "source": "docs/python_api/community/hepkit/Rotation.qmd",
+      "sha256": "04441dbfb4328c21254c2abd2d112a8202bceaa5bc14884f65b221f1447f29ec"
+    },
+    {
+      "relative": "hepkit/SelfEnergyFilterOptions.html",
+      "source": "docs/python_api/community/hepkit/SelfEnergyFilterOptions.qmd",
+      "sha256": "5e974b5a0ef65845f4eeecdce2c0d264a4b27508ef241851e1229b7b92950d74"
+    },
+    {
+      "relative": "hepkit/SnailFilterOptions.html",
+      "source": "docs/python_api/community/hepkit/SnailFilterOptions.qmd",
+      "sha256": "0b9130eda34cd41b4c7c48f8516680cdc38838d26694d178983de35ef169be6e"
+    },
+    {
+      "relative": "hepkit/SquaredAmplitude.html",
+      "source": "docs/python_api/community/hepkit/SquaredAmplitude.qmd",
+      "sha256": "b318b07eacb37f588ef6a1484749de61325d793ea05c5f79741ad7237ae0d279"
+    },
+    {
+      "relative": "hepkit/Subgraph.html",
+      "source": "docs/python_api/community/hepkit/Subgraph.qmd",
+      "sha256": "cfd33e52b6575f710e78ee6277ff38da15ed1c8fd66b1fac883608a4ab8af281"
+    },
+    {
+      "relative": "hepkit/Symbols.html",
+      "source": "docs/python_api/community/hepkit/Symbols.qmd",
+      "sha256": "d20aa1c27d71d55cca6838e494f2964bb66547c7b66c87a6636a61bcabe86bf0"
+    },
+    {
+      "relative": "hepkit/TadpoleFilterOptions.html",
+      "source": "docs/python_api/community/hepkit/TadpoleFilterOptions.qmd",
+      "sha256": "c35b376eb8c816b7dc49333dad67f5a0a2db0b74dc36fff58ec4011c02ccc990"
+    },
+    {
+      "relative": "hepkit/TensorReducer.html",
+      "source": "docs/python_api/community/hepkit/TensorReducer.qmd",
+      "sha256": "de603026e3fcad9c57ded69d72d0749efbd663fcc4d2ad563a7de514576125fd"
+    },
+    {
+      "relative": "hepkit/TensorReductionError.html",
+      "source": "docs/python_api/community/hepkit/TensorReductionError.qmd",
+      "sha256": "a1a723e8e6ba1470bac8750eb16242fbcc6624e92fcc09155e4c402fc2764f8b"
+    },
+    {
+      "relative": "hepkit/ThreeMomentum.html",
+      "source": "docs/python_api/community/hepkit/ThreeMomentum.qmd",
+      "sha256": "e54e7da14506f513ccd2d6871e14eb25a9763d58dcf8b3240cf12f5fbabf21c2"
+    },
+    {
+      "relative": "hepkit/UfoLoadDiagnostics.html",
+      "source": "docs/python_api/community/hepkit/UfoLoadDiagnostics.qmd",
+      "sha256": "e98b6120467c5a934bb2637c2d5490145d4aeff4a433797ff4db1aa48f02b8ee"
+    },
+    {
+      "relative": "hepkit/UfoLoadError.html",
+      "source": "docs/python_api/community/hepkit/UfoLoadError.qmd",
+      "sha256": "88e0f2f77f37f66c9bee7122a236c03f8dff20033d320504aeb2c5e541b5b4af"
+    },
+    {
+      "relative": "hepkit/UfoLoader.html",
+      "source": "docs/python_api/community/hepkit/UfoLoader.qmd",
+      "sha256": "c630cf80a26e5fad2b5fa01230b2af5fd63aa828e6ebd972a6c5ac4868ad9a52"
+    },
+    {
+      "relative": "hepkit/VertexRule.html",
+      "source": "docs/python_api/community/hepkit/VertexRule.qmd",
+      "sha256": "b65647d54b24eadb51341c9f9a380fde4b42d50cd79bde33ff93d68a7569798b"
+    },
+    {
+      "relative": "hepkit/ibp/index.html",
+      "source": "docs/python_api/community/hepkit/ibp/index.qmd",
+      "sha256": "5e328447c0a48e1b43c293f2ade94fd676ef2afb6cf2e639778ba6ae1a694cc5"
+    },
+    {
+      "relative": "hepkit/index.html",
+      "source": "docs/python_api/community/hepkit/index.qmd",
+      "sha256": "74f421972f527b3fe8a332a0e9413e09d972915745bff93680fbcc8cd69786fc"
+    },
+    {
+      "relative": "hepkit/oneloop/DecimalComplex.html",
+      "source": "docs/python_api/community/hepkit/oneloop/DecimalComplex.qmd",
+      "sha256": "0ecad015a89b945b7739e4e879470f0dbb9683fe976bdea165c364e96bb470ae"
+    },
+    {
+      "relative": "hepkit/oneloop/Evaluator.html",
+      "source": "docs/python_api/community/hepkit/oneloop/Evaluator.qmd",
+      "sha256": "065d1b23fe604d7e6b76ec2efd3acf73018480ffd0a55580d814b30fbfd5a068"
+    },
+    {
+      "relative": "hepkit/oneloop/MasterIntegral.html",
+      "source": "docs/python_api/community/hepkit/oneloop/MasterIntegral.qmd",
+      "sha256": "df95500fa705793c8cf451460428c1decc30f74705bc569b9d845611ab080d3e"
+    },
+    {
+      "relative": "hepkit/oneloop/Reduction.html",
+      "source": "docs/python_api/community/hepkit/oneloop/Reduction.qmd",
+      "sha256": "33e3108dc38215fd43088d6ab5201a56510f7125a13bf713bd0dd1a7be47f6fc"
+    },
+    {
+      "relative": "hepkit/oneloop/index.html",
+      "source": "docs/python_api/community/hepkit/oneloop/index.qmd",
+      "sha256": "c6adecc2cff24afdabfbf35495e7f1a3754194be918afc15df814c7cb0bc1f2a"
+    },
+    {
+      "relative": "hepkit/vakint/Vakint.html",
+      "source": "docs/python_api/community/hepkit/vakint/Vakint.qmd",
+      "sha256": "31e5f8e6ec47cb917af1d9fd4eecf2afbb94f7a0bc5e5173140fc2acacf79f30"
+    },
+    {
+      "relative": "hepkit/vakint/VakintEvaluationMethod.html",
+      "source": "docs/python_api/community/hepkit/vakint/VakintEvaluationMethod.qmd",
+      "sha256": "cd801c294466cb571077ea4287821a9bf45cc950ee5509b43644643caef049da"
+    },
+    {
+      "relative": "hepkit/vakint/VakintExpression.html",
+      "source": "docs/python_api/community/hepkit/vakint/VakintExpression.qmd",
+      "sha256": "2c87bcf6bb9dc54f06565a4ee068a0a2556d06410968dca674bd6bad608888cc"
+    },
+    {
+      "relative": "hepkit/vakint/VakintNumericalResult.html",
+      "source": "docs/python_api/community/hepkit/vakint/VakintNumericalResult.qmd",
+      "sha256": "51d910e1f2cbcfce3b756b151da032ef29847e1f33448bcd266976d2882575f0"
+    },
+    {
+      "relative": "hepkit/vakint/index.html",
+      "source": "docs/python_api/community/hepkit/vakint/index.qmd",
+      "sha256": "4f9f617a4152ce9cba9ec859bbdf8b3a0586d2b4a816b56b264e54d48c402c9a"
+    },
+    {
+      "relative": "tensor/BroadcastFunction.html",
+      "source": "docs/python_api/community/tensor/BroadcastFunction.qmd",
+      "sha256": "befa78df967424839714421c1fffbfe6cff7da6b7466e42b867627d54c1d6c0e"
+    },
+    {
+      "relative": "tensor/CanonicalizationError.html",
+      "source": "docs/python_api/community/tensor/CanonicalizationError.qmd",
+      "sha256": "7bb7dbf172c53879ee45f38a03f5ad30570f078de5d9fae18a98974ca98b4420"
+    },
+    {
+      "relative": "tensor/CompiledTensorEvaluator.html",
+      "source": "docs/python_api/community/tensor/CompiledTensorEvaluator.qmd",
+      "sha256": "0e5425a1a8f7ad4f44cfd12c3ad868baa6698e42fa475a2ff6079d2a497f124a"
+    },
+    {
+      "relative": "tensor/CookingError.html",
+      "source": "docs/python_api/community/tensor/CookingError.qmd",
+      "sha256": "89e7e87fec10177821e9c326e2b15124a2e4e543448ab3f9f987c2376c50e283"
+    },
+    {
+      "relative": "tensor/DiracAdjointError.html",
+      "source": "docs/python_api/community/tensor/DiracAdjointError.qmd",
+      "sha256": "fc522b961a5697d63edfa17fa2e7f338b31e66371bdfad1686537d81d4a4ecf5"
+    },
+    {
+      "relative": "tensor/DisplaySettings.html",
+      "source": "docs/python_api/community/tensor/DisplaySettings.qmd",
+      "sha256": "60d75307e1458be1c60f4eb956b26048b2af9125ac251006a5a77cf5a8597a87"
+    },
+    {
+      "relative": "tensor/ExecutionMode.html",
+      "source": "docs/python_api/community/tensor/ExecutionMode.qmd",
+      "sha256": "2138d54b4178920ecbcbe6a387872b006bfb1ec742b541cc06c2bbedcbf3bfef"
+    },
+    {
+      "relative": "tensor/ExecutionStatus.html",
+      "source": "docs/python_api/community/tensor/ExecutionStatus.qmd",
+      "sha256": "9eb322da31c0faa8d25ccd1946b41ecb2a910863725ef4c174d218b29bfbb68b"
+    },
+    {
+      "relative": "tensor/FactorProjector.html",
+      "source": "docs/python_api/community/tensor/FactorProjector.qmd",
+      "sha256": "ea7b9b48bf9da1f758faef953f9a16c3acf64c46696e181be91441e5ee5726f6"
+    },
+    {
+      "relative": "tensor/NetworkToolingError.html",
+      "source": "docs/python_api/community/tensor/NetworkToolingError.qmd",
+      "sha256": "0a070d96bd45f67411b8347efa8a89df08a3bd9099399a33bcd0d10f6fcea783"
+    },
+    {
+      "relative": "tensor/PortPattern.html",
+      "source": "docs/python_api/community/tensor/PortPattern.qmd",
+      "sha256": "ff8b83ef81b094764b7a532ac0114a74b68e00027fcdc4d05455fca54d64c0a9"
+    },
+    {
+      "relative": "tensor/ReductionStatus.html",
+      "source": "docs/python_api/community/tensor/ReductionStatus.qmd",
+      "sha256": "1595d1a58a4f5d9baf5dbde4c29090ed31ea9a6262add255a89ace6084b56427"
+    },
+    {
+      "relative": "tensor/Representation.html",
+      "source": "docs/python_api/community/tensor/Representation.qmd",
+      "sha256": "b1b305c51a2c9245cc9677a555a24ca61fa6f094726fcd311eff6b5291546d36"
+    },
+    {
+      "relative": "tensor/RepresentationName.html",
+      "source": "docs/python_api/community/tensor/RepresentationName.qmd",
+      "sha256": "c3a49884ef8d98e92007a459282261d0d938cbdd2cb5947ba9db1ebcf45f9d2a"
+    },
+    {
+      "relative": "tensor/Slot.html",
+      "source": "docs/python_api/community/tensor/Slot.qmd",
+      "sha256": "8b6f7f58028cfd6008ac1bfaa16e81d9b9fc2e215a285de0b8706a3a7f58702b"
+    },
+    {
+      "relative": "tensor/SymbolicParallelism.html",
+      "source": "docs/python_api/community/tensor/SymbolicParallelism.qmd",
+      "sha256": "2b9774a4cba8b780f3b9bafdb60b72663a64a53d32c5c01c884c9cfe82d9f480"
+    },
+    {
+      "relative": "tensor/Tensor.html",
+      "source": "docs/python_api/community/tensor/Tensor.qmd",
+      "sha256": "5117f45583a2ca8da82af2d48126b68e83a13d0f739d3f2032635a60407e1b2d"
+    },
+    {
+      "relative": "tensor/TensorEvaluator.html",
+      "source": "docs/python_api/community/tensor/TensorEvaluator.qmd",
+      "sha256": "7ee1c783a1d4ba078e795d3e035cc760dd817ce120290d1b8df80bc9c0c640bd"
+    },
+    {
+      "relative": "tensor/TensorExpression.html",
+      "source": "docs/python_api/community/tensor/TensorExpression.qmd",
+      "sha256": "691f892efb33295f342574f00ea9a34a679064673cb796d507eb14064c73234a"
+    },
+    {
+      "relative": "tensor/TensorFunctionLibrary.html",
+      "source": "docs/python_api/community/tensor/TensorFunctionLibrary.qmd",
+      "sha256": "6f0bb0631a0982a4cfb2c1aba85e8dbee8078be29838a1973258c61e248afd57"
+    },
+    {
+      "relative": "tensor/TensorLibrary.html",
+      "source": "docs/python_api/community/tensor/TensorLibrary.qmd",
+      "sha256": "a1c7d652d96fd46e4d91b8a9a74791530950c0f8804fd10c6fd5a10059013b79"
+    },
+    {
+      "relative": "tensor/TensorName.html",
+      "source": "docs/python_api/community/tensor/TensorName.qmd",
+      "sha256": "3b5ef57d2fa6b32b7a9c6a556ae8f8048542048ce7e872c671fc9b4742fbf02b"
+    },
+    {
+      "relative": "tensor/TensorNetwork.html",
+      "source": "docs/python_api/community/tensor/TensorNetwork.qmd",
+      "sha256": "fbd9a76d4edbe1c4711492fef12b2500769341b144f00e1d88d83af502078d7d"
+    },
+    {
+      "relative": "tensor/TensorPattern.html",
+      "source": "docs/python_api/community/tensor/TensorPattern.qmd",
+      "sha256": "64d1f789a31cf8d7af70a66d74e22db6d99b3f2eaecf49128c2891c7c63452bd"
+    },
+    {
+      "relative": "tensor/TensorRule.html",
+      "source": "docs/python_api/community/tensor/TensorRule.qmd",
+      "sha256": "53ed4e39b48ecc988ebc979f414a6fcb94a18076c2049a3d5dd78bf971da5a61"
+    },
+    {
+      "relative": "tensor/TensorStructure.html",
+      "source": "docs/python_api/community/tensor/TensorStructure.qmd",
+      "sha256": "ad50925f35afd7249f983badae54ec05644a7e206e9216ea72d7486ce392bfb9"
+    },
+    {
+      "relative": "tensor/index.html",
+      "source": "docs/python_api/community/tensor/index.qmd",
+      "sha256": "bbf63e3d3be2feca30a3511ee5db7db20bd5c2065b5aee91acba37eaccfc1f3f"
+    }
+  ]
+}

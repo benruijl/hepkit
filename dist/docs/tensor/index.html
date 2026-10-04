@@ -1,0 +1,544 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tensor algebra — HEPkit documentation</title>
+<meta name="description" content="A comprehensive Python tensor library for symbolic and numerical tensor computations, with a focus on physics applications.">
+<meta name="theme-color" content="#176f5e"><meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://hepkit.org/docs/tensor/index.html">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<script src="/theme.js"></script><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/docs.css">
+</head><body class="docs-page"><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="wrap header-inner">
+<a class="brand" href="/" aria-label="HEPkit home"><img class="brand-light" src="/assets/hepkit.svg" width="369" height="158" alt="HEPkit"><img class="brand-dark" src="/assets/hepkit-dark.svg" width="369" height="158" alt="HEPkit"></a>
+<nav class="site-nav" aria-label="Main navigation"><a href="/#examples">Examples</a><a href="/#projects">Projects</a><a class="nav-docs" aria-current="page" href="/docs/" aria-label="Documentation"><span class="nav-label-full">Documentation</span><span class="nav-label-short" aria-hidden="true">Docs</span></a><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" title="Switch to dark mode" hidden><svg class="theme-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.7 13.1A8.6 8.6 0 0 1 10.9 3.3 8.7 8.7 0 1 0 20.7 13.1Z"/></svg><svg class="theme-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4m0-14.2-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg></button></nav>
+</div></header>
+<div class="docs-layout"><aside class="docs-sidebar" aria-label="Documentation navigation">
+<label class="docs-search-label" for="docs-search">Find a page or method</label>
+<input id="docs-search" type="search" placeholder="Search the reference…" autocomplete="off" aria-controls="docs-search-results" aria-describedby="docs-search-status">
+<p id="docs-search-status" class="docs-search-status" role="status"></p>
+<ul id="docs-search-results" class="docs-search-results" hidden></ul>
+<details class="docs-menu" open><summary>Browse documentation</summary><nav aria-label="API reference"><a class="docs-home" href="/docs/">Documentation overview</a><details class="docs-nav-group"><summary>HEPkit <span>79</span></summary><ul><li><a href="/docs/hepkit/index.html">Overview</a></li><li><a href="/docs/hepkit/Amplitude.html">Amplitude</a></li><li><a href="/docs/hepkit/AmplitudeError.html">AmplitudeError</a></li><li><a href="/docs/hepkit/AmplitudeLeg.html">AmplitudeLeg</a></li><li><a href="/docs/hepkit/Axis.html">Axis</a></li><li><a href="/docs/hepkit/Boost.html">Boost</a></li><li><a href="/docs/hepkit/CancellationToken.html">CancellationToken</a></li><li><a href="/docs/hepkit/CffError.html">CffError</a></li><li><a href="/docs/hepkit/CffGenerator.html">CffGenerator</a></li><li><a href="/docs/hepkit/CffOrientation.html">CffOrientation</a></li><li><a href="/docs/hepkit/CffReport.html">CffReport</a></li><li><a href="/docs/hepkit/CffResult.html">CffResult</a></li><li><a href="/docs/hepkit/CffSurface.html">CffSurface</a></li><li><a href="/docs/hepkit/CffSurfaceGroup.html">CffSurfaceGroup</a></li><li><a href="/docs/hepkit/ClusteringResult.html">ClusteringResult</a></li><li><a href="/docs/hepkit/Coupling.html">Coupling</a></li><li><a href="/docs/hepkit/CutPropagator.html">CutPropagator</a></li><li><a href="/docs/hepkit/DiagramCut.html">DiagramCut</a></li><li><a href="/docs/hepkit/DiagramCutSide.html">DiagramCutSide</a></li><li><a href="/docs/hepkit/DiagramEdge.html">DiagramEdge</a></li><li><a href="/docs/hepkit/DiagramError.html">DiagramError</a></li><li><a href="/docs/hepkit/DiagramGroup.html">DiagramGroup</a></li><li><a href="/docs/hepkit/DiagramThresholdCandidate.html">DiagramThresholdCandidate</a></li><li><a href="/docs/hepkit/DiagramVertex.html">DiagramVertex</a></li><li><a href="/docs/hepkit/EvaluatedValues.html">EvaluatedValues</a></li><li><a href="/docs/hepkit/EvaluationRequest.html">EvaluationRequest</a></li><li><a href="/docs/hepkit/FeynkitError.html">FeynkitError</a></li><li><a href="/docs/hepkit/FeynmanDiagram.html">FeynmanDiagram</a></li><li><a href="/docs/hepkit/FormFactor.html">FormFactor</a></li><li><a href="/docs/hepkit/FourMomentum.html">FourMomentum</a></li><li><a href="/docs/hepkit/GenerationError.html">GenerationError</a></li><li><a href="/docs/hepkit/GenerationProgress.html">GenerationProgress</a></li><li><a href="/docs/hepkit/GenerationReport.html">GenerationReport</a></li><li><a href="/docs/hepkit/GenerationResult.html">GenerationResult</a></li><li><a href="/docs/hepkit/GroupMember.html">GroupMember</a></li><li><a href="/docs/hepkit/Helicity.html">Helicity</a></li><li><a href="/docs/hepkit/IBPFamily.html">IBPFamily</a></li><li><a href="/docs/hepkit/IBPRule.html">IBPRule</a></li><li><a href="/docs/hepkit/IBPSolution.html">IBPSolution</a></li><li><a href="/docs/hepkit/IntegralFamily.html">IntegralFamily</a></li><li><a href="/docs/hepkit/IntegralFamilyError.html">IntegralFamilyError</a></li><li><a href="/docs/hepkit/IntegralMapping.html">IntegralMapping</a></li><li><a href="/docs/hepkit/Jet.html">Jet</a></li><li><a href="/docs/hepkit/JetAlgorithm.html">JetAlgorithm</a></li><li><a href="/docs/hepkit/JetDefinition.html">JetDefinition</a></li><li><a href="/docs/hepkit/Kinematics.html">Kinematics</a></li><li><a href="/docs/hepkit/KinematicsError.html">KinematicsError</a></li><li><a href="/docs/hepkit/LoadedModel.html">LoadedModel</a></li><li><a href="/docs/hepkit/LoopMomentumBasis.html">LoopMomentumBasis</a></li><li><a href="/docs/hepkit/LorentzStructure.html">LorentzStructure</a></li><li><a href="/docs/hepkit/Model.html">Model</a></li><li><a href="/docs/hepkit/ModelError.html">ModelError</a></li><li><a href="/docs/hepkit/ModelExpression.html">ModelExpression</a></li><li><a href="/docs/hepkit/ModelFunction.html">ModelFunction</a></li><li><a href="/docs/hepkit/MomentumSignature.html">MomentumSignature</a></li><li><a href="/docs/hepkit/NumeratorGrouping.html">NumeratorGrouping</a></li><li><a href="/docs/hepkit/Parameter.html">Parameter</a></li><li><a href="/docs/hepkit/ParameterCard.html">ParameterCard</a></li><li><a href="/docs/hepkit/ParameterNature.html">ParameterNature</a></li><li><a href="/docs/hepkit/ParameterType.html">ParameterType</a></li><li><a href="/docs/hepkit/Particle.html">Particle</a></li><li><a href="/docs/hepkit/ParticleSelector.html">ParticleSelector</a></li><li><a href="/docs/hepkit/Process.html">Process</a></li><li><a href="/docs/hepkit/Propagator.html">Propagator</a></li><li><a href="/docs/hepkit/PropagatorMapping.html">PropagatorMapping</a></li><li><a href="/docs/hepkit/Rotation.html">Rotation</a></li><li><a href="/docs/hepkit/SelfEnergyFilterOptions.html">SelfEnergyFilterOptions</a></li><li><a href="/docs/hepkit/SnailFilterOptions.html">SnailFilterOptions</a></li><li><a href="/docs/hepkit/SquaredAmplitude.html">SquaredAmplitude</a></li><li><a href="/docs/hepkit/Subgraph.html">Subgraph</a></li><li><a href="/docs/hepkit/Symbols.html">Symbols</a></li><li><a href="/docs/hepkit/TadpoleFilterOptions.html">TadpoleFilterOptions</a></li><li><a href="/docs/hepkit/TensorReducer.html">TensorReducer</a></li><li><a href="/docs/hepkit/TensorReductionError.html">TensorReductionError</a></li><li><a href="/docs/hepkit/ThreeMomentum.html">ThreeMomentum</a></li><li><a href="/docs/hepkit/UfoLoadDiagnostics.html">UfoLoadDiagnostics</a></li><li><a href="/docs/hepkit/UfoLoader.html">UfoLoader</a></li><li><a href="/docs/hepkit/UfoLoadError.html">UfoLoadError</a></li><li><a href="/docs/hepkit/VertexRule.html">VertexRule</a></li></ul></details><details class="docs-nav-group" open><summary>Tensor algebra <span>27</span></summary><ul><li><a href="/docs/tensor/index.html" aria-current="page">Overview</a></li><li><a href="/docs/tensor/BroadcastFunction.html">BroadcastFunction</a></li><li><a href="/docs/tensor/CanonicalizationError.html">CanonicalizationError</a></li><li><a href="/docs/tensor/CompiledTensorEvaluator.html">CompiledTensorEvaluator</a></li><li><a href="/docs/tensor/CookingError.html">CookingError</a></li><li><a href="/docs/tensor/DiracAdjointError.html">DiracAdjointError</a></li><li><a href="/docs/tensor/DisplaySettings.html">DisplaySettings</a></li><li><a href="/docs/tensor/ExecutionMode.html">ExecutionMode</a></li><li><a href="/docs/tensor/ExecutionStatus.html">ExecutionStatus</a></li><li><a href="/docs/tensor/FactorProjector.html">FactorProjector</a></li><li><a href="/docs/tensor/NetworkToolingError.html">NetworkToolingError</a></li><li><a href="/docs/tensor/PortPattern.html">PortPattern</a></li><li><a href="/docs/tensor/ReductionStatus.html">ReductionStatus</a></li><li><a href="/docs/tensor/Representation.html">Representation</a></li><li><a href="/docs/tensor/RepresentationName.html">RepresentationName</a></li><li><a href="/docs/tensor/Slot.html">Slot</a></li><li><a href="/docs/tensor/SymbolicParallelism.html">SymbolicParallelism</a></li><li><a href="/docs/tensor/Tensor.html">Tensor</a></li><li><a href="/docs/tensor/TensorEvaluator.html">TensorEvaluator</a></li><li><a href="/docs/tensor/TensorExpression.html">TensorExpression</a></li><li><a href="/docs/tensor/TensorFunctionLibrary.html">TensorFunctionLibrary</a></li><li><a href="/docs/tensor/TensorLibrary.html">TensorLibrary</a></li><li><a href="/docs/tensor/TensorName.html">TensorName</a></li><li><a href="/docs/tensor/TensorNetwork.html">TensorNetwork</a></li><li><a href="/docs/tensor/TensorPattern.html">TensorPattern</a></li><li><a href="/docs/tensor/TensorRule.html">TensorRule</a></li><li><a href="/docs/tensor/TensorStructure.html">TensorStructure</a></li></ul></details><details class="docs-nav-group"><summary>One-loop integrals <span>5</span></summary><ul><li><a href="/docs/hepkit/oneloop/index.html">Overview</a></li><li><a href="/docs/hepkit/oneloop/DecimalComplex.html">DecimalComplex</a></li><li><a href="/docs/hepkit/oneloop/Evaluator.html">Evaluator</a></li><li><a href="/docs/hepkit/oneloop/MasterIntegral.html">MasterIntegral</a></li><li><a href="/docs/hepkit/oneloop/Reduction.html">Reduction</a></li></ul></details><details class="docs-nav-group"><summary>Integration by parts <span>1</span></summary><ul><li><a href="/docs/hepkit/ibp/index.html">Overview</a></li></ul></details><details class="docs-nav-group"><summary>Vacuum integrals <span>5</span></summary><ul><li><a href="/docs/hepkit/vakint/index.html">Overview</a></li><li><a href="/docs/hepkit/vakint/Vakint.html">Vakint</a></li><li><a href="/docs/hepkit/vakint/VakintEvaluationMethod.html">VakintEvaluationMethod</a></li><li><a href="/docs/hepkit/vakint/VakintExpression.html">VakintExpression</a></li><li><a href="/docs/hepkit/vakint/VakintNumericalResult.html">VakintNumericalResult</a></li></ul></details></nav></details>
+</aside><main id="main" class="docs-main">
+<div class="docs-breadcrumb"><a href="/docs/">Documentation</a><span aria-hidden="true">/</span> <a href="/docs/tensor/">Tensor algebra</a></div>
+<article class="docs-content"><h1 id="symbolica.community.tensor">Tensor algebra</h1>
+<p>A comprehensive Python tensor library for symbolic and numerical tensor computations, with a focus on physics applications.</p>
+<h2 id="overview">Overview</h2>
+<p>The Spenso Python API provides powerful tools for:</p>
+<ul>
+<li><strong>Tensor Algebra</strong>: Dense and sparse tensors with flexible data types</li>
+<li><strong>Symbolic Computation</strong>: Integration with Symbolica for tensors with symbolic expressions</li>
+<li><strong>Network Operations</strong>: Tensor networks for optimized computation graphs</li>
+<li><strong>Tensor Simplification</strong>: Idenso algebra operations using Spenso tensor notation, exposed as TensorExpression methods</li>
+<li><strong>Physics Applications</strong>: Built-in support for HEP tensors (gamma matrices, color structures, etc.)</li>
+<li><strong>Performance</strong>: Compiled evaluators for high-speed numerical computation</li>
+</ul>
+<h2 id="contributors">Contributors</h2>
+<ul>
+<li>Lucien Huber mail@lucien.ch</li>
+</ul>
+<p>Use <code>from symbolica.community import tensor</code>. <code>symbolica.community.spenso</code> remains a compatibility import. Idenso simplifications are exposed as <code>TensorExpression</code> methods.</p>
+<p><code>AUTO</code> (also exported as <code>_</code>) requests an automatically assigned tensor index.</p>
+<h2 id="classes">Classes</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a href="/docs/tensor/BroadcastFunction.html#symbolica.community.tensor.BroadcastFunction"><code>BroadcastFunction</code></a></td>
+<td>A unary function applied independently to each tensor component</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/CanonicalizationError.html#symbolica.community.tensor.CanonicalizationError"><code>CanonicalizationError</code></a></td>
+<td>Raised when dummy-index or tensor-factor canonicalization cannot be completed.</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/CompiledTensorEvaluator.html#symbolica.community.tensor.CompiledTensorEvaluator"><code>CompiledTensorEvaluator</code></a></td>
+<td>A tensor evaluator compiled into a loaded native library</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/CookingError.html#symbolica.community.tensor.CookingError"><code>CookingError</code></a></td>
+<td>Raised when a compound index label cannot be encoded by the selected interning mode.</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/DiracAdjointError.html#symbolica.community.tensor.DiracAdjointError"><code>DiracAdjointError</code></a></td>
+<td>Raised when spinor index structure does not define a consistent Dirac adjoint.</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/DisplaySettings.html#symbolica.community.tensor.DisplaySettings"><code>DisplaySettings</code></a></td>
+<td>Immutable presentation options for tensor notation and component displays</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/ExecutionMode.html#symbolica.community.tensor.ExecutionMode"><code>ExecutionMode</code></a></td>
+<td>Choose how network execution schedules contractions</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/ExecutionStatus.html#symbolica.community.tensor.ExecutionStatus"><code>ExecutionStatus</code></a></td>
+<td>Read-only snapshot of a TensorNetwork’s remaining work</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/FactorProjector.html#symbolica.community.tensor.FactorProjector"><code>FactorProjector</code></a></td>
+<td>A normalized permutation group of matrix factors for a chain or trace</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/NetworkToolingError.html#symbolica.community.tensor.NetworkToolingError"><code>NetworkToolingError</code></a></td>
+<td>Raised when tensor syntax cannot be interpreted as a supported symbolic network.</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/PortPattern.html#symbolica.community.tensor.PortPattern"><code>PortPattern</code></a></td>
+<td>A Symbolica pattern for a tensor index or its representation</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/ReductionStatus.html#symbolica.community.tensor.ReductionStatus"><code>ReductionStatus</code></a></td>
+<td>Completion of a tensor reduction under its selected settings</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/Representation.html#symbolica.community.tensor.Representation"><code>Representation</code></a></td>
+<td>An index space with a dimension and a rule for pairing indices</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/RepresentationName.html#symbolica.community.tensor.RepresentationName"><code>RepresentationName</code></a></td>
+<td>A representation identity independent of its dimension</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/Slot.html#symbolica.community.tensor.Slot"><code>Slot</code></a></td>
+<td>One abstract tensor index together with its representation</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/SymbolicParallelism.html#symbolica.community.tensor.SymbolicParallelism"><code>SymbolicParallelism</code></a></td>
+<td>Threading policy for operations on symbolic component expressions</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/Tensor.html#symbolica.community.tensor.Tensor"><code>Tensor</code></a></td>
+<td>Tensor components together with their symbolic identity and ordered axes</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/TensorEvaluator.html#symbolica.community.tensor.TensorEvaluator"><code>TensorEvaluator</code></a></td>
+<td>Optimized numerical evaluation of a tensor’s component formulas</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/TensorExpression.html#symbolica.community.tensor.TensorExpression"><code>TensorExpression</code></a></td>
+<td>A symbolic tensor expression with an ordered set of external axes</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/TensorFunctionLibrary.html#symbolica.community.tensor.TensorFunctionLibrary"><code>TensorFunctionLibrary</code></a></td>
+<td>Numerical implementations of unary elementwise tensor functions</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/TensorLibrary.html#symbolica.community.tensor.TensorLibrary"><code>TensorLibrary</code></a></td>
+<td>Reusable component definitions indexed by tensor name and signature</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/TensorName.html#symbolica.community.tensor.TensorName"><code>TensorName</code></a></td>
+<td>A registered function name for symbolic tensors of arbitrary index spaces</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/TensorNetwork.html#symbolica.community.tensor.TensorNetwork"><code>TensorNetwork</code></a></td>
+<td>An executable tensor calculation that retains component data</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/TensorPattern.html#symbolica.community.tensor.TensorPattern"><code>TensorPattern</code></a></td>
+<td>Representation-aware Symbolica patterns for matching tensor expressions</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/TensorRule.html#symbolica.community.tensor.TensorRule"><code>TensorRule</code></a></td>
+<td>A reusable replacement rule that preserves tensor interfaces</td>
+</tr>
+<tr>
+<td><a href="/docs/tensor/TensorStructure.html#symbolica.community.tensor.TensorStructure"><code>TensorStructure</code></a></td>
+<td>The canonical external signature of an opaque tensor</td>
+</tr>
+</tbody>
+</table>
+<h2 id="functions">Functions</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a href="#symbolica.community.tensor.Nc"><code>Nc</code></a></td>
+<td>Return the canonical real color-count symbol, whose default numerical value is 3</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.tensor.as_tensor"><code>as_tensor</code></a></td>
+<td>Convert a symbolic expression to a TensorExpression.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.tensor.chain"><code>chain</code></a></td>
+<td>Compose an ordered product with explicitly labeled endpoints.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.tensor.dot"><code>dot</code></a></td>
+<td>Contract two rank-one tensors into a scalar product.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.tensor.format_tensor"><code>format_tensor</code></a></td>
+<td>Produce compact plain-text tensor notation.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.tensor.formatted"><code>formatted</code></a></td>
+<td>Create a lazy rich display value for a notebook.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.tensor.load_math_font"><code>load_math_font</code></a></td>
+<td>Embed the bundled math font in an HTML notebook or document.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.tensor.set_symbolica_rayon_enabled"><code>set_symbolica_rayon_enabled</code></a></td>
+<td>Set the threading policy for Spenso’s Symbolica operations.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.tensor.to_html"><code>to_html</code></a></td>
+<td>Render the tensor as an HTML fragment.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.tensor.to_svg"><code>to_svg</code></a></td>
+<td>Render static mathematical tensor notation to SVG.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.tensor.to_typst"><code>to_typst</code></a></td>
+<td>Produce static Typst math source.</td>
+</tr>
+<tr>
+<td><a href="#symbolica.community.tensor.trace"><code>trace</code></a></td>
+<td>Close an ordered product along a representation channel.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="symbolica.community.tensor.Nc"><code>Nc</code></h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Nc() <span class="op">-&gt;</span> Expression</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related type:</em> <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a></p>
+</div>
+<p>Return the canonical real color-count symbol, whose default numerical value is 3.</p>
+<p>Construct it on demand so importing Symbolica leaves time to set a license key. Use a separate dimension symbol for formal SU(N) calculations when the default numerical value is not appropriate.</p>
+<h3 id="examples">Examples</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.tensor <span class="im">import</span> Nc</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Nc().evaluate({})</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span></span></code></pre></div>
+<h2 id="symbolica.community.tensor.as_tensor"><code>as_tensor</code></h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>as_tensor(expression: typing.Any) <span class="op">-&gt;</span> TensorExpression</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related type:</em> <a href="/docs/tensor/TensorExpression.html#symbolica.community.tensor.TensorExpression"><code>TensorExpression</code></a></p>
+</div>
+<p>Convert a symbolic expression to a TensorExpression.</p>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li><code>expression</code> (<code class="doc-type-annotation">TensorExpression or scalar expression</code>) Tensor syntax to infer, or an ordinary scalar. An existing TensorExpression retains its tensor metadata.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<ul>
+<li><code>TensorExpression</code> Tensor-aware algebra, including rank-zero scalars.</li>
+</ul>
+<h3 id="notes">Notes</h3>
+<p>Equivalent to <code>TensorExpression(expression)</code> without its optional structure and index-cooking settings.</p>
+<h3 id="examples-1">Examples</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.tensor <span class="im">import</span> as_tensor</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>as_tensor(<span class="dv">2</span>).is_scalar</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="va">True</span></span></code></pre></div>
+<h2 id="symbolica.community.tensor.chain"><code>chain</code></h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>chain(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    start_slot: Slot,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    end_slot: Slot,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>factors: TensorExpression <span class="op">|</span> Expression <span class="op">|</span> FactorProjector[TensorExpression],</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> TensorExpression</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>chain(</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    start_slot: Slot,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    end_slot: Slot,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    factor: Tensor <span class="op">|</span> TensorNetwork <span class="op">|</span> FactorProjector[TensorNetwork],</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">/</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>factors: TensorExpression <span class="op">|</span> _ScalarInput <span class="op">|</span> Tensor <span class="op">|</span> TensorNetwork <span class="op">|</span> FactorProjector[TensorExpression] <span class="op">|</span> FactorProjector[TensorNetwork],</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> TensorNetwork</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>chain(</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    start_slot: Slot,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    end_slot: Slot,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    first: _ScalarInput <span class="op">|</span> TensorExpression <span class="op">|</span> TensorNetwork <span class="op">|</span> Tensor <span class="op">|</span> FactorProjector[TensorExpression] <span class="op">|</span> FactorProjector[TensorNetwork],</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    second: Tensor <span class="op">|</span> TensorNetwork <span class="op">|</span> FactorProjector[TensorNetwork],</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">/</span>,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>factors: TensorExpression <span class="op">|</span> _ScalarInput <span class="op">|</span> Tensor <span class="op">|</span> TensorNetwork <span class="op">|</span> FactorProjector[TensorExpression] <span class="op">|</span> FactorProjector[TensorNetwork],</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> TensorNetwork</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>chain(</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    start_slot: Slot,</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    end_slot: Slot,</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>factors: TensorExpression <span class="op">|</span> _ScalarInput <span class="op">|</span> Tensor <span class="op">|</span> TensorNetwork <span class="op">|</span> FactorProjector[TensorExpression] <span class="op">|</span> FactorProjector[TensorNetwork],</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> TensorExpression <span class="op">|</span> TensorNetwork</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related types:</em> <a href="/docs/tensor/Slot.html#symbolica.community.tensor.Slot"><code>Slot</code></a>, <a href="/docs/tensor/TensorExpression.html#symbolica.community.tensor.TensorExpression"><code>TensorExpression</code></a>, <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a>, <a href="/docs/tensor/FactorProjector.html#symbolica.community.tensor.FactorProjector"><code>FactorProjector</code></a>, <a href="/docs/tensor/Tensor.html#symbolica.community.tensor.Tensor"><code>Tensor</code></a>, <a href="/docs/tensor/TensorNetwork.html#symbolica.community.tensor.TensorNetwork"><code>TensorNetwork</code></a></p>
+</div>
+<p>Compose an ordered product with explicitly labeled endpoints.</p>
+<h3 id="parameters-1">Parameters</h3>
+<ul>
+<li><code>start_slot, end_slot</code> (<code class="doc-type-annotation">Slot</code>) External input and output indices, compatible with the factors’ matrix channel. Matching endpoint labels close a trace.</li>
+<li><code>*factors</code> (<code class="doc-type-annotation">TensorExpression, scalar expression, Tensor, TensorNetwork, or FactorProjector</code>) Ordered matrix factors, each with a unique compatible channel. Spectator axes remain external. Supply constituent factors separately when using a factor projector. Scalar factors multiply the whole chain. In the overloads, factor, first, and second name leading entries in this same sequence of positional factors.</li>
+</ul>
+<h3 id="returns-1">Returns</h3>
+<ul>
+<li><code>TensorExpression or TensorNetwork</code> A symbolic chain when all factors are symbolic; a lazy TensorNetwork if any factor or projector contains component data.</li>
+</ul>
+<h3 id="examples-2">Examples</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.tensor <span class="im">import</span> Representation, TensorName, TensorExpression</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>space <span class="op">=</span> Representation.euc(<span class="dv">2</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> TensorName(<span class="st">&quot;M&quot;</span>)(space, space)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.tensor <span class="im">import</span> chain</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>product <span class="op">=</span> chain(space(<span class="st">&quot;i&quot;</span>), space(<span class="st">&quot;j&quot;</span>), A, A)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>product.rank</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span></span></code></pre></div>
+<h2 id="symbolica.community.tensor.dot"><code>dot</code></h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dot(left: TensorExpression <span class="op">|</span> Expression, right: TensorExpression <span class="op">|</span> Expression) <span class="op">-&gt;</span> TensorExpression</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dot(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    left: typing.Union[Tensor, TensorNetwork],</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    right: _ScalarInput <span class="op">|</span> TensorExpression <span class="op">|</span> TensorNetwork <span class="op">|</span> Tensor <span class="op">|</span> FactorProjector[TensorExpression] <span class="op">|</span> FactorProjector[TensorNetwork],</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> TensorNetwork</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>dot(</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    left: _ScalarInput <span class="op">|</span> TensorExpression <span class="op">|</span> TensorNetwork <span class="op">|</span> Tensor <span class="op">|</span> FactorProjector[TensorExpression] <span class="op">|</span> FactorProjector[TensorNetwork],</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    right: typing.Union[Tensor, TensorNetwork],</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> TensorNetwork</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related types:</em> <a href="/docs/tensor/TensorExpression.html#symbolica.community.tensor.TensorExpression"><code>TensorExpression</code></a>, <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a>, <a href="/docs/tensor/Tensor.html#symbolica.community.tensor.Tensor"><code>Tensor</code></a>, <a href="/docs/tensor/TensorNetwork.html#symbolica.community.tensor.TensorNetwork"><code>TensorNetwork</code></a>, <a href="/docs/tensor/FactorProjector.html#symbolica.community.tensor.FactorProjector"><code>FactorProjector</code></a></p>
+</div>
+<p>Contract two rank-one tensors into a scalar product.</p>
+<h3 id="parameters-2">Parameters</h3>
+<ul>
+<li><code>left, right</code> (<code class="doc-type-annotation">TensorExpression, Tensor, or TensorNetwork</code>) Rank-one operands in compatible representation spaces.</li>
+</ul>
+<h3 id="returns-2">Returns</h3>
+<ul>
+<li><code>TensorExpression or TensorNetwork</code> Symbolic operands return TensorExpression. If either operand carries component data, the result is a lazy TensorNetwork.</li>
+</ul>
+<h3 id="notes-1">Notes</h3>
+<p>The pairing includes the representation metric, for example Minkowski signs. This is a bilinear product; it does not conjugate either operand.</p>
+<h3 id="examples-3">Examples</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.tensor <span class="im">import</span> Representation, TensorName, dot</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>space <span class="op">=</span> Representation.euc(<span class="dv">3</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> TensorName.vector(<span class="st">&quot;dot_p&quot;</span>)(space)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> TensorName.vector(<span class="st">&quot;dot_q&quot;</span>)(space)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>dot(p, q).is_scalar</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="va">True</span></span></code></pre></div>
+<h2 id="symbolica.community.tensor.format_tensor"><code>format_tensor</code></h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>format_tensor(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    expression: Expression,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    show_dimensions: typing.Optional[builtins.<span class="bu">bool</span>] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    settings: typing.Optional[DisplaySettings] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> builtins.<span class="bu">str</span></span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related types:</em> <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a>, <a href="/docs/tensor/DisplaySettings.html#symbolica.community.tensor.DisplaySettings"><code>DisplaySettings</code></a></p>
+</div>
+<p>Produce compact plain-text tensor notation.</p>
+<h3 id="parameters-3">Parameters</h3>
+<ul>
+<li><code>expression</code> (<code class="doc-type-annotation">Expression</code>) Symbolica tensor syntax or scalar algebra to display. For a TensorExpression or component Tensor, prefer its formatting methods.</li>
+<li><code>show_dimensions</code> (<code class="doc-type-annotation">bool, optional</code>) Override settings.show_dimensions for this call. None retains the selected settings, whose default omits dimensions.</li>
+<li><code>settings</code> (<code class="doc-type-annotation">DisplaySettings, optional</code>) Tensor notation and display choices. Defaults to DisplaySettings().</li>
+</ul>
+<h3 id="returns-3">Returns</h3>
+<ul>
+<li><code>str</code> Readable tensor text, suitable for logs or terminal output.</li>
+</ul>
+<h3 id="notes-2">Notes</h3>
+<p>Only ports layout and default spacing are supported in this source format. Use to_html() or to_svg() for other layouts and custom gaps.</p>
+<h3 id="examples-4">Examples</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica <span class="im">import</span> S</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>expression <span class="op">=</span> S(<span class="st">&quot;x&quot;</span>) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.tensor <span class="im">import</span> format_tensor</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> format_tensor(expression)</span></code></pre></div>
+<h2 id="symbolica.community.tensor.formatted"><code>formatted</code></h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>formatted(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    expression: Expression,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    show_dimensions: typing.Optional[builtins.<span class="bu">bool</span>] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    settings: typing.Optional[DisplaySettings] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    notation_source: typing.Optional[builtins.<span class="bu">str</span>] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> FormattedOutput</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related types:</em> <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a>, <a href="/docs/tensor/DisplaySettings.html#symbolica.community.tensor.DisplaySettings"><code>DisplaySettings</code></a>, <a href="https://symbolica.io/docs/python_api/FormattedOutput.html#symbolica.FormattedOutput"><code>FormattedOutput</code></a></p>
+</div>
+<p>Create a lazy rich display value for a notebook.</p>
+<h3 id="parameters-4">Parameters</h3>
+<ul>
+<li><code>expression</code> (<code class="doc-type-annotation">Expression</code>) Symbolica tensor syntax or scalar algebra to display. For a TensorExpression or component Tensor, prefer its formatting methods.</li>
+<li><code>show_dimensions</code> (<code class="doc-type-annotation">bool, optional</code>) Override settings.show_dimensions for this call. None retains the selected settings, whose default omits dimensions.</li>
+<li><code>settings</code> (<code class="doc-type-annotation">DisplaySettings, optional</code>) Tensor notation and display choices. Defaults to DisplaySettings().</li>
+<li><code>notation_source</code> (<code class="doc-type-annotation">str, optional</code>) Custom Typst notation source used by the rich renderer. This is Typst code, not a filename; omit it for the supplied tensor notation.</li>
+</ul>
+<h3 id="returns-4">Returns</h3>
+<ul>
+<li><code>FormattedOutput</code> Each requested backend renders the complete expression once and caches it.</li>
+</ul>
+<h3 id="notes-3">Notes</h3>
+<p>Settings are captured here; custom printers run on the first request for each backend. Create a new formatted value after changing printers.</p>
+<h3 id="examples-5">Examples</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica <span class="im">import</span> S</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>expression <span class="op">=</span> S(<span class="st">&quot;x&quot;</span>) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.tensor <span class="im">import</span> formatted</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> formatted(expression)</span></code></pre></div>
+<h2 id="symbolica.community.tensor.load_math_font"><code>load_math_font</code></h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>load_math_font() <span class="op">-&gt;</span> builtins.<span class="bu">str</span></span></code></pre></div>
+<p>Embed the bundled math font in an HTML notebook or document.</p>
+<h3 id="returns-5">Returns</h3>
+<ul>
+<li><code>str</code> A style element with the font data and redistribution license.</li>
+</ul>
+<h3 id="notes-4">Notes</h3>
+<p>Display this HTML once before tensor outputs, or include it in an exported document’s head. It avoids the normal font download and applies to the same HTML document; isolated output frames need their own copy. In Marimo, use <code>mo.Html(load_math_font())</code>; in IPython, use <code>HTML(load_math_font())</code>.</p>
+<h3 id="examples-6">Examples</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.tensor <span class="im">import</span> load_math_font</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>html <span class="op">=</span> load_math_font()</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>html.startswith(<span class="st">&quot;&lt;style&gt;&quot;</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="va">True</span></span></code></pre></div>
+<h2 id="symbolica.community.tensor.set_symbolica_rayon_enabled"><code>set_symbolica_rayon_enabled</code></h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>set_symbolica_rayon_enabled(policy: SymbolicParallelism) <span class="op">-&gt;</span> builtins.<span class="bu">bool</span></span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related type:</em> <a href="/docs/tensor/SymbolicParallelism.html#symbolica.community.tensor.SymbolicParallelism"><code>SymbolicParallelism</code></a></p>
+</div>
+<p>Set the threading policy for Spenso’s Symbolica operations.</p>
+<h3 id="parameters-5">Parameters</h3>
+<ul>
+<li><code>policy</code> (<code class="doc-type-annotation">SymbolicParallelism</code>) Auto checks the license at this call; Serial disables symbolic parallelism; Parallel enables it without that automatic check.</li>
+</ul>
+<h3 id="returns-6">Returns</h3>
+<ul>
+<li><code>bool</code> Whether the resolved policy permits parallel execution. Individual operations may still choose serial execution for small workloads.</li>
+</ul>
+<h3 id="notes-5">Notes</h3>
+<p>This changes the process-wide policy, not just one tensor or network.</p>
+<h3 id="examples-7">Examples</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.tensor <span class="im">import</span> SymbolicParallelism, set_symbolica_rayon_enabled</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>allowed <span class="op">=</span> set_symbolica_rayon_enabled(SymbolicParallelism.Auto)</span></code></pre></div>
+<h2 id="symbolica.community.tensor.to_html"><code>to_html</code></h2>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>to_html(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    expression: Expression,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    show_dimensions: typing.Optional[builtins.<span class="bu">bool</span>] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    settings: typing.Optional[DisplaySettings] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    notation_source: typing.Optional[builtins.<span class="bu">str</span>] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> builtins.<span class="bu">str</span></span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related types:</em> <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a>, <a href="/docs/tensor/DisplaySettings.html#symbolica.community.tensor.DisplaySettings"><code>DisplaySettings</code></a></p>
+</div>
+<p>Render the tensor as an HTML fragment.</p>
+<h3 id="parameters-6">Parameters</h3>
+<ul>
+<li><code>expression</code> (<code class="doc-type-annotation">Expression</code>) Symbolica tensor syntax or scalar algebra to display. For a TensorExpression or component Tensor, prefer its formatting methods.</li>
+<li><code>show_dimensions</code> (<code class="doc-type-annotation">bool, optional</code>) Override settings.show_dimensions for this call. None retains the selected settings, whose default omits dimensions.</li>
+<li><code>settings</code> (<code class="doc-type-annotation">DisplaySettings, optional</code>) Tensor notation and display choices. Defaults to DisplaySettings().</li>
+<li><code>notation_source</code> (<code class="doc-type-annotation">str, optional</code>) Custom Typst notation source used by the rich renderer. This is Typst code, not a filename; omit it for the supplied tensor notation.</li>
+</ul>
+<h3 id="returns-7">Returns</h3>
+<ul>
+<li><code>str</code> Self-contained output fragment for an HTML-capable notebook or page.</li>
+</ul>
+<h3 id="notes-6">Notes</h3>
+<p>Mathematical rendering uses the embedded Typst compiler. The returned string is not automatically displayed; pass it to the notebook’s HTML or SVG display facility.</p>
+<h3 id="examples-8">Examples</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica <span class="im">import</span> S</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>expression <span class="op">=</span> S(<span class="st">&quot;x&quot;</span>) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.tensor <span class="im">import</span> to_html</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> to_html(expression)</span></code></pre></div>
+<h2 id="symbolica.community.tensor.to_svg"><code>to_svg</code></h2>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>to_svg(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    expression: Expression,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    show_dimensions: typing.Optional[builtins.<span class="bu">bool</span>] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    settings: typing.Optional[DisplaySettings] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    notation_source: typing.Optional[builtins.<span class="bu">str</span>] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> builtins.<span class="bu">str</span></span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related types:</em> <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a>, <a href="/docs/tensor/DisplaySettings.html#symbolica.community.tensor.DisplaySettings"><code>DisplaySettings</code></a></p>
+</div>
+<p>Render static mathematical tensor notation to SVG.</p>
+<h3 id="parameters-7">Parameters</h3>
+<ul>
+<li><code>expression</code> (<code class="doc-type-annotation">Expression</code>) Symbolica tensor syntax or scalar algebra to display. For a TensorExpression or component Tensor, prefer its formatting methods.</li>
+<li><code>show_dimensions</code> (<code class="doc-type-annotation">bool, optional</code>) Override settings.show_dimensions for this call. None retains the selected settings, whose default omits dimensions.</li>
+<li><code>settings</code> (<code class="doc-type-annotation">DisplaySettings, optional</code>) Tensor notation and display choices. Defaults to DisplaySettings().</li>
+<li><code>notation_source</code> (<code class="doc-type-annotation">str, optional</code>) Custom Typst notation source used by the rich renderer. This is Typst code, not a filename; omit it for the supplied tensor notation.</li>
+</ul>
+<h3 id="returns-8">Returns</h3>
+<ul>
+<li><code>str</code> SVG markup suitable for embedding or saving to a file.</li>
+</ul>
+<h3 id="notes-7">Notes</h3>
+<p>Mathematical rendering uses the embedded Typst compiler. The returned string is not automatically displayed; pass it to the notebook’s HTML or SVG display facility.</p>
+<h3 id="examples-9">Examples</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica <span class="im">import</span> S</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>expression <span class="op">=</span> S(<span class="st">&quot;x&quot;</span>) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.tensor <span class="im">import</span> to_svg</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> to_svg(expression)</span></code></pre></div>
+<h2 id="symbolica.community.tensor.to_typst"><code>to_typst</code></h2>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>to_typst(</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    expression: Expression,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    show_dimensions: typing.Optional[builtins.<span class="bu">bool</span>] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    settings: typing.Optional[DisplaySettings] <span class="op">=</span> <span class="va">None</span>,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> builtins.<span class="bu">str</span></span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related types:</em> <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a>, <a href="/docs/tensor/DisplaySettings.html#symbolica.community.tensor.DisplaySettings"><code>DisplaySettings</code></a></p>
+</div>
+<p>Produce static Typst math source.</p>
+<h3 id="parameters-8">Parameters</h3>
+<ul>
+<li><code>expression</code> (<code class="doc-type-annotation">Expression</code>) Symbolica tensor syntax or scalar algebra to display. For a TensorExpression or component Tensor, prefer its formatting methods.</li>
+<li><code>show_dimensions</code> (<code class="doc-type-annotation">bool, optional</code>) Override settings.show_dimensions for this call. None retains the selected settings, whose default omits dimensions.</li>
+<li><code>settings</code> (<code class="doc-type-annotation">DisplaySettings, optional</code>) Tensor notation and display choices. Defaults to DisplaySettings().</li>
+</ul>
+<h3 id="returns-9">Returns</h3>
+<ul>
+<li><code>str</code> Typst source without an enclosing document; no compilation is performed.</li>
+</ul>
+<h3 id="notes-8">Notes</h3>
+<p>Only ports layout and default spacing are supported in this source format. Use to_html() or to_svg() for other layouts and custom gaps.</p>
+<p>Static Typst output remains available independently of the HTML explorer.</p>
+<h3 id="examples-10">Examples</h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica <span class="im">import</span> S</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>expression <span class="op">=</span> S(<span class="st">&quot;x&quot;</span>) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.tensor <span class="im">import</span> to_typst</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> to_typst(expression)</span></code></pre></div>
+<h2 id="symbolica.community.tensor.trace"><code>trace</code></h2>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>trace(</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    representation: Representation,</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>factors: TensorExpression <span class="op">|</span> Expression <span class="op">|</span> FactorProjector[TensorExpression],</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> TensorExpression</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>trace(</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    representation: Representation,</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    factor: Tensor <span class="op">|</span> TensorNetwork <span class="op">|</span> FactorProjector[TensorNetwork],</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">/</span>,</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>factors: TensorExpression <span class="op">|</span> _ScalarInput <span class="op">|</span> Tensor <span class="op">|</span> TensorNetwork <span class="op">|</span> FactorProjector[TensorExpression] <span class="op">|</span> FactorProjector[TensorNetwork],</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> TensorNetwork</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>trace(</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    representation: Representation,</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    first: _ScalarInput <span class="op">|</span> TensorExpression <span class="op">|</span> TensorNetwork <span class="op">|</span> Tensor <span class="op">|</span> FactorProjector[TensorExpression] <span class="op">|</span> FactorProjector[TensorNetwork],</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    second: Tensor <span class="op">|</span> TensorNetwork <span class="op">|</span> FactorProjector[TensorNetwork],</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">/</span>,</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>factors: TensorExpression <span class="op">|</span> _ScalarInput <span class="op">|</span> Tensor <span class="op">|</span> TensorNetwork <span class="op">|</span> FactorProjector[TensorExpression] <span class="op">|</span> FactorProjector[TensorNetwork],</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> TensorNetwork</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>trace(</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    representation: Representation,</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>factors: TensorExpression <span class="op">|</span> _ScalarInput <span class="op">|</span> Tensor <span class="op">|</span> TensorNetwork <span class="op">|</span> FactorProjector[TensorExpression] <span class="op">|</span> FactorProjector[TensorNetwork],</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>) <span class="op">-&gt;</span> TensorExpression <span class="op">|</span> TensorNetwork</span></code></pre></div>
+<div class="signature-related-types">
+<p><em>Related types:</em> <a href="/docs/tensor/Representation.html#symbolica.community.tensor.Representation"><code>Representation</code></a>, <a href="/docs/tensor/TensorExpression.html#symbolica.community.tensor.TensorExpression"><code>TensorExpression</code></a>, <a href="https://symbolica.io/docs/python_api/Expression.html#symbolica.Expression"><code>Expression</code></a>, <a href="/docs/tensor/FactorProjector.html#symbolica.community.tensor.FactorProjector"><code>FactorProjector</code></a>, <a href="/docs/tensor/Tensor.html#symbolica.community.tensor.Tensor"><code>Tensor</code></a>, <a href="/docs/tensor/TensorNetwork.html#symbolica.community.tensor.TensorNetwork"><code>TensorNetwork</code></a></p>
+</div>
+<p>Close an ordered product along a representation channel.</p>
+<h3 id="parameters-9">Parameters</h3>
+<ul>
+<li><code>representation</code> (<code class="doc-type-annotation">Representation</code>) Space over which the matrix indices are traced.</li>
+<li><code>*factors</code> (<code class="doc-type-annotation">TensorExpression, scalar expression, Tensor, TensorNetwork, or FactorProjector</code>) Ordered factors with compatible matrix channels. Additional axes are retained as spectator axes. Scalar factors multiply the whole trace. In the overloads, factor, first, and second name leading entries in this same sequence of positional factors.</li>
+</ul>
+<h3 id="returns-10">Returns</h3>
+<ul>
+<li><code>TensorExpression or TensorNetwork</code> Symbolic operands produce a symbolic trace. Any component-bearing factor produces a lazy TensorNetwork.</li>
+</ul>
+<h3 id="examples-11">Examples</h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.tensor <span class="im">import</span> Representation, TensorName, TensorExpression</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>space <span class="op">=</span> Representation.euc(<span class="dv">2</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> TensorName(<span class="st">&quot;M&quot;</span>)(space, space)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> symbolica.community.tensor <span class="im">import</span> trace</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>trace(space, A, A).is_scalar</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="va">True</span></span></code></pre></div>
+<h2 id="constants">Constants</h2>
+<h2 id="symbolica.community.tensor.AUTO"><code>AUTO</code></h2>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>AUTO: _AutoIndex</span></code></pre></div>
+</article><p class="docs-source">Reference synced from <a href="https://symbolica.io/docs/python_api/community/tensor/index.html">Symbolica documentation</a>.</p>
+</main><aside class="docs-toc" aria-label="On this page"><p>On this page</p><ul><li><a href="#overview">Overview</a></li><li><a href="#contributors">Contributors</a></li><li><a href="#classes">Classes</a></li><li><a href="#functions">Functions</a></li><li><a href="#symbolica.community.tensor.Nc">Nc</a></li><li><a href="#symbolica.community.tensor.as_tensor">as_tensor</a></li><li><a href="#symbolica.community.tensor.chain">chain</a></li><li><a href="#symbolica.community.tensor.dot">dot</a></li><li><a href="#symbolica.community.tensor.format_tensor">format_tensor</a></li><li><a href="#symbolica.community.tensor.formatted">formatted</a></li><li><a href="#symbolica.community.tensor.load_math_font">load_math_font</a></li><li><a href="#symbolica.community.tensor.set_symbolica_rayon_enabled">set_symbolica_rayon_enabled</a></li><li><a href="#symbolica.community.tensor.to_html">to_html</a></li><li><a href="#symbolica.community.tensor.to_svg">to_svg</a></li><li><a href="#symbolica.community.tensor.to_typst">to_typst</a></li><li><a href="#symbolica.community.tensor.trace">trace</a></li><li><a href="#constants">Constants</a></li><li><a href="#symbolica.community.tensor.AUTO">AUTO</a></li></ul></aside></div><script src="/docs.js" defer></script></body></html>

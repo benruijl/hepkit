@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-labelledby="title desc" >
+  <title id="title">HEPkit</title>
+  <desc id="desc">HEPkit interaction-diagram symbol.</desc>
+  <g fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="#00AA88" d="M24 24 54 80 24 136 M136 24 106 80 136 136"/>
+    <path stroke="#00AA88" stroke-width="5" d="M54 80 C58.333 80 58.333 67 62.667 67 S67 93 71.333 93 S75.667 67 80 67 S84.333 93 88.667 93 S93 67 97.333 67 S101.667 80 106 80"/>
+  </g>
+  <g fill="#00AA88"><circle cx="54" cy="80" r="6.5"/><circle cx="106" cy="80" r="6.5"/></g>
+</svg>

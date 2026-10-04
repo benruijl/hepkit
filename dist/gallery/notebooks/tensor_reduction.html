@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<script data-hepkit-cdn-workers>
+(() => {
+  const NativeWorker = window.Worker;
+  if (!NativeWorker) return;
+  const cdnOrigin = "https://cdn.symbolica.io";
+  const localWorkers = {"/docs/live-python/ty-worker.js": "/docs/live-python/ty-worker.js", "/gallery/notebooks/assets/save-worker-_Qc1hOeF.js": "/gallery/notebooks/assets/save-worker-_Qc1hOeF.js", "/gallery/notebooks/assets/worker-BM73L67p.js": "/gallery/notebooks/assets/worker-BM73L67p.js"};
+  window.Worker = class HEPkitWorker extends NativeWorker {
+    constructor(scriptURL, options) {
+      const url = new URL(String(scriptURL), document.baseURI);
+      let target = scriptURL;
+      if (url.protocol !== 'blob:' && url.origin === cdnOrigin) {
+        const local = localWorkers[url.pathname];
+        if (!local) {
+          throw new DOMException(
+            'HEPkit has no local adapter for CDN worker ' + url.pathname +
+            '. Refresh this page or update the notebook export.', 'SecurityError');
+        }
+        target = new URL(local + url.search + url.hash, window.location.origin).href;
+      }
+      super(target, options);
+    }
+  };
+})();
+</script>
+    <meta charset="utf-8" /><script>// Inline in notebook HTML: start Python while the editor bundle loads.
+// The catalog never runs this script until a notebook iframe is opened.
+(() => {
+  const worker = new Worker(new URL('./assets/worker-BM73L67p.js?v=9f89a53efb79bf92', document.baseURI), {
+    type: 'module', name: '0.24.0',
+  });
+  const messages = [];
+  const buffer = event => messages.push(event.data);
+  worker.addEventListener('message', buffer);
+  window.__symbolicaGalleryTakeWorker = () => {
+    delete window.__symbolicaGalleryTakeWorker;
+    worker.removeEventListener('message', buffer);
+    // Marimo installs its RPC transport and listeners synchronously after
+    // taking the worker. Replay ready/progress/error messages only afterward.
+    queueMicrotask(() => {
+      for (const data of messages) worker.dispatchEvent(new MessageEvent('message', {data}));
+      messages.length = 0;
+    });
+    return worker;
+  };
+})();
+</script>
+    
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" href="https://cdn.symbolica.io/gallery/notebooks/assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" href="https://cdn.symbolica.io/gallery/notebooks/assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="https://cdn.symbolica.io/gallery/notebooks/assets/Lora-VariableFont_wght-CZceb_kH.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.symbolica.io/gallery/notebooks/assets/PTSans-Regular-Bam3NpBI.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.symbolica.io/gallery/notebooks/assets/PTSans-Bold-C_DwAp7Z.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.symbolica.io/gallery/notebooks/assets/FiraMono-Regular-CEsLFVD9.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.symbolica.io/gallery/notebooks/assets/FiraMono-Medium-D5MAsWEG.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="https://cdn.symbolica.io/gallery/notebooks/assets/FiraMono-Bold-C6PDArdf.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    
+    
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        const scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          // Guard against race condition where iframe isn't ready
+          if (!obj.contentWindow?.document?.documentElement) {
+            return;
+          }
+          const element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          const hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          const newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((_entries) => {
+          setHeight();
+        });
+        // Only observe if iframe content is ready
+        if (obj.contentWindow?.document?.body) {
+          resizeObserver.observe(obj.contentWindow.document.body);
+        }
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>Covariant tensor reduction · Symbolica Gallery</title>
+    <link rel="stylesheet" crossorigin href="/gallery/notebooks/assets/cells-BE1kpmPF.css">
+<link rel="stylesheet" crossorigin href="/gallery/notebooks/assets/markdown-renderer-DdDKmWlR.css">
+<link rel="stylesheet" crossorigin href="/gallery/notebooks/assets/JsonOutput-BQtz7-np.css">
+<link rel="stylesheet" crossorigin href="/gallery/notebooks/assets/index-WoaGtlKd.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/CellStatus-2Psjnl5F.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/Inputs-C4Oo7q-H.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/agent-panel-uD4NfS9H.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/cell-editor-_cVIHMNI.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/dependency-graph-panel-DZccg5W0.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/edit-page-Dstp9NQ5.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/glide-data-editor-Bt_UJyRV.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/layout-BjXzDXoG.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/multi-icon-CW3_9bja.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/name-cell-input-ujOhus_y.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/outline-panel-DHPbKZNT.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/panels-DDsRoC3H.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/reveal-component-55QLSQaY.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/slides-DkEgzTJB.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/snippets-panel-Qc3aWbYx.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/swiper-component-UB_Zmrma.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/terminal-ByuMlBP_.css">
+<script type="module" crossorigin src="https://cdn.symbolica.io/gallery/notebooks/assets/symbolica-editor-CdsimbYJ.js?v=9f89a53efb79bf92"></script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    
+<script data-marimo="true">
+    Object.defineProperty(window, "__MARIMO_EXPORT_CONTEXT__", {
+        value: Object.freeze({
+            trusted: true,
+            notebookCode: "# /// script\n# requires-python = \"\u003E=3.13\"\n# dependencies = [\n#     \"marimo==0.24.0\",\n# ]\n# ///\n\nimport marimo\n\n__generated_with = \"0.24.0\"\napp = marimo.App(width=\"medium\", app_title=\"Covariant tensor reduction\")\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(r\"\"\"\n    # Tensor reduction\n\n    Perform efficient tensor reduction, even for high-rank tensors.\n    \"\"\")\n    return\n\n\n@app.cell\ndef _():\n    import marimo as mo\n    from symbolica import E, S\n    from symbolica import set_namespace as _set_namespace\n    import symbolica.community.hepkit as hep\n    from symbolica.community import tensor\n\n\n    _set_namespace(\"angular_demo\")\n    return S, hep, mo, tensor\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(\"\"\"\n    ## 1. Declare the integration variable\n\n    Both vectors inhabit the same Lorentz space. Only `k` is integrated;\n    `p` is an external vector and remains in the answer.\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(S, hep, tensor):\n    D = S(\"D\")\n    lorentz = tensor.Representation.mink(D)\n    k, p = tensor.TensorName.vector(\"k\"), tensor.TensorName.vector(\"p\")\n    reducer = hep.TensorReducer(D, integrated=[k])\n    return k, lorentz, p, reducer\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(\"\"\"\n    ## 2. Reduce a compact scalar product\n\n    Pass the numerator's expression to the reducer. No arithmetic expansion or\n    sequence of tensor simplification passes is required.\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(k, lorentz, p):\n    numerator = (k(1, lorentz) * p(lorentz))**2 * (k(2, lorentz) * p(2, lorentz))**2\n    numerator\n    return (numerator,)\n\n\n@app.cell\ndef _(numerator, reducer, tensor):\n    reduced = reducer.reduce(numerator.to_expression())\n    tensor.TensorExpression(reduced)\n    return\n\n\nif __name__ == \"__main__\":\n    app.run()\n",
+        }),
+        writable: false,
+        configurable: false,
+    });
+</script>
+<marimo-code hidden="">%23%20%2F%2F%2F%20script%0A%23%20requires-python%20%3D%20%22%3E%3D3.13%22%0A%23%20dependencies%20%3D%20%5B%0A%23%20%20%20%20%20%22marimo%3D%3D0.24.0%22%2C%0A%23%20%5D%0A%23%20%2F%2F%2F%0A%0Aimport%20marimo%0A%0A__generated_with%20%3D%20%220.24.0%22%0Aapp%20%3D%20marimo.App(width%3D%22medium%22%2C%20app_title%3D%22Covariant%20tensor%20reduction%22)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%20Tensor%20reduction%0A%0A%20%20%20%20Perform%20efficient%20tensor%20reduction%2C%20even%20for%20high-rank%20tensors.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20from%20symbolica%20import%20E%2C%20S%0A%20%20%20%20from%20symbolica%20import%20set_namespace%20as%20_set_namespace%0A%20%20%20%20import%20symbolica.community.hepkit%20as%20hep%0A%20%20%20%20from%20symbolica.community%20import%20tensor%0A%0A%0A%20%20%20%20_set_namespace(%22angular_demo%22)%0A%20%20%20%20return%20S%2C%20hep%2C%20mo%2C%20tensor%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(%22%22%22%0A%20%20%20%20%23%23%201.%20Declare%20the%20integration%20variable%0A%0A%20%20%20%20Both%20vectors%20inhabit%20the%20same%20Lorentz%20space.%20Only%20%60k%60%20is%20integrated%3B%0A%20%20%20%20%60p%60%20is%20an%20external%20vector%20and%20remains%20in%20the%20answer.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(S%2C%20hep%2C%20tensor)%3A%0A%20%20%20%20D%20%3D%20S(%22D%22)%0A%20%20%20%20lorentz%20%3D%20tensor.Representation.mink(D)%0A%20%20%20%20k%2C%20p%20%3D%20tensor.TensorName.vector(%22k%22)%2C%20tensor.TensorName.vector(%22p%22)%0A%20%20%20%20reducer%20%3D%20hep.TensorReducer(D%2C%20integrated%3D%5Bk%5D)%0A%20%20%20%20return%20k%2C%20lorentz%2C%20p%2C%20reducer%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(%22%22%22%0A%20%20%20%20%23%23%202.%20Reduce%20a%20compact%20scalar%20product%0A%0A%20%20%20%20Pass%20the%20numerator's%20expression%20to%20the%20reducer.%20No%20arithmetic%20expansion%20or%0A%20%20%20%20sequence%20of%20tensor%20simplification%20passes%20is%20required.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(k%2C%20lorentz%2C%20p)%3A%0A%20%20%20%20numerator%20%3D%20(k(1%2C%20lorentz)%20*%20p(lorentz))**2%20*%20(k(2%2C%20lorentz)%20*%20p(2%2C%20lorentz))**2%0A%20%20%20%20numerator%0A%20%20%20%20return%20(numerator%2C)%0A%0A%0A%40app.cell%0Adef%20_(numerator%2C%20reducer%2C%20tensor)%3A%0A%20%20%20%20reduced%20%3D%20reducer.reduce(numerator.to_expression())%0A%20%20%20%20tensor.TensorExpression(reduced)%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code><style>/* The notebook iframe does not inherit Quarto's syntax styles. */
+.gallery-type-docs {
+  --hint-keyword: #003b4f;
+  --hint-import: #00769e;
+  --hint-string: #20794d;
+  --hint-comment: #5e5e5e;
+  --hint-function: #4758ab;
+  --hint-number: #ad0000;
+  --hint-constant: #8f5902;
+}
+:is(.dark, .dark-theme) .gallery-type-docs {
+  --hint-keyword: #f0b48a;
+  --hint-import: #8fd3c1;
+  --hint-string: #8fd3c1;
+  --hint-comment: #93a7bb;
+  --hint-function: #f0b48a;
+  --hint-number: #d8c28f;
+  --hint-constant: #84b8ff;
+}
+.gallery-type-docs code .kw { color: var(--hint-keyword); font-weight: bold; }
+.gallery-type-docs code .im { color: var(--hint-import); }
+.gallery-type-docs code :is(.st, .sc) { color: var(--hint-string); }
+.gallery-type-docs code :is(.co, .op) { color: var(--hint-comment); }
+.gallery-type-docs code :is(.fu, .dt) { color: var(--hint-function); }
+.gallery-type-docs code :is(.dv, .er) { color: var(--hint-number); }
+.gallery-type-docs code :is(.cn, .at) { color: var(--hint-constant); }
+</style></head>
+  <body>
+    <div id="root"></div>
+    <script data-marimo="true">
+      Object.defineProperty(window, "__MARIMO_MOUNT_CONFIG__", {
+        value: Object.freeze({
+            "filename": "notebook.py",
+            "cwd": "",
+            "lspWorkspace": null,
+            "mode": "edit",
+            "version": "0.24.0",
+            "serverToken": "unused",
+            "config": {"completion": {"activate_on_typing": true, "signature_hint_on_typing": true, "copilot": false, "auto_close_pairs": true}, "display": {"theme": "system", "code_editor_font_size": 14, "cell_output": "below", "default_width": "medium", "dataframes": "rich", "default_table_page_size": 10, "default_table_max_columns": 50, "reference_highlighting": true, "code_lens": true}, "formatting": {"line_length": 79}, "keymap": {"preset": "default", "overrides": {}}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "reactive_tests": true, "on_cell_change": "autorun", "watcher_on_save": "lazy", "output_max_bytes": 8000000, "std_stream_max_bytes": 1000000, "default_sql_output": "auto", "default_csv_encoding": "utf-8", "show_tracebacks": false}, "save": {"autosave": "after_delay", "autosave_delay": 1000, "format_on_save": false}, "package_management": {"manager": "pip"}, "server": {"browser": "default", "follow_symlink": false}, "language_servers": {"pylsp": {"enabled": false, "enable_mypy": true, "enable_ruff": true, "enable_flake8": false, "enable_pydocstyle": false, "enable_pylint": false, "enable_pyflakes": false}}, "ai": {"enabled": true, "models": {"displayed_models": [], "custom_models": []}, "custom_providers": {}}, "snippets": {"custom_paths": [], "include_default_snippets": true}, "mcp": {"mcpServers": {}, "presets": []}, "diagnostics": {"sql_linter": true}},
+            "configOverrides": {},
+            "appConfig": {"app_title": "Covariant tensor reduction", "sql_output": "auto", "width": "medium"},
+            "view": {"showAppCode": false},
+            "notebook": null,
+            "session": null,
+            "runtimeConfig": null,
+        }),
+        writable: false,
+        configurable: false,
+      });
+    </script>
+  </body>
+</html>
