@@ -1,10 +1,440 @@
 {
-  "synced_at": "2026-10-03T16:57:54.025954+00:00",
+  "synced_at": "2026-10-16T12:14:03.764306+00:00",
   "pages": [
+    {
+      "relative": "graph/Anchor.html",
+      "source": "docs/python_api/community/graph/Anchor.qmd",
+      "sha256": "4edb874f8da92fb8923b6f169c076eeafe8598e76206dd2a0dae986d0d21f673"
+    },
+    {
+      "relative": "graph/Angle.html",
+      "source": "docs/python_api/community/graph/Angle.qmd",
+      "sha256": "db1afc2232b45cad3636a7a995a125319ed1f8ff59c5d3c626d51cacf5b432b5"
+    },
+    {
+      "relative": "graph/Auto.html",
+      "source": "docs/python_api/community/graph/Auto.qmd",
+      "sha256": "03b6e14c74ce8e146439cf6e541c344d25c8bf6e9b943a1e6ff311087e6344cd"
+    },
+    {
+      "relative": "graph/Color.html",
+      "source": "docs/python_api/community/graph/Color.qmd",
+      "sha256": "0f867f0c144f644060fe91a535900150829e25abf02c64979d6a5a61825d832e"
+    },
+    {
+      "relative": "graph/Compass.html",
+      "source": "docs/python_api/community/graph/Compass.qmd",
+      "sha256": "f8d5abce91112705fb96404695328cba4b4bb1541ffb8d7747722291563c55e3"
+    },
+    {
+      "relative": "graph/DanglingTangent.html",
+      "source": "docs/python_api/community/graph/DanglingTangent.qmd",
+      "sha256": "3dfe3c15cad1cb4fd7cc5b3e12e935c4ec8b6ef4d651599ebfe5793f28982527"
+    },
+    {
+      "relative": "graph/Dash.html",
+      "source": "docs/python_api/community/graph/Dash.qmd",
+      "sha256": "9ec8d8be3a94927b87bd97f5b19c57f94b127357ac65f14143cd24ba9988bc2b"
+    },
+    {
+      "relative": "graph/DashPattern.html",
+      "source": "docs/python_api/community/graph/DashPattern.qmd",
+      "sha256": "93b4c768d91f54b5d7f1adfa942e45483dd9a0103bbfee731cafdbc5c102c55a"
+    },
+    {
+      "relative": "graph/DebugLevel.html",
+      "source": "docs/python_api/community/graph/DebugLevel.qmd",
+      "sha256": "67865f1531ce1ed10d3702f63bed510afd03fa7dbb689759973bf77935623274"
+    },
+    {
+      "relative": "graph/DiagramRender.html",
+      "source": "docs/python_api/community/graph/DiagramRender.qmd",
+      "sha256": "c3617a2b79770cd3a322668ea21fee8d371d58115b65a3f1f0003c61fa84d0a1"
+    },
+    {
+      "relative": "graph/DrawOptions.html",
+      "source": "docs/python_api/community/graph/DrawOptions.qmd",
+      "sha256": "05a20356681e74f9e517ebef1a32beb0bd61f6b5d9d74ecf242105112e45087d"
+    },
+    {
+      "relative": "graph/DrawingSelectors.html",
+      "source": "docs/python_api/community/graph/DrawingSelectors.qmd",
+      "sha256": "bbef2f780047f76cad3a08562c9a475854532d3b8ffb49e289dfd38faa1de96b"
+    },
+    {
+      "relative": "graph/EdgeDrawing.html",
+      "source": "docs/python_api/community/graph/EdgeDrawing.qmd",
+      "sha256": "412a9434e7245e67ab23fa1cd43d5b533362c6e91dbc81c90313fb30ffe0be9a"
+    },
+    {
+      "relative": "graph/EdgeLengthResolution.html",
+      "source": "docs/python_api/community/graph/EdgeLengthResolution.qmd",
+      "sha256": "2d49c783e34eae14c41f3e2d512d872858b2033c2382f46df926792945a78330"
+    },
+    {
+      "relative": "graph/Fraction.html",
+      "source": "docs/python_api/community/graph/Fraction.qmd",
+      "sha256": "48c7f4ea1f4c7bca918439816a2209ca4524535709255d6525f85d7d1a7e1d96"
+    },
+    {
+      "relative": "graph/GraphStyleOptions.html",
+      "source": "docs/python_api/community/graph/GraphStyleOptions.qmd",
+      "sha256": "5f30e0351c4e9dc6cbf7d16829776354e6427f9f98093fe7f7d45acecb7c799a"
+    },
+    {
+      "relative": "graph/HalfEdgeDrawing.html",
+      "source": "docs/python_api/community/graph/HalfEdgeDrawing.qmd",
+      "sha256": "cb8582a5c95e4c123d8e4f3f77b6c0b00b344ea222cf16359d03197727d27ef3"
+    },
+    {
+      "relative": "graph/Inherit.html",
+      "source": "docs/python_api/community/graph/Inherit.qmd",
+      "sha256": "0bbbfee30c70a690c7d78fef0a9a05cd6d7b21c51eec44f2abf3dc1ba9514067"
+    },
+    {
+      "relative": "graph/Insets.html",
+      "source": "docs/python_api/community/graph/Insets.qmd",
+      "sha256": "13f66288612099a18bb7c8dd669221a9bf7d3fe177fd10634f7169212b71e77e"
+    },
+    {
+      "relative": "graph/LabelLayout.html",
+      "source": "docs/python_api/community/graph/LabelLayout.qmd",
+      "sha256": "515c409f8a2c6ff099fecd9fbd02d17de456f171ee662a499ca544e926cac09d"
+    },
+    {
+      "relative": "graph/LayoutAlgorithm.html",
+      "source": "docs/python_api/community/graph/LayoutAlgorithm.qmd",
+      "sha256": "94343c627a6d96982e44532ae4972f86c68fd8330aaa05437f0fb37df905529a"
+    },
+    {
+      "relative": "graph/LayoutDirection.html",
+      "source": "docs/python_api/community/graph/LayoutDirection.qmd",
+      "sha256": "0c1af055d84ebd1b655672728e0e98359123c251bde90643cd53e3ff60578802"
+    },
+    {
+      "relative": "graph/LayoutNodes.html",
+      "source": "docs/python_api/community/graph/LayoutNodes.qmd",
+      "sha256": "0565e5cd4cd29474a04a3c7438dad2b4bdd8856912733cff204e456c4010d4d8"
+    },
+    {
+      "relative": "graph/LayoutSettings.html",
+      "source": "docs/python_api/community/graph/LayoutSettings.qmd",
+      "sha256": "69792ea4886f9561c9ef516cafdc8339f63a1a298b87e2272eb1b129ed44a304"
+    },
+    {
+      "relative": "graph/Length.html",
+      "source": "docs/python_api/community/graph/Length.qmd",
+      "sha256": "e7f0c6d5684367deaf65d31b655fcd971d7f13481e8f098a08055181c06ab528"
+    },
+    {
+      "relative": "graph/Mark.html",
+      "source": "docs/python_api/community/graph/Mark.qmd",
+      "sha256": "f22ce4a264567494dd833e7ee9c440c9dcbac3f37757c9262dcc2b9dbf560940"
+    },
+    {
+      "relative": "graph/MarkDirection.html",
+      "source": "docs/python_api/community/graph/MarkDirection.qmd",
+      "sha256": "7fd05473decf9f3d42874b9b1155eae7b2d69ecda6e319471ba1b2465ff82f31"
+    },
+    {
+      "relative": "graph/MarkOrientation.html",
+      "source": "docs/python_api/community/graph/MarkOrientation.qmd",
+      "sha256": "7648d4f2625440fdc210e372a5d6d0dfca2b1a447c3620d70ab301a4ff4fa026"
+    },
+    {
+      "relative": "graph/MarkPosition.html",
+      "source": "docs/python_api/community/graph/MarkPosition.qmd",
+      "sha256": "5bdab44d766051cb60134c541e2deb6d06521608e01cd81c09cf054a499a6dc7"
+    },
+    {
+      "relative": "graph/MarkSymbol.html",
+      "source": "docs/python_api/community/graph/MarkSymbol.qmd",
+      "sha256": "8af4c5c69855f45f4a50fa6bd8cca41bd5518c11aa7055e1bb81757b5f6f5672"
+    },
+    {
+      "relative": "graph/MathSymbol.html",
+      "source": "docs/python_api/community/graph/MathSymbol.qmd",
+      "sha256": "198b172f5b7f1184214410227e0ace4a0fd6f8526ee9306f14275284e6e5fb23"
+    },
+    {
+      "relative": "graph/NodeDrawing.html",
+      "source": "docs/python_api/community/graph/NodeDrawing.qmd",
+      "sha256": "da4d4a4dd50915a81faed8fb791e8579dca1315c67c1d7f716dd39fc33537c6a"
+    },
+    {
+      "relative": "graph/Pattern.html",
+      "source": "docs/python_api/community/graph/Pattern.qmd",
+      "sha256": "ea040ecb041ab910e30f862a15821287d952ff8c7f94e52cbada410e48a3715c"
+    },
+    {
+      "relative": "graph/Placement.html",
+      "source": "docs/python_api/community/graph/Placement.qmd",
+      "sha256": "16da8271a5d8eec43b8e3e5b0f0a3c98c35e93030cf210cf4e2529afacde8cf0"
+    },
+    {
+      "relative": "graph/RankAlignment.html",
+      "source": "docs/python_api/community/graph/RankAlignment.qmd",
+      "sha256": "dd45746a80acc6172b6ffd8df5ada52ab3f28def15a96c7bc0097edf8e922b72"
+    },
+    {
+      "relative": "graph/Ratio.html",
+      "source": "docs/python_api/community/graph/Ratio.qmd",
+      "sha256": "02051fceb2e9a994bd8e9d1a9b664a717315357ff43ffbac5ad319c93dc66e6e"
+    },
+    {
+      "relative": "graph/RelativeLength.html",
+      "source": "docs/python_api/community/graph/RelativeLength.qmd",
+      "sha256": "271649de21805eb27939f435401a918db6b4196d43dae1898c4486645f5a68bc"
+    },
+    {
+      "relative": "graph/RenderSettings.html",
+      "source": "docs/python_api/community/graph/RenderSettings.qmd",
+      "sha256": "91f2f980eff15b6b754c70ee885f8091d171a4b9a67a86f37c62434500695a23"
+    },
+    {
+      "relative": "graph/RoutePoints.html",
+      "source": "docs/python_api/community/graph/RoutePoints.qmd",
+      "sha256": "c5432e3b95972d791139b15fd2a0968e6a4d16a34c8cdd2d6b04e20a3dc2e4f9"
+    },
+    {
+      "relative": "graph/Routing.html",
+      "source": "docs/python_api/community/graph/Routing.qmd",
+      "sha256": "78fe560f1121ac0ede6fb194461378b7721e4a96c9552d510eae4d9e148f1bb8"
+    },
+    {
+      "relative": "graph/Stroke.html",
+      "source": "docs/python_api/community/graph/Stroke.qmd",
+      "sha256": "216381b42c5b40289f7111a1521df87937817d8dce9f5e3e5f8bfbb735354401"
+    },
+    {
+      "relative": "graph/StrokeCap.html",
+      "source": "docs/python_api/community/graph/StrokeCap.qmd",
+      "sha256": "e8e10f8549c533db3ddff4697f100129c0d1435070650f058f823805fcd39371"
+    },
+    {
+      "relative": "graph/StrokeJoin.html",
+      "source": "docs/python_api/community/graph/StrokeJoin.qmd",
+      "sha256": "886c124ec8f409b85e3886d8e4cea4764357970ffe35959a48f388d3582a0f22"
+    },
+    {
+      "relative": "graph/TextLabel.html",
+      "source": "docs/python_api/community/graph/TextLabel.qmd",
+      "sha256": "dade018100b0fe6450aad9f1ceb7045ee232511ee77849935c9ebce9a6a79651"
+    },
+    {
+      "relative": "graph/TextStyle.html",
+      "source": "docs/python_api/community/graph/TextStyle.qmd",
+      "sha256": "413f95a07511ee684a9ec77f6874f4be1b265d7483c4e92cbfdc9e24dac9d932"
+    },
+    {
+      "relative": "graph/TypstBind.html",
+      "source": "docs/python_api/community/graph/TypstBind.qmd",
+      "sha256": "c2f656609f0450aef2fa8e80e451de2a775f957103ab1826daadc7d8a40887fc"
+    },
+    {
+      "relative": "graph/TypstCall.html",
+      "source": "docs/python_api/community/graph/TypstCall.qmd",
+      "sha256": "fcbb7dc0354502abbf1613c93823052102735b0eec63c3a44c087c8d478eaba9"
+    },
+    {
+      "relative": "graph/TypstModule.html",
+      "source": "docs/python_api/community/graph/TypstModule.qmd",
+      "sha256": "57ce4faf4f054b9cdda6f2027a2f14ce9e91b077cfd52f2da41bdad667de4a55"
+    },
+    {
+      "relative": "graph/TypstRef.html",
+      "source": "docs/python_api/community/graph/TypstRef.qmd",
+      "sha256": "592e2ff1fb4409cd1a6c812e9df407835849d7d18d8a19dc66c2ec156c98e94d"
+    },
+    {
+      "relative": "graph/index.html",
+      "source": "docs/python_api/community/graph/index.qmd",
+      "sha256": "0ee3d7c377371845e66f13356dcc76ddb12d0e2f63821a220654f7702dafa61c"
+    },
+    {
+      "relative": "hep/index.html",
+      "source": "docs/python_api/community/hep/index.qmd",
+      "sha256": "248edfaad8da89b0f50391731e1454ad275dcf67422061582cd81b83218cf9fb"
+    },
+    {
+      "relative": "hep/integration/AccuracyError.html",
+      "source": "docs/python_api/community/hep/integration/AccuracyError.qmd",
+      "sha256": "0eae27acecccd60e7924d8d79385da69d6660e9d885b6c63e0f3c28ba81fb54f"
+    },
+    {
+      "relative": "hep/integration/AmplitudeResult.html",
+      "source": "docs/python_api/community/hep/integration/AmplitudeResult.qmd",
+      "sha256": "21380ed4dbcf6e427bf7877122b076b9881bade57901192de72309667b2b501e"
+    },
+    {
+      "relative": "hep/integration/AsymptoticCoefficient.html",
+      "source": "docs/python_api/community/hep/integration/AsymptoticCoefficient.qmd",
+      "sha256": "212162d002f361a05a3b75fa748251962492135082f91e70a723a84548fa5a38"
+    },
+    {
+      "relative": "hep/integration/AsymptoticRelation.html",
+      "source": "docs/python_api/community/hep/integration/AsymptoticRelation.qmd",
+      "sha256": "bd98b85cae8b8b28715caa792a4096655de557d3d112da57a88b81b549401d16"
+    },
+    {
+      "relative": "hep/integration/BoundaryCache.html",
+      "source": "docs/python_api/community/hep/integration/BoundaryCache.qmd",
+      "sha256": "19171a4396f954e4386c11a7adb661a60904455d0cc1d4b1510552b04b6d8847"
+    },
+    {
+      "relative": "hep/integration/BoundaryCacheError.html",
+      "source": "docs/python_api/community/hep/integration/BoundaryCacheError.qmd",
+      "sha256": "55d2383bf304c2ffb7b151570578ef2e18f3d1c0f520f1e5069d23ed23852f5c"
+    },
+    {
+      "relative": "hep/integration/BoundaryData.html",
+      "source": "docs/python_api/community/hep/integration/BoundaryData.qmd",
+      "sha256": "b7c314e569ced6984e1b32ab561a746bae281491eb1ca8e7cff6864abe044cae"
+    },
+    {
+      "relative": "hep/integration/CalculationCancelled.html",
+      "source": "docs/python_api/community/hep/integration/CalculationCancelled.qmd",
+      "sha256": "0dc7b6cc9de5e8fd074c475f226620e8dabd1926a98c02721295998745671693"
+    },
+    {
+      "relative": "hep/integration/ComputationControl.html",
+      "source": "docs/python_api/community/hep/integration/ComputationControl.qmd",
+      "sha256": "8c03a68466dbe76cc87c0617e60339e90f7f88a011bb75d01bdee3fddb1865ab"
+    },
+    {
+      "relative": "hep/integration/ContinuationPrescription.html",
+      "source": "docs/python_api/community/hep/integration/ContinuationPrescription.qmd",
+      "sha256": "d3f1b9bd0827373cd2574055f9285d085e8d584530d60b69456afb11ae9924b1"
+    },
+    {
+      "relative": "hep/integration/DifferentialSystem.html",
+      "source": "docs/python_api/community/hep/integration/DifferentialSystem.qmd",
+      "sha256": "b791ffee1c5b09412814865875066c69b754eb70d79a5fc07272e2894491645d"
+    },
+    {
+      "relative": "hep/integration/EndpointConstraints.html",
+      "source": "docs/python_api/community/hep/integration/EndpointConstraints.qmd",
+      "sha256": "f44d08e5507fc91eb38f154a87e6f0bf805b3f2d8c7e4615507e2b32d70493e1"
+    },
+    {
+      "relative": "hep/integration/EndpointResult.html",
+      "source": "docs/python_api/community/hep/integration/EndpointResult.qmd",
+      "sha256": "fbd52508c1260a097c358bb487f24019b4e6f0794b385090077a7aa475f19b73"
+    },
+    {
+      "relative": "hep/integration/EndpointRoute.html",
+      "source": "docs/python_api/community/hep/integration/EndpointRoute.qmd",
+      "sha256": "c3b48a04642db02140ab7bb17b5e7437c61a7ed36475e6a027874b452a95f741"
+    },
+    {
+      "relative": "hep/integration/EvaluationError.html",
+      "source": "docs/python_api/community/hep/integration/EvaluationError.qmd",
+      "sha256": "7671cc52355a2070a93904f7cd8daa9001a4094c74badac00cfa4fdbcd49eb70"
+    },
+    {
+      "relative": "hep/integration/EvaluationOptions.html",
+      "source": "docs/python_api/community/hep/integration/EvaluationOptions.qmd",
+      "sha256": "b9c9bda55b3241b1236bc802824a046494db521aa406bac76bacefb3d6a2320d"
+    },
+    {
+      "relative": "hep/integration/FormFactorResult.html",
+      "source": "docs/python_api/community/hep/integration/FormFactorResult.qmd",
+      "sha256": "c9e0e21951eeefe90dc4eb4dac9aae17a17c632013e18f4dad7167bce159249e"
+    },
+    {
+      "relative": "hep/integration/HiggsJetAmplitude.html",
+      "source": "docs/python_api/community/hep/integration/HiggsJetAmplitude.qmd",
+      "sha256": "ff4cee591cdaae2931dccb6a9b247e6fb1a806859465ff790abfcbb8f0df5a98"
+    },
+    {
+      "relative": "hep/integration/HiggsJetConfiguration.html",
+      "source": "docs/python_api/community/hep/integration/HiggsJetConfiguration.qmd",
+      "sha256": "3852236e6203a094d640084aae0c2c92fc335c4e823e74f6fed34fd189d655ef"
+    },
+    {
+      "relative": "hep/integration/HiggsJetFormFactorProjector.html",
+      "source": "docs/python_api/community/hep/integration/HiggsJetFormFactorProjector.qmd",
+      "sha256": "7573d657fcdf707bfce343c1554979b685b2146e18b20f8ee3e65eeb568b7f71"
+    },
+    {
+      "relative": "hep/integration/HiggsJetIntegralSystem.html",
+      "source": "docs/python_api/community/hep/integration/HiggsJetIntegralSystem.qmd",
+      "sha256": "46210e8749f78c95534d5f930b5bc9224c91e4eaa0dce195d09160244267c04e"
+    },
+    {
+      "relative": "hep/integration/IncompleteReductionError.html",
+      "source": "docs/python_api/community/hep/integration/IncompleteReductionError.qmd",
+      "sha256": "23533ae48bc061f77b0ff6adcd6807508e0e35ad1a272b9bd5fc4a3bd7fbdce6"
+    },
+    {
+      "relative": "hep/integration/IntegralEvaluator.html",
+      "source": "docs/python_api/community/hep/integration/IntegralEvaluator.qmd",
+      "sha256": "dbbb500804a6408b4d64e3c10e55ab5150da2fa87dd29bc5a201a1115fa6eca9"
+    },
+    {
+      "relative": "hep/integration/InvalidInputError.html",
+      "source": "docs/python_api/community/hep/integration/InvalidInputError.qmd",
+      "sha256": "1fa19e065b02131b1e72d101011fc9ca086b7f564ec030c4ed694b5d0c1100f5"
+    },
+    {
+      "relative": "hep/integration/KinematicTransport.html",
+      "source": "docs/python_api/community/hep/integration/KinematicTransport.qmd",
+      "sha256": "06e3a5a297d22b85a1dbe421506967ad52141605fb1564cd84c836707924f79d"
+    },
+    {
+      "relative": "hep/integration/LaurentExpansion.html",
+      "source": "docs/python_api/community/hep/integration/LaurentExpansion.qmd",
+      "sha256": "fa6413f9a2d20b9b97b411990e6c239def1eb1cb3d67aa78d1c51bc25514da48"
+    },
+    {
+      "relative": "hep/integration/NumericalError.html",
+      "source": "docs/python_api/community/hep/integration/NumericalError.qmd",
+      "sha256": "12b8c89dc01e16294d492355a10eb7782dcbfc59a36e660b28dd2ab37c04cc0e"
+    },
+    {
+      "relative": "hep/integration/PrecisionError.html",
+      "source": "docs/python_api/community/hep/integration/PrecisionError.qmd",
+      "sha256": "578171282dc14f6eeb5978225978cc964ea10c7439caee81ca8108795889859c"
+    },
+    {
+      "relative": "hep/integration/PreparedIntegralFamily.html",
+      "source": "docs/python_api/community/hep/integration/PreparedIntegralFamily.qmd",
+      "sha256": "4b635550a8b97e239fa90367883c42041ff9d5f98d85ae91404f6a5d80234b12"
+    },
+    {
+      "relative": "hep/integration/ReductionError.html",
+      "source": "docs/python_api/community/hep/integration/ReductionError.qmd",
+      "sha256": "42bddfa51c77f683d8f3ef4e25540ed8c0593e11bdd6765bb49fde1598af72d8"
+    },
+    {
+      "relative": "hep/integration/ReductionTables.html",
+      "source": "docs/python_api/community/hep/integration/ReductionTables.qmd",
+      "sha256": "22cb34a55acb0aaae017e0a92307dcc0ae64ef432e9c5644c5edbbe1e977588c"
+    },
+    {
+      "relative": "hep/integration/ResourceLimitError.html",
+      "source": "docs/python_api/community/hep/integration/ResourceLimitError.qmd",
+      "sha256": "adeb7d35b6b36f8dbbacb69fed66d5ba7aa4032f674f06010339fd4ae9133bb1"
+    },
+    {
+      "relative": "hep/integration/TransportResult.html",
+      "source": "docs/python_api/community/hep/integration/TransportResult.qmd",
+      "sha256": "01b60a8739fa1266d82e4a5e40fa0bfaa39851cea366fc2b22b05e8846f0186e"
+    },
+    {
+      "relative": "hep/integration/UnsupportedInputError.html",
+      "source": "docs/python_api/community/hep/integration/UnsupportedInputError.qmd",
+      "sha256": "b9525fab067e8c5baaa0f95fb31f45e935fc5b0f733ef477cff34b9402ffb634"
+    },
+    {
+      "relative": "hep/integration/index.html",
+      "source": "docs/python_api/community/hep/integration/index.qmd",
+      "sha256": "6cdb1b5761ebe90fc91b1ec5a25b5019329e869fcea13eb0ee8c5adf924692f8"
+    },
     {
       "relative": "hepkit/Amplitude.html",
       "source": "docs/python_api/community/hepkit/Amplitude.qmd",
-      "sha256": "56ba8fba62cccfe8fa3bc2574268d67af4baa2a332bed43f632e5082fec6a0eb"
+      "sha256": "941f6feb0f9aa2dc5be3836d92b86da64f5d0f217914485b79561ef55382f9a7"
     },
     {
       "relative": "hepkit/AmplitudeError.html",
@@ -34,37 +464,27 @@
     {
       "relative": "hepkit/CffError.html",
       "source": "docs/python_api/community/hepkit/CffError.qmd",
-      "sha256": "352996d4c2d2e40a361387f17f2c0e3c6ebe123ff786bd76bdf8c544136fdd29"
-    },
-    {
-      "relative": "hepkit/CffGenerator.html",
-      "source": "docs/python_api/community/hepkit/CffGenerator.qmd",
-      "sha256": "50d7e97a72cc1549f66944ccd701e84e6bb39a8d5e0d57e311847da73de62a3f"
+      "sha256": "ae418017b849a2ad9a419c72d5128429335e181810e7648887bd1d3feffbaf93"
     },
     {
       "relative": "hepkit/CffOrientation.html",
       "source": "docs/python_api/community/hepkit/CffOrientation.qmd",
-      "sha256": "8f75182655bc27cd99126987ccc912d06c3011b5c17710cb2a8e5e7f1e27aa44"
+      "sha256": "51d64f10c740b5972b327cedb2d513ba1520c2fc70307743d55ecd200becf576"
     },
     {
       "relative": "hepkit/CffReport.html",
       "source": "docs/python_api/community/hepkit/CffReport.qmd",
-      "sha256": "7165fbd8f41b55a2152c9731ccfa9f98992893c0b94a408b1a8628ec7b4e9e34"
+      "sha256": "1e2a58a7c93eabec44e69fb159492d20530a22648d4d29bb0c5daad60a90c80a"
     },
     {
-      "relative": "hepkit/CffResult.html",
-      "source": "docs/python_api/community/hepkit/CffResult.qmd",
-      "sha256": "d0ce0542afaa22ebf27adfc84656d179029f8b41555e1b71c80dc9158e54fff3"
-    },
-    {
-      "relative": "hepkit/CffSurface.html",
-      "source": "docs/python_api/community/hepkit/CffSurface.qmd",
-      "sha256": "aecff60484cd2b6bb4675f258368e576fb80b233c23ab9d7ac343201a0cb027d"
+      "relative": "hepkit/CffRepresentation.html",
+      "source": "docs/python_api/community/hepkit/CffRepresentation.qmd",
+      "sha256": "afd898fcd72113fadee80589c5429b4525ebca6112f6cdfedf4e257360b24f68"
     },
     {
       "relative": "hepkit/CffSurfaceGroup.html",
       "source": "docs/python_api/community/hepkit/CffSurfaceGroup.qmd",
-      "sha256": "bdc1ec30e85165df85cceedc8048336b5920ea95fdfe6587f2f079176de9336d"
+      "sha256": "9b3582dda9932f7f90c9d120152fcb4545e9403ca859bb9be6b80132fe0133a8"
     },
     {
       "relative": "hepkit/ClusteringResult.html",
@@ -75,6 +495,16 @@
       "relative": "hepkit/Coupling.html",
       "source": "docs/python_api/community/hepkit/Coupling.qmd",
       "sha256": "058dd124ded31fef33b67093e1c62b5d5191a3f126e18df04f35c1299dbf4bae"
+    },
+    {
+      "relative": "hepkit/CrossFreeFamily.html",
+      "source": "docs/python_api/community/hepkit/CrossFreeFamily.qmd",
+      "sha256": "8d33c2e5139d2b4aeb8c5cc531f8bdc63d3806a3d6c73400f693cd8552f9701f"
+    },
+    {
+      "relative": "hepkit/CutPartition.html",
+      "source": "docs/python_api/community/hepkit/CutPartition.qmd",
+      "sha256": "169103c5efa627104637612b2ebf39c1a3f57224f522a3e5b14b6e3e9951c289"
     },
     {
       "relative": "hepkit/CutPropagator.html",
@@ -94,7 +524,7 @@
     {
       "relative": "hepkit/DiagramEdge.html",
       "source": "docs/python_api/community/hepkit/DiagramEdge.qmd",
-      "sha256": "5e1c480fe53e884287f3151a1eda9f837a96ebc48e8542eb1e722baf69ca839b"
+      "sha256": "e4ec0850eecd3f126b11d2c96a26b31c182286cf28d17d74bea2d10bdd8a8fab"
     },
     {
       "relative": "hepkit/DiagramError.html",
@@ -107,6 +537,16 @@
       "sha256": "85fa425692d1e03275ed50180dc08c86c94366764ac85b01a619223f5c238c91"
     },
     {
+      "relative": "hepkit/DiagramHalfEdge.html",
+      "source": "docs/python_api/community/hepkit/DiagramHalfEdge.qmd",
+      "sha256": "a699e4d22c8d1e5d7641da3a3f04f38e7c6ebc10293be432edc985d8e538b315"
+    },
+    {
+      "relative": "hepkit/DiagramStyle.html",
+      "source": "docs/python_api/community/hepkit/DiagramStyle.qmd",
+      "sha256": "a1f483a1f214117a8d51708d8aaefbbd173328151e90331812b9eb122214d239"
+    },
+    {
       "relative": "hepkit/DiagramThresholdCandidate.html",
       "source": "docs/python_api/community/hepkit/DiagramThresholdCandidate.qmd",
       "sha256": "aeb1310fe6dc46cfcfa0ad365b9092e9c09a2ce4cfc3f51a304ffb378f121dd2"
@@ -115,6 +555,11 @@
       "relative": "hepkit/DiagramVertex.html",
       "source": "docs/python_api/community/hepkit/DiagramVertex.qmd",
       "sha256": "f333d7104b7b32c203de831f71a2e165b3e3786d21999bfeedc992c0425b7e37"
+    },
+    {
+      "relative": "hepkit/EnergySurface.html",
+      "source": "docs/python_api/community/hepkit/EnergySurface.qmd",
+      "sha256": "25eed1ca5f3b15b3d242c6387b726a03a242604037fb37787139f3a2ebfd307e"
     },
     {
       "relative": "hepkit/EvaluatedValues.html",
@@ -134,7 +579,7 @@
     {
       "relative": "hepkit/FeynmanDiagram.html",
       "source": "docs/python_api/community/hepkit/FeynmanDiagram.qmd",
-      "sha256": "6d1b4a39784e405b692a9ac7f41f214daf17b2b2a4a355ef92ed4a69933fbd86"
+      "sha256": "5b735bf634fa520ad933c15e76402e39a1ce27bd01f9cbe1593c9acb49472121"
     },
     {
       "relative": "hepkit/FormFactor.html",
@@ -144,7 +589,7 @@
     {
       "relative": "hepkit/FourMomentum.html",
       "source": "docs/python_api/community/hepkit/FourMomentum.qmd",
-      "sha256": "904eb6af3e8f111b2dfafa1e7f42e0ec832f5a00de57c7e29522edea0bcfd5ff"
+      "sha256": "d7e20bd7e0f2f748841a955857c089396861338f5a1284d117f7fc4c793fa670"
     },
     {
       "relative": "hepkit/GenerationError.html",
@@ -154,7 +599,7 @@
     {
       "relative": "hepkit/GenerationProgress.html",
       "source": "docs/python_api/community/hepkit/GenerationProgress.qmd",
-      "sha256": "661c9133946965e1770cb485fb600229aad0dd4f842ab0d507ae037e3577c843"
+      "sha256": "22d9ef5f2cb84a8798307c12d550ef8e73b92d83446a9e663a720dc5dc1f4bf0"
     },
     {
       "relative": "hepkit/GenerationReport.html",
@@ -177,9 +622,14 @@
       "sha256": "7f4d094e0234f79c4c27ed571654f73e4968153385849ab52355175d449dfe7c"
     },
     {
+      "relative": "hepkit/IBPCertificate.html",
+      "source": "docs/python_api/community/hepkit/IBPCertificate.qmd",
+      "sha256": "6e8ff3227b6355c24480100e5f1b09ebb1319df909b766a4a26c193bafec6913"
+    },
+    {
       "relative": "hepkit/IBPFamily.html",
       "source": "docs/python_api/community/hepkit/IBPFamily.qmd",
-      "sha256": "4d2ea9f676597685c6ffa3a7a3e3524bc6050a4a02587173732aa91b8696968d"
+      "sha256": "2d8ff432b9292ee07672052821778366c44dc4c13b0986c2b41ef8ff49080d2d"
     },
     {
       "relative": "hepkit/IBPRule.html",
@@ -189,12 +639,12 @@
     {
       "relative": "hepkit/IBPSolution.html",
       "source": "docs/python_api/community/hepkit/IBPSolution.qmd",
-      "sha256": "d37bdf15ae899c4983057ef8dc9aff3e69c53c80d05b2288c99701386c4019fd"
+      "sha256": "7ec06d0fccd8fff1d323ba248c9aa453ef72ad9208c45f5833e00ea3a0dc2257"
     },
     {
       "relative": "hepkit/IntegralFamily.html",
       "source": "docs/python_api/community/hepkit/IntegralFamily.qmd",
-      "sha256": "ec4fd0cd7c54674b2e713f212794fdfc6e15ea9e8095110c965f3e40a41d72fe"
+      "sha256": "8f0675c5b0dab0e9d3a5aba6050fcff8435165637b8dd214e7c99e5ca8faa46e"
     },
     {
       "relative": "hepkit/IntegralFamilyError.html",
@@ -247,9 +697,24 @@
       "sha256": "c41dafe5d6f4b62ddb30a51cb01d37dffc60d96f06f7d12d6866ed7ff4456425"
     },
     {
+      "relative": "hepkit/LtdReport.html",
+      "source": "docs/python_api/community/hepkit/LtdReport.qmd",
+      "sha256": "87a3e3354b27cd32989ccd8f008091e1f5b720431b95c2ca3f85f055d247bdba"
+    },
+    {
+      "relative": "hepkit/LtdRepresentation.html",
+      "source": "docs/python_api/community/hepkit/LtdRepresentation.qmd",
+      "sha256": "6b567a5f8d814c00cff14c33f27877938c66491f77bbfddc311876ef2b8cfeea"
+    },
+    {
+      "relative": "hepkit/LtdResidue.html",
+      "source": "docs/python_api/community/hepkit/LtdResidue.qmd",
+      "sha256": "d7a79f264420843dedd73a30b797a1e1b7e5838713c501832eaaadb12d5e88a2"
+    },
+    {
       "relative": "hepkit/Model.html",
       "source": "docs/python_api/community/hepkit/Model.qmd",
-      "sha256": "f4c325815cac191da2f0bc8052ae2a7d6d2c91935b3ccacefc80c13d7c89fae2"
+      "sha256": "01096969b2475cbffba8a7dd0baabfa3365f9066cb8d590d5a7b5d15abe911c0"
     },
     {
       "relative": "hepkit/ModelError.html",
@@ -274,7 +739,12 @@
     {
       "relative": "hepkit/NumeratorGrouping.html",
       "source": "docs/python_api/community/hepkit/NumeratorGrouping.qmd",
-      "sha256": "c45045ac5de4afea5c0ccbba7c02179f0763d79d0f5b131a7e4d5e33585e32b7"
+      "sha256": "cd27f3fc7018eeb7df77363eb8b285f6c2ca7ab47708b900b78117d25456f7fc"
+    },
+    {
+      "relative": "hepkit/OnShellEnergy.html",
+      "source": "docs/python_api/community/hepkit/OnShellEnergy.qmd",
+      "sha256": "01eff4ee003e540e311b5cfed7d61b7d33e245e09d1793c556711d5bed176612"
     },
     {
       "relative": "hepkit/Parameter.html",
@@ -309,7 +779,7 @@
     {
       "relative": "hepkit/Process.html",
       "source": "docs/python_api/community/hepkit/Process.qmd",
-      "sha256": "7369ce6c76af21aaf905bf361a95cc35106c65305b81cc09a531bd0fb1911d6a"
+      "sha256": "5521042469c8b5d51209b3658e22e034995a8996b771703e21fd02240b8e933c"
     },
     {
       "relative": "hepkit/Propagator.html",
@@ -344,7 +814,17 @@
     {
       "relative": "hepkit/Subgraph.html",
       "source": "docs/python_api/community/hepkit/Subgraph.qmd",
-      "sha256": "cfd33e52b6575f710e78ee6277ff38da15ed1c8fd66b1fac883608a4ab8af281"
+      "sha256": "29e34409310895635217121baa72ef682353f2e0a42c2e3766fac10aa15821bc"
+    },
+    {
+      "relative": "hepkit/SurfaceFactor.html",
+      "source": "docs/python_api/community/hepkit/SurfaceFactor.qmd",
+      "sha256": "233a95e804f0980a9599a66efb3d794e02d9e164c1d35e0ac945f833f2b691c8"
+    },
+    {
+      "relative": "hepkit/SurfacePair.html",
+      "source": "docs/python_api/community/hepkit/SurfacePair.qmd",
+      "sha256": "7065961699af6ac56136632c7793368d289d1b45fe9f91d34ca0c983bcf48270"
     },
     {
       "relative": "hepkit/Symbols.html",
@@ -372,6 +852,11 @@
       "sha256": "e54e7da14506f513ccd2d6871e14eb25a9763d58dcf8b3240cf12f5fbabf21c2"
     },
     {
+      "relative": "hepkit/TraversalTree.html",
+      "source": "docs/python_api/community/hepkit/TraversalTree.qmd",
+      "sha256": "5391b5714660c3419bf4dd51c98df0cfff5f570bd0ab21f3af7b305d6e2ffca3"
+    },
+    {
       "relative": "hepkit/UfoLoadDiagnostics.html",
       "source": "docs/python_api/community/hepkit/UfoLoadDiagnostics.qmd",
       "sha256": "e98b6120467c5a934bb2637c2d5490145d4aeff4a433797ff4db1aa48f02b8ee"
@@ -392,14 +877,79 @@
       "sha256": "b65647d54b24eadb51341c9f9a380fde4b42d50cd79bde33ff93d68a7569798b"
     },
     {
+      "relative": "hepkit/Wavefunction.html",
+      "source": "docs/python_api/community/hepkit/Wavefunction.qmd",
+      "sha256": "973cc1f7ee3d359a5bb7b3c115177aa9a10e6a9c244fca2c658427c098adbd7e"
+    },
+    {
       "relative": "hepkit/ibp/index.html",
       "source": "docs/python_api/community/hepkit/ibp/index.qmd",
-      "sha256": "5e328447c0a48e1b43c293f2ade94fd676ef2afb6cf2e639778ba6ae1a694cc5"
+      "sha256": "2fb0a644e064387e5e9eaa74ef6adb903f64fae39c36ac4ab31ad1b4ef43241e"
     },
     {
       "relative": "hepkit/index.html",
       "source": "docs/python_api/community/hepkit/index.qmd",
-      "sha256": "74f421972f527b3fe8a332a0e9413e09d972915745bff93680fbcc8cd69786fc"
+      "sha256": "4985338d10a8c4fb7f767fe0f365e156cc53c83f733406d0db02ec7fdf8f93f7"
+    },
+    {
+      "relative": "hepkit/integration/AlgebraError.html",
+      "source": "docs/python_api/community/hepkit/integration/AlgebraError.qmd",
+      "sha256": "f9a333a28045eaf31fd953b5cc892a60b5bbb7de52e861f039d44a61883abcfe"
+    },
+    {
+      "relative": "hepkit/integration/AlgebraicLetter.html",
+      "source": "docs/python_api/community/hepkit/integration/AlgebraicLetter.qmd",
+      "sha256": "adb26a5a6006e4ff1c297a39c3d4442b5e1903cf39bd68be8d189c7a0b570518"
+    },
+    {
+      "relative": "hepkit/integration/ContextError.html",
+      "source": "docs/python_api/community/hepkit/integration/ContextError.qmd",
+      "sha256": "020b9e4f6dfb5bf88fd010ec2943871babecb06ed41649358da3a9849453abfc"
+    },
+    {
+      "relative": "hepkit/integration/DivergentIntegralError.html",
+      "source": "docs/python_api/community/hepkit/integration/DivergentIntegralError.qmd",
+      "sha256": "83b07cee86d2dae19770d97629e423d82f4d4ae5f06969b3782f7db9ec85b68a"
+    },
+    {
+      "relative": "hepkit/integration/DuplicateVariableError.html",
+      "source": "docs/python_api/community/hepkit/integration/DuplicateVariableError.qmd",
+      "sha256": "95daf028d8d78c3c6fb8a466c8c2572dda267a99646848ca1eb4e2f9d0818864"
+    },
+    {
+      "relative": "hepkit/integration/InputError.html",
+      "source": "docs/python_api/community/hepkit/integration/InputError.qmd",
+      "sha256": "75a5333157356a492975745356deda812d3b5f8dbe5a26e306314b946928f8da"
+    },
+    {
+      "relative": "hepkit/integration/IntegrationError.html",
+      "source": "docs/python_api/community/hepkit/integration/IntegrationError.qmd",
+      "sha256": "70100e044be76b7af646a2956f775b6ece683378d572436ffbf51df332866f10"
+    },
+    {
+      "relative": "hepkit/integration/IntegrationOptions.html",
+      "source": "docs/python_api/community/hepkit/integration/IntegrationOptions.qmd",
+      "sha256": "c3864d5c1f73f60a904f79d4ce88d0736bcb7095c19406724f1cf6da903fee73"
+    },
+    {
+      "relative": "hepkit/integration/IntegrationResult.html",
+      "source": "docs/python_api/community/hepkit/integration/IntegrationResult.qmd",
+      "sha256": "c7582746074ba093b3cad531886d2a2c403b5a32b217b5a2a2fa1e5b034b014c"
+    },
+    {
+      "relative": "hepkit/integration/PreparedIntegral.html",
+      "source": "docs/python_api/community/hepkit/integration/PreparedIntegral.qmd",
+      "sha256": "06ef8ca4ac158b4fce2aadc413245cbe9bb95540ed744cb45f369d3843674a38"
+    },
+    {
+      "relative": "hepkit/integration/UnsupportedFeatureError.html",
+      "source": "docs/python_api/community/hepkit/integration/UnsupportedFeatureError.qmd",
+      "sha256": "9cc8cbc6d04d44a98debd39ea5514f61d02f56d0c00a28e0cf9f26d0b63f0ce4"
+    },
+    {
+      "relative": "hepkit/integration/index.html",
+      "source": "docs/python_api/community/hepkit/integration/index.qmd",
+      "sha256": "c0d7c2f39644e794fe4f1153ab4e5fb41c8a0adbcd5b9af339f50e1f33fed2b5"
     },
     {
       "relative": "hepkit/oneloop/DecimalComplex.html",
@@ -424,32 +974,332 @@
     {
       "relative": "hepkit/oneloop/index.html",
       "source": "docs/python_api/community/hepkit/oneloop/index.qmd",
-      "sha256": "c6adecc2cff24afdabfbf35495e7f1a3754194be918afc15df814c7cb0bc1f2a"
+      "sha256": "0f33f598f9854e7b52d0d57013ca0ecf1a834ce9473864cc1d703d6d6347c71b"
+    },
+    {
+      "relative": "hepkit/rustred/CandidateArtifact.html",
+      "source": "docs/python_api/community/hepkit/rustred/CandidateArtifact.qmd",
+      "sha256": "19dbdc5530df92fd38ecca9a5d8d2967c9dfc5a17b0a97ccd0ae745ec349a818"
+    },
+    {
+      "relative": "hepkit/rustred/CandidateBundleResult.html",
+      "source": "docs/python_api/community/hepkit/rustred/CandidateBundleResult.qmd",
+      "sha256": "71c457e694b205e736430781e6326d9981110685b49085968728d51e896f2731"
+    },
+    {
+      "relative": "hepkit/rustred/CandidateGenerationRequest.html",
+      "source": "docs/python_api/community/hepkit/rustred/CandidateGenerationRequest.qmd",
+      "sha256": "91008ee8d5cea6045280df038b93ade76426e868401fb49726ee130d39b3586e"
+    },
+    {
+      "relative": "hepkit/rustred/CandidateGenerationSession.html",
+      "source": "docs/python_api/community/hepkit/rustred/CandidateGenerationSession.qmd",
+      "sha256": "96e32d9cbf56693c53012cab25b3e17ccff4fa5037ffdce9551f9b20125c7ab5"
+    },
+    {
+      "relative": "hepkit/rustred/RustRedCoordinatorPoisonedError.html",
+      "source": "docs/python_api/community/hepkit/rustred/RustRedCoordinatorPoisonedError.qmd",
+      "sha256": "6862c9c62ddf51d5872eb97421b11bcd52c97a33359ee06c138e13fd1d03257d"
+    },
+    {
+      "relative": "hepkit/rustred/RustRedDerivationError.html",
+      "source": "docs/python_api/community/hepkit/rustred/RustRedDerivationError.qmd",
+      "sha256": "18206567b8e5c42b92d2bc186e9ae1fd25ea99f1d1f0bb58a69acf58df3e8da6"
+    },
+    {
+      "relative": "hepkit/rustred/RustRedError.html",
+      "source": "docs/python_api/community/hepkit/rustred/RustRedError.qmd",
+      "sha256": "af8dd6ebb17e084092d520c13df326c65a43fd1e626b2b3076c58c3c73054d9a"
+    },
+    {
+      "relative": "hepkit/rustred/RustRedExecutionError.html",
+      "source": "docs/python_api/community/hepkit/rustred/RustRedExecutionError.qmd",
+      "sha256": "7a0bbf7f8164ae8dd33ed254532b7d8f01a43ba50a677a5fa886b055767f282c"
+    },
+    {
+      "relative": "hepkit/rustred/RustRedInputError.html",
+      "source": "docs/python_api/community/hepkit/rustred/RustRedInputError.qmd",
+      "sha256": "539c6bff253ba0768a4ea2b2c11ffda6e3fb801ce8f69164d6280eec7376e804"
+    },
+    {
+      "relative": "hepkit/rustred/RustRedInternalError.html",
+      "source": "docs/python_api/community/hepkit/rustred/RustRedInternalError.qmd",
+      "sha256": "8bb8711b1beb7640be2617644fdc080d561ad3d761141b0d99939da9748a4374"
+    },
+    {
+      "relative": "hepkit/rustred/RustRedLicenseError.html",
+      "source": "docs/python_api/community/hepkit/rustred/RustRedLicenseError.qmd",
+      "sha256": "2fd611f7cca6558bff465a2e2d5de17100b50c95195c5f3e94e100d9d6478ee5"
+    },
+    {
+      "relative": "hepkit/rustred/RustRedLimitError.html",
+      "source": "docs/python_api/community/hepkit/rustred/RustRedLimitError.qmd",
+      "sha256": "e74757846b7a90f4102a653b1bbc28eb5ce67a4bf0ca6b0dead1d54b8e140553"
+    },
+    {
+      "relative": "hepkit/rustred/RustRedLoweringError.html",
+      "source": "docs/python_api/community/hepkit/rustred/RustRedLoweringError.qmd",
+      "sha256": "4d13503418690a69f798fe85f92843ed311211d35a84d132d2c923e6953f0135"
+    },
+    {
+      "relative": "hepkit/rustred/RustRedOutputLimitError.html",
+      "source": "docs/python_api/community/hepkit/rustred/RustRedOutputLimitError.qmd",
+      "sha256": "759614eb8bde9a9e83302e2e1475fb5c96dcb4f45b3e012777155607efaf8b17"
+    },
+    {
+      "relative": "hepkit/rustred/RustRedSchemaError.html",
+      "source": "docs/python_api/community/hepkit/rustred/RustRedSchemaError.qmd",
+      "sha256": "63419a6bc97c28bb5bca22a2125dd16d800b56892d47fdf29766fc57714465b7"
+    },
+    {
+      "relative": "hepkit/rustred/RustRedSerializationError.html",
+      "source": "docs/python_api/community/hepkit/rustred/RustRedSerializationError.qmd",
+      "sha256": "760a05bd63efd1bc3bf175073fcb3ca53fd058c7237194af5784487727f252f4"
+    },
+    {
+      "relative": "hepkit/rustred/TerminalNormalization.html",
+      "source": "docs/python_api/community/hepkit/rustred/TerminalNormalization.qmd",
+      "sha256": "a6acc4dced3cb437e729d1bf808c197abceaeb40d777ea1191639b8282eefd81"
+    },
+    {
+      "relative": "hepkit/rustred/index.html",
+      "source": "docs/python_api/community/hepkit/rustred/index.qmd",
+      "sha256": "6ed69f690f25f4ef7fa4975ccc28816382a3e647470e1a03ddb9b381e16c3c94"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/CancelledError.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/CancelledError.qmd",
+      "sha256": "0a456f150c75788354c27630d7812968c72421b67213edb5596539a34648bafb"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/Chart.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/Chart.qmd",
+      "sha256": "f1d8fc0396a72e5318d6b7cdfc8230c26da42dfb3de31039bd8a7f44a0b32695"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/CoefficientExpansionSnapshot.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/CoefficientExpansionSnapshot.qmd",
+      "sha256": "7f26db246d68414a939aeedb1638e946d730d5db848cfc650062345723ba0411"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/CoefficientRequestCounts.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/CoefficientRequestCounts.qmd",
+      "sha256": "dc9fbbd4f1e88c996f6847a32d64b9b8b0338e3dffb18e9a613e046ba22d3ac6"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/CompactCoefficient.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/CompactCoefficient.qmd",
+      "sha256": "eaf35e4ba3f8732a3be1784ad36aefff41400ea5e19d370a5a7688d244a28b0e"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/CompilationSettings.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/CompilationSettings.qmd",
+      "sha256": "9501d614e47e9f78a32dc491ee71171b19d9392bdafed44aade6fb9d922c67c5"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/CoordinateMap.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/CoordinateMap.qmd",
+      "sha256": "7854425ad4b2a245144a90c6738e920a36d3424e229f932c2ddd57eea1c25af1"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/DiscreteSectorAllocation.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/DiscreteSectorAllocation.qmd",
+      "sha256": "bc91d9263f1b740b1cc88a9196f1fe041bcfccd7feb0fde450aaf9791b6f84bc"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/DomainAssessment.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/DomainAssessment.qmd",
+      "sha256": "978186bbf697994d632e33b477e6252831c6e673c61003c166c4cdfa8911cd73"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/EndpointPower.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/EndpointPower.qmd",
+      "sha256": "42388f512917ec55d75656e970f8cd3da95d32fca51f5eedb3c2a34369356d7c"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/EvaluationDiagnostics.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/EvaluationDiagnostics.qmd",
+      "sha256": "d97aee26379228f9f7f85bb80fbfb7d88c300aede4f62d2d5f755f60724a36bb"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/EvaluatorOperations.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/EvaluatorOperations.qmd",
+      "sha256": "03695c01062e5a6b05a17933ecaddf1002be027cfd62fd12a3b236cb55cbc9c0"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/EvaluatorStatistics.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/EvaluatorStatistics.qmd",
+      "sha256": "feaed44b099a2822c03d6fd09979c6746b1020e76242819051da7a6df9da32f6"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/EvaluatorTiming.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/EvaluatorTiming.qmd",
+      "sha256": "0db6f53011989b8f493671ef6f31def046ea797df5aa3600f4c12be07d349ced"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/FactorAssessment.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/FactorAssessment.qmd",
+      "sha256": "8fce60e4bc9fc72c716a96107d8d1d6522cef5fa306ff470959532b7dacf493f"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/FastSecDecError.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/FastSecDecError.qmd",
+      "sha256": "f3cd91e8e4e20892a8b7a25fce6963ba1a806ab1a0e04457304203fd37984040"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/FormulaPreparationSnapshot.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/FormulaPreparationSnapshot.qmd",
+      "sha256": "abd0d5b7e3e5a5be38d41dab0b6c244d13d728a75466debf59359ce963170e06"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/GeneratedIntegral.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/GeneratedIntegral.qmd",
+      "sha256": "53abaad412ec004b39b0e506757fce7e0bff1db789fcac9ae5c453099e68144f"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/GeneratedSector.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/GeneratedSector.qmd",
+      "sha256": "0c8f78c252ea25c6be6b41d2d27c9247589365d924254b68c4eac5d04168e626"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/GenerationMetadata.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/GenerationMetadata.qmd",
+      "sha256": "dd9c3324c01b4c5cdf92d67074cdcfdd970ebb31eba1fc40f02327da4dcf6656"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/GenerationSession.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/GenerationSession.qmd",
+      "sha256": "5b4293ff5449cf3e12d93e12cc8d811141f543f94f76daf466a968810211dad9"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/GenerationSnapshot.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/GenerationSnapshot.qmd",
+      "sha256": "fae8e253ad47bc138c0eb06835e1bf68a5a5497a7d7ac3ab181b5fc9ac566a4f"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/GenerationTimings.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/GenerationTimings.qmd",
+      "sha256": "90204187c93f8ee4cdbdb86d14809a1c8e9510fcc3d8449813e064faaf5096c1"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/HavanaDiscreteSession.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/HavanaDiscreteSession.qmd",
+      "sha256": "9eb78559ce1c6f9f986df3c7d663873d782193d7c872bbb671a8e23c7147c065"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/HavanaDiscreteSettings.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/HavanaDiscreteSettings.qmd",
+      "sha256": "0a8eefa390298610c93a57242f821ca24a56ec7d73d688f7a0fc0c2d260eee76"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/Integral.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/Integral.qmd",
+      "sha256": "54d91f5969aef25d4953fa5648feaf466d4b10f44023782a3e1e9fa8482a6637"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/IntegrationObservation.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/IntegrationObservation.qmd",
+      "sha256": "babc11dab3733bdc049f8ff0a9978ba576d5276ef1fad2771fab051836c6baf4"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/IntegrationSnapshot.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/IntegrationSnapshot.qmd",
+      "sha256": "fa6c82db44dc378005ada0550b4b39838d494e7fe913305ef247c5d10f7677dc"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/Kernels.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/Kernels.qmd",
+      "sha256": "e1d7a899cf5dbc6745fb98fc5b963fa014bb0a449b6a741a503967a0ed9dd099"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/LiveEstimate.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/LiveEstimate.qmd",
+      "sha256": "6f17e61b70a352a09e7e32b47ceb2b6fc41cf7f98b01b80e6bc72df3b99e215b"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/LiveObservation.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/LiveObservation.qmd",
+      "sha256": "9d3b7c10f64dbdf300dde515689e5eceef3804d087a9b16ede19839deb8d7959"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/LiveSector.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/LiveSector.qmd",
+      "sha256": "c6ecade4e2adb129b37768e46205576b6a2b0c483db64f23919b5dd8c2f88572"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/PreSubtractionMetadata.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/PreSubtractionMetadata.qmd",
+      "sha256": "fa036a3f9f6334f10784ea8235e912a3bcd39e16d5c04ff04f788808679c150b"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/PreSubtractionTerm.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/PreSubtractionTerm.qmd",
+      "sha256": "f91a6d53c3ec26496bbf3a252e33fc8305c4308b72d4d137fc3e6a2cf3ec03f8"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/QmcSession.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/QmcSession.qmd",
+      "sha256": "24fd46ec392145bb92c503df0c55f38107030d9e3fd957094c384885d71e76e0"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/QmcSettings.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/QmcSettings.qmd",
+      "sha256": "04ec13c4dc0c1aedd12434742b0c45050553429e4dde70ed26264833a2ed18ca"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/SectorContribution.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/SectorContribution.qmd",
+      "sha256": "9016f6002560f35d86be08ad50e21023f86650586c3703939f547dae94f379bc"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/SectorMap.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/SectorMap.qmd",
+      "sha256": "f13b2ce8b7becd92a0dbd1ae9bf1fe9e66c81be91c544386e3e9d78a17f716ed"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/SectorSnapshot.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/SectorSnapshot.qmd",
+      "sha256": "6b5a7a58653dd2bf428a5bf6681c1751680854ab0ace141f5e381386d7e3c2c1"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/StabilitySettings.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/StabilitySettings.qmd",
+      "sha256": "ec314c32177db667ed0884105ae3f651df875db310007542a2f8fffff12d5dd8"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/VectorEstimate.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/VectorEstimate.qmd",
+      "sha256": "78c071f6df4381f02616abff84454835251414b492f1532697c203389ae4d607"
+    },
+    {
+      "relative": "hepkit/sector_decomposition/index.html",
+      "source": "docs/python_api/community/hepkit/sector_decomposition/index.qmd",
+      "sha256": "87160296af3c2dc17e8d21dbac2065e9d5dd383d08ab618376cf96e52278b1d5"
     },
     {
       "relative": "hepkit/vakint/Vakint.html",
       "source": "docs/python_api/community/hepkit/vakint/Vakint.qmd",
-      "sha256": "31e5f8e6ec47cb917af1d9fd4eecf2afbb94f7a0bc5e5173140fc2acacf79f30"
+      "sha256": "be8642cb08aedcc550f7cdf3f13a7f9bade677f97cd2fbd515945bf36c2931aa"
     },
     {
       "relative": "hepkit/vakint/VakintEvaluationMethod.html",
       "source": "docs/python_api/community/hepkit/vakint/VakintEvaluationMethod.qmd",
-      "sha256": "cd801c294466cb571077ea4287821a9bf45cc950ee5509b43644643caef049da"
+      "sha256": "48b893da6eb8a6b98a46d48896f26d9d0fc9073bd1447379e97fabb951ca875c"
     },
     {
       "relative": "hepkit/vakint/VakintExpression.html",
       "source": "docs/python_api/community/hepkit/vakint/VakintExpression.qmd",
-      "sha256": "2c87bcf6bb9dc54f06565a4ee068a0a2556d06410968dca674bd6bad608888cc"
+      "sha256": "826fd99274ef7af7cf5dafc4fb5ad57727a33cc339bebefb4b8fb5a66bb6e165"
     },
     {
       "relative": "hepkit/vakint/VakintNumericalResult.html",
       "source": "docs/python_api/community/hepkit/vakint/VakintNumericalResult.qmd",
-      "sha256": "51d910e1f2cbcfce3b756b151da032ef29847e1f33448bcd266976d2882575f0"
+      "sha256": "478e293995b8a03b9bea893ac6ac809a4c2898bffc8a6e8362036cb1f81f9efb"
     },
     {
       "relative": "hepkit/vakint/index.html",
       "source": "docs/python_api/community/hepkit/vakint/index.qmd",
-      "sha256": "4f9f617a4152ce9cba9ec859bbdf8b3a0586d2b4a816b56b264e54d48c402c9a"
+      "sha256": "6209d8097b3e301886a7bbfcc6eaeccecc2aae22bd272b3191af2c8b60dfcf4f"
     },
     {
       "relative": "tensor/BroadcastFunction.html",
@@ -464,7 +1314,7 @@
     {
       "relative": "tensor/CompiledTensorEvaluator.html",
       "source": "docs/python_api/community/tensor/CompiledTensorEvaluator.qmd",
-      "sha256": "0e5425a1a8f7ad4f44cfd12c3ad868baa6698e42fa475a2ff6079d2a497f124a"
+      "sha256": "f821328847e27db97660794fc855fc1d07b1444f7289893fb52e56cb87f16ce3"
     },
     {
       "relative": "tensor/CookingError.html",
@@ -534,17 +1384,17 @@
     {
       "relative": "tensor/Tensor.html",
       "source": "docs/python_api/community/tensor/Tensor.qmd",
-      "sha256": "5117f45583a2ca8da82af2d48126b68e83a13d0f739d3f2032635a60407e1b2d"
+      "sha256": "58790857328e505d52ed18b6a400115843fb938c3b788172db7c361f3b96b5ea"
     },
     {
       "relative": "tensor/TensorEvaluator.html",
       "source": "docs/python_api/community/tensor/TensorEvaluator.qmd",
-      "sha256": "7ee1c783a1d4ba078e795d3e035cc760dd817ce120290d1b8df80bc9c0c640bd"
+      "sha256": "f17250e876ac9d58e43e4f5a8aa534cd041444c3d77774c7db262e57fd57bfd4"
     },
     {
       "relative": "tensor/TensorExpression.html",
       "source": "docs/python_api/community/tensor/TensorExpression.qmd",
-      "sha256": "691f892efb33295f342574f00ea9a34a679064673cb796d507eb14064c73234a"
+      "sha256": "74c38472141a0c5b8586799a812826331b67b868c751cb9d28e3bbf3aadaf648"
     },
     {
       "relative": "tensor/TensorFunctionLibrary.html",
@@ -564,7 +1414,7 @@
     {
       "relative": "tensor/TensorNetwork.html",
       "source": "docs/python_api/community/tensor/TensorNetwork.qmd",
-      "sha256": "fbd9a76d4edbe1c4711492fef12b2500769341b144f00e1d88d83af502078d7d"
+      "sha256": "def462f2eeb7f17088820c29053070dd418ebd9ec997268a483515750afe35de"
     },
     {
       "relative": "tensor/TensorPattern.html",
@@ -584,7 +1434,7 @@
     {
       "relative": "tensor/index.html",
       "source": "docs/python_api/community/tensor/index.qmd",
-      "sha256": "bbf63e3d3be2feca30a3511ee5db7db20bd5c2065b5aee91acba37eaccfc1f3f"
+      "sha256": "67fc51ce3a7f21e103da0a6be88d8fb235663edc154b1ca1a13bae6ef33c70b8"
     }
   ]
 }

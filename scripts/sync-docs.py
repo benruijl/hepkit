@@ -4,12 +4,14 @@ import argparse
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 import hashlib
+import importlib.util
 from html import escape
 import json
 from pathlib import Path
 import re
 import shutil
 import subprocess
+import sys
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,9 +19,15 @@ DIST = ROOT / "dist"
 GROUPS = {
     "hepkit": "HEPkit",
     "tensor": "Tensor algebra",
+    "graph": "Graph presentation",
     "hepkit/oneloop": "One-loop integrals",
     "hepkit/ibp": "Integration by parts",
     "hepkit/vakint": "Vacuum integrals",
+    "hepkit/integration": "Exact integration",
+    "hepkit/sector_decomposition": "Sector decomposition",
+    "hepkit/rustred": "RustRed",
+    "hep": "Numerical HEP tools",
+    "hep/integration": "Numerical loop integration",
 }
 
 
@@ -42,7 +50,8 @@ def plain(value):
 
 def pandoc(text, source_format, output_format):
     result = subprocess.run(
-        ["quarto", "pandoc", "--from=" + source_format, "--to=" + output_format,
+        (["quarto", "pandoc"] if shutil.which("quarto") else ["pandoc"]) +
+        ["--from=" + source_format, "--to=" + output_format,
          "--wrap=none", "--syntax-highlighting=pygments"],
         input=text, text=True, capture_output=True, check=True,
     )
@@ -53,13 +62,24 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source", type=Path, help="Symbolica website checkout")
     args = parser.parse_args()
-    if not shutil.which("quarto"):
-        raise SystemExit("Syncing requires Quarto (its bundled Pandoc). Serving dist/ does not.")
+    if not shutil.which("quarto") and not shutil.which("pandoc"):
+        raise SystemExit("Syncing requires Quarto or Pandoc. Serving dist/ does not.")
+    if not (ROOT / "scripts/search/node_modules/lucide-static").is_dir():
+        raise SystemExit("Install the pinned search builder: npm ci --prefix scripts/search")
     source = args.source.resolve()
     manifest_path = DIST / "docs/sync-manifest.json"
     previous = json.loads(manifest_path.read_text()) if manifest_path.exists() else {"pages": []}
     community = source / "docs/python_api/community"
-    files = sorted([*(community / "hepkit").rglob("*.qmd"), *(community / "tensor").rglob("*.qmd")])
+    spec = importlib.util.spec_from_file_location("hepkit_search_builder", ROOT / "scripts/build-search.py")
+    builder = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(builder)
+    public_symbols = builder.extractor(source).shipped_symbols()
+    files = sorted([*(community / "hepkit").rglob("*.qmd"),
+                    *(community / "tensor").rglob("*.qmd"),
+                    *(community / "graph").rglob("*.qmd"),
+                    *(community / "hep").rglob("*.qmd")])
+    files = [path for path in files if path.stem == "index" or
+             "symbolica.community." + ".".join(path.relative_to(community).with_suffix("").parts) in public_symbols]
     if not files:
         raise SystemExit("No HEPkit or tensor documentation found")
     destinations = {path: path.relative_to(community).with_suffix(".html").as_posix() for path in files}
@@ -118,7 +138,6 @@ def main():
         return {"title": title, "group": group, "relative": relative,
                 "url": "/docs/" + relative, "summary": summary,
                 "body": pandoc(json.dumps(ast), "json", "html5"), "headings": headings,
-                "upstream": "https://symbolica.io/" + path.relative_to(source).with_suffix(".html").as_posix(),
                 "source": path.relative_to(source).as_posix(),
                 "sha256": hashlib.sha256(text.encode()).hexdigest()}
 
@@ -142,17 +161,13 @@ def main():
                 links += f'<li><a href="{page["url"]}"{selected}>{escape(name)}</a></li>'
             links += '</ul></details>'
         return f'''<aside class="docs-sidebar" aria-label="Documentation navigation">
-<label class="docs-search-label" for="docs-search">Find a page or method</label>
-<input id="docs-search" type="search" placeholder="Search the reference…" autocomplete="off" aria-controls="docs-search-results" aria-describedby="docs-search-status">
-<p id="docs-search-status" class="docs-search-status" role="status"></p>
-<ul id="docs-search-results" class="docs-search-results" hidden></ul>
+<button class="docs-search-open" type="button" data-site-search title="Search reference"><i class="bi bi-search" aria-hidden="true"></i><span>Search reference</span></button>
 <details class="docs-menu" open><summary>Browse documentation</summary><nav aria-label="API reference">{links}</nav></details>
 </aside>'''
 
-    def render(title, relative, body, summary, group="", headings=(), upstream=""):
+    def render(title, relative, body, summary, group="", headings=()):
         toc = ''.join(f'<li><a href="#{escape(h["id"], quote=True)}">{escape(h["title"])}</a></li>' for h in headings)
         onpage = f'<aside class="docs-toc" aria-label="On this page"><p>On this page</p><ul>{toc}</ul></aside>' if toc else ''
-        origin = f'<p class="docs-source">Reference synced from <a href="{escape(upstream)}">Symbolica documentation</a>.</p>' if upstream else ''
         crumb = f'<span aria-hidden="true">/</span> <a href="/docs/{group}/">{escape(GROUPS.get(group, group))}</a>' if group else ''
         return f'''<!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -161,23 +176,17 @@ def main():
 <meta name="theme-color" content="#176f5e"><meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://hepkit.org/docs/{relative}">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<script src="/theme.js"></script><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/docs.css">
+<script src="/theme.js"></script><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/docs.css"><link rel="stylesheet" href="/search/search.css">
 </head><body class="docs-page"><a class="skip-link" href="#main">Skip to content</a>{header}
 <div class="docs-layout">{sidebar(relative)}<main id="main" class="docs-main">
 <div class="docs-breadcrumb"><a href="/docs/">Documentation</a>{crumb}</div>
-<article class="docs-content">{body}</article>{origin}
-</main>{onpage}</div><script src="/docs.js" defer></script></body></html>'''
+<article class="docs-content">{body}</article>
+</main>{onpage}</div><script src="/docs.js" defer></script><script type="module" src="/search/search.js"></script></body></html>'''
 
     # Finish rendering before replacing any previously generated pages.
     output = {}
-    search = []
     for page in pages:
-        output[page["relative"]] = render(page["title"], page["relative"], page["body"], page["summary"], page["group"], page["headings"], page["upstream"])
-        search.append({"title": page["title"], "group": GROUPS.get(page["group"], page["group"]), "url": page["url"], "summary": page["summary"][:200]})
-        for heading in page["headings"]:
-            if heading["title"] in {"Attributes", "Methods", "Classes", "Functions"}:
-                continue
-            search.append({"title": page["title"] + "." + heading["title"], "group": GROUPS.get(page["group"], page["group"]), "url": page["url"] + "#" + heading["id"], "summary": heading["summary"]})
+        output[page["relative"]] = render(page["title"], page["relative"], page["body"], page["summary"], page["group"], page["headings"])
 
     landing = (ROOT / "scripts/docs-overview.html").read_text().replace("{{PAGE_COUNT}}", str(len(pages)))
     output["index.html"] = render("Documentation", "index.html", landing, "HEPkit Python API: models, Feynman diagrams, tensors, loop amplitudes, and integral reduction.")
@@ -185,18 +194,20 @@ def main():
         path = DIST / "docs" / relative
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(html)
+        for suffix in (".br", ".gz", ".zst"):
+            path.with_name(path.name + suffix).unlink(missing_ok=True)
     # Remove only obsolete reference pages owned by the previous import.
     # Runtime assets under docs/live-python are never managed by this sync.
     for page in previous["pages"]:
         relative = Path(page["relative"])
         if (not relative.is_absolute() and ".." not in relative.parts
-                and relative.parts[0] in {"hepkit", "tensor"}
+                and relative.parts[0] in {"hepkit", "tensor", "hep", "graph"}
                 and relative.suffix == ".html" and relative.as_posix() not in output):
             (DIST / "docs" / relative).unlink(missing_ok=True)
-    (DIST / "docs/search-index.json").write_text(json.dumps(search, ensure_ascii=False, separators=(",", ":")))
     manifest = {"synced_at": datetime.now(timezone.utc).isoformat(), "pages": [{k: p[k] for k in ["relative", "source", "sha256"]} for p in pages]}
     manifest_path.write_text(json.dumps(manifest, indent=2))
-    print(f"Synced {len(pages)} reference pages and {len(search)} search entries into {DIST / 'docs'}")
+    subprocess.run([sys.executable, str(ROOT / "scripts/build-search.py"), str(source)], check=True)
+    print(f"Synced {len(pages)} reference pages and their full-text search into {DIST / 'docs'}")
 
 
 if __name__ == "__main__":

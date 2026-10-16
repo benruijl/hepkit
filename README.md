@@ -1,7 +1,7 @@
 # HEPkit website
 
 Standalone static website prepared for **hepkit.org**. Publish the contents of
-`dist/` as the web root. The site does not require Quarto, Node.js, a backend,
+`dist/` as the web root. The deployed site does not require Quarto, Node.js, a backend,
 or access to the adjacent Symbolica checkout after the files have been synced.
 The notebook editor, shared runtimes, and dependencies load from
 [Symbolica's CDN](https://cdn.symbolica.io/).
@@ -30,8 +30,10 @@ by the browser. It is a development server, not a production server.
   notebook HTML, local editor CSS, execution/save workers and their bootstrap,
   and the pinned package lockfile. Editor JavaScript loads from the CDN.
   `cdn-assets.json` records the shared assets served by Symbolica's CDN.
-- `dist/docs/`: 117 HEPkit and tensor reference pages, an overview, and a
-  page/method search index, styled in the same light/dark theme as the homepage.
+- `dist/docs/`: HEPkit, numerical HEP, and tensor reference pages and an overview,
+  styled in the same light/dark theme as the homepage.
+- `dist/search/`: local Pagefind search, rich method previews, API autocomplete,
+  and optional spelling suggestions. Search loads only when opened.
 - `dist/docs/live-python/`: the local type-checker worker; its runtime and
   type information load from Symbolica's CDN.
 
@@ -82,19 +84,25 @@ directly and is not overwritten by the sync script.
 From this directory, run:
 
 ```sh
+npm ci --prefix scripts/search
 python3 scripts/sync-docs.py ../website
 ```
 
-This imports `docs/python_api/community/hepkit/` and `tensor/` from the
-Symbolica website's QMD sources. Quarto's bundled Pandoc renders the Markdown
+This imports the public API in `docs/python_api/community/hepkit/`, `hep/`,
+`tensor/`, and the shared `graph/` presentation types from the
+Symbolica website's QMD sources. Quarto's bundled Pandoc or standalone Pandoc renders the Markdown
 without running Python examples or invoking the Symbolica website build.
-Quarto is required only for this sync step; the generated site remains static.
+Quarto or Pandoc and Node.js are required only for this sync step; the generated
+site remains static.
 
-The script regenerates all reference pages, navigation, the search index, and
+The script regenerates all reference pages, navigation, the Pagefind index, and
 `dist/docs/sync-manifest.json` with source paths and SHA-256 hashes. Local API
 links and original method anchors are retained; references to the broader
 Symbolica API point to symbolica.io. Previously imported pages removed upstream
 are removed on the next sync, while notebook support files are preserved.
+Canonical symbols are checked against the shipped type stubs. Retired API pages
+are excluded, and re-exported graph types use their shared graph reference rather
+than stale copies under HEPkit and tensor modules.
 Native-only APIs remain documented even though the homepage showcases only
 browser-capable notebooks.
 
@@ -104,10 +112,37 @@ homepage and `dist/theme.js`. Do not hand-edit generated reference HTML;
 update its source in the Symbolica checkout and rerun the sync command.
 This is an on-demand sync, not a scheduled job.
 
+Search is adapted from Symbolica's structured search. It indexes complete public
+API sections and examples against the shipped type stubs, not just names and
+summaries. Results group methods under their class, keep signatures out of
+previews, and retain local subsection anchors. API autocomplete and spelling
+correction are separate; corrections require explicit acceptance. The standalone
+sync uses the upstream reference extractor at build time, while its pinned
+Pagefind/KaTeX and spelling builder modules live in `scripts/search/`. Lucide
+icons are copied locally with their license, without loading an icon font.
+
+To rebuild search without rerendering the reference:
+
+```sh
+python3 scripts/build-search.py ../website
+```
+
+Deploy the whole `dist/search/` directory together with the matching HTML.
+Keep it same-origin with cache revalidation, not an immutable-cache rule. Search
+does not use Algolia or a hosted service. Each build replaces the complete index
+and removes the retired `docs/search-index.json` file.
+
+Search regression tests:
+
+```sh
+python3 scripts/test-search.py
+python3 scripts/test-search-browser.py
+```
+
 ## Hosting
 
-The prepared site is about **5.6 MB** (about 6 MB of filesystem space), including
-all 117 reference pages. Local notebook support assets account for about 665 KB;
+The prepared site includes the current public reference pages. Local notebook support
+assets account for about 665 KB;
 editor bundles, chunks, fonts, images, Python packages and WASM load from the CDN.
 
 Copy the **contents of `dist/`** into hepkit.org's web root, preserving the
