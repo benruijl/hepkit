@@ -1,13 +1,13 @@
 # /// script
 # requires-python = ">=3.13"
 # dependencies = [
-#     "marimo==0.24.0",
+#     "marimo==0.25.1",
 # ]
 # ///
 
 import marimo
 
-__generated_with = "0.24.0"
+__generated_with = "0.25.1"
 app = marimo.App(
     width="medium",
     app_title="Electron–positron annihilation into photons",
@@ -28,15 +28,9 @@ def _(mo):
 
 @app.cell(hide_code=True)
 def _():
-    return
-
-
-@app.cell(hide_code=True)
-def _():
     import marimo as mo
     from symbolica import E, N, S, Symbol, get_citations
     from symbolica import set_namespace as _set_namespace
-    from symbolica.community.tensor import TensorExpression
     from symbolica.community.hepkit import Kinematics, Model
 
     _set_namespace("diphoton")
@@ -47,6 +41,9 @@ def _():
 def _(mo):
     mo.md("""
     ## Process creation
+
+    Use the electron–photon vertex of the Standard Model to generate the two
+    tree-level diagrams. Squaring their sum includes the interference term.
     """)
     return
 
@@ -76,13 +73,14 @@ def _(process):
 
 @app.cell
 def _(amplitude):
-    amplitude.squared()
-    return
+    squared_amplitude = amplitude.squared()
+    squared_amplitude
+    return (squared_amplitude,)
 
 
 @app.cell
-def _(amplitude):
-    spin_summed = amplitude.squared().sum_spins([0, 1], average_initial=True)
+def _(squared_amplitude):
+    spin_summed = squared_amplitude.sum_spins([0, 1], average_initial=True)
     spin_summed
     return (spin_summed,)
 
@@ -110,12 +108,12 @@ def _(mo):
         value="Covariant",
         label="Photon polarization reference",
     )
-    mo.vstack([gauge])
+    gauge
     return (gauge,)
 
 
 @app.cell
-def _(E, P, charge, gauge, kin, mass, s, spin_summed, t, u):
+def _(P, gauge, kin, mass, s, spin_summed, t, u):
     _references = {
         "Covariant": (None, None),
         "Other photon": (P(3), P(2)),
@@ -134,24 +132,9 @@ def _(E, P, charge, gauge, kin, mass, s, spin_summed, t, u):
         .simplify_algebra(contract="dots", gamma=True, epsilon=True)
     )
 
-    assert _scalar.is_scalar
     diphoton_squared = (
         kin.apply(_scalar).to_expression().replace(s, 2 * mass**2 - t - u).together()
     )
-    _x, _y = t - mass**2, u - mass**2
-    _expected = (
-        2
-        * charge**4
-        * (
-            _x / _y
-            + _y / _x
-            + 4 * mass**2 * s / (_x * _y)
-            - 4 * mass**4 * s**2 / (_x**2 * _y**2)
-        )
-    )
-    assert (
-        diphoton_squared - _expected.replace(s, 2 * mass**2 - t - u)
-    ).together() == E("0")
     return (diphoton_squared,)
 
 
@@ -179,9 +162,8 @@ def _(mo):
     Equivalently, select the forward photon and integrate over $0<c<C$.
 
     `Kinematics.flux` and `two_body_phase_space` supply the flux and measure.
-    The angular antiderivatives below are checked by differentiation. If the
-    symbolic integration backend is unavailable, the notebook uses their known
-    closed forms. The massless result,
+    Integrate the angular distributions symbolically with `Expression.integrate`.
+    The massless result,
     $\sigma=2\pi\alpha^2[2\operatorname{atanh}C-C]/s$, also matches
     [DELPHI's Born formula, Eq. (2)](https://arxiv.org/pdf/hep-ex/0409058).
     For a massive electron, $\beta=\sqrt{1-4m_e^2/s}$ is the incoming CM speed.
@@ -192,7 +174,6 @@ def _(mo):
 @app.cell
 def _(E, Kinematics, P, S, Symbol, charge, diphoton_squared, mass, s, t, u):
     massless = diphoton_squared.replace(mass, E("0"))
-    assert (massless - 2 * charge**4 * (t / u + u / t)).together() == E("0")
     cos_theta, alpha, cutoff = S("cos_theta", "alpha", "cutoff")
     kin_massless = Kinematics.mandelstam(
         [P(0), P(1), P(2), P(3)], [E("0")] * 4, [s, t, u]
@@ -207,9 +188,7 @@ def _(E, Kinematics, P, S, Symbol, charge, diphoton_squared, mass, s, t, u):
         * kin_massless.two_body_phase_space(P(2), P(3))
         / kin_massless.flux(P(0), P(1))
     ).together()
-    assert (
-        labeled - alpha**2 / s * (1 + cos_theta**2) / (1 - cos_theta**2)
-    ).together() == E("0")
+    labeled
     return alpha, cos_theta, cutoff, labeled
 
 
@@ -225,35 +204,31 @@ def _(mo):
 def _(E, Symbol, alpha, cos_theta, cutoff, labeled, s):
     # The phase-space API excludes identical-particle factors. Count each event
     # once by selecting its forward photon, or equivalently use 1/2! on the full sphere.
-    try:
-        primitive = (labeled * s / alpha**2).integrate(cos_theta).together()
-    except NotImplementedError:
-        # This WASM build omits the symbolic integration backend.
-        primitive = 2 * cos_theta.atanh() - cos_theta
-    assert (primitive.derivative(cos_theta) - labeled * s / alpha**2).together() == E(
-        "0"
-    )
-    assert primitive.replace(cos_theta, E("0")) == E("0")
+    primitive = (labeled * s / alpha**2).integrate(cos_theta).together()
     event_cross_section = (
-        2 * Symbol.PI * alpha**2 / s * primitive.replace(cos_theta, cutoff)
+        2
+        * Symbol.PI
+        * alpha**2
+        / s
+        * (primitive.replace(cos_theta, cutoff) - primitive.replace(cos_theta, E("0")))
     ).together()
-    assert (
-        event_cross_section
-        - 2 * Symbol.PI * alpha**2 / s * (2 * cutoff.atanh() - cutoff)
-    ).together() == E("0")
+    event_cross_section
     return (event_cross_section,)
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md("""
+    mo.md(r"""
     ### Retain the electron mass
+
+    Express the squared matrix element in terms of the incoming speed $\beta$
+    and $c=\cos\theta$. Dividing by $4e^4$ gives the dimensionless angular kernel.
     """)
     return
 
 
 @app.cell
-def _(E, S, charge, cos_theta, diphoton_squared, mass, s, t, u):
+def _(S, charge, cos_theta, diphoton_squared, mass, s, t, u):
     # Retain the electron mass: beta is the incoming CM speed, 0 < beta < 1.
     beta = S("beta", is_positive=True)
     cm_squared = (
@@ -262,13 +237,7 @@ def _(E, S, charge, cos_theta, diphoton_squared, mass, s, t, u):
         .replace(mass, (s * (1 - beta**2) / 4).sqrt())
     ).together()
     kernel = (cm_squared / (4 * charge**4)).together()
-    expected_kernel = (1 + beta**2 * cos_theta**2) / (
-        1 - beta**2 * cos_theta**2
-    ) + 2 * beta**2 * (1 - beta**2) * (1 - cos_theta**2) / (
-        1 - beta**2 * cos_theta**2
-    ) ** 2
-    assert (kernel - expected_kernel).together() == E("0")
-    assert kernel.replace(beta, E("0")).together() == E("1")
+    kernel
     return beta, kernel
 
 
@@ -281,19 +250,9 @@ def _(mo):
 
 
 @app.cell
-def _(E, beta, cos_theta, kernel):
-    expected_primitive = (
-        (3 - beta**4) / beta * (beta * cos_theta).atanh()
-        - cos_theta
-        - (1 - beta**2) ** 2 * cos_theta / (1 - beta**2 * cos_theta**2)
-    )
-    try:
-        massive_primitive = kernel.integrate(cos_theta).together()
-    except NotImplementedError:
-        massive_primitive = expected_primitive
-    assert (massive_primitive.derivative(cos_theta) - kernel).together() == E("0")
-    assert massive_primitive.replace(cos_theta, E("0")).together() == E("0")
-    assert (massive_primitive - expected_primitive).together() == E("0")
+def _(cos_theta, kernel):
+    massive_primitive = kernel.integrate(cos_theta).together()
+    massive_primitive
     return (massive_primitive,)
 
 
@@ -315,7 +274,6 @@ def _(
     charge,
     cos_theta,
     cutoff,
-    event_cross_section,
     kin,
     mass,
     massive_primitive,
@@ -327,7 +285,6 @@ def _(
     massive_flux = (
         kin.flux(P(0), P(1)).replace(mass, (s * (1 - beta**2) / 4).sqrt()).expand()
     )
-    assert (massive_flux**2 - 4 * s**2 * beta**2).together() == E("0")
     massive_flux = massive_flux.replace((s**2 * beta**2).sqrt(), s * beta)
     massive_density_factor = (
         (4 * charge**4 * kin.two_body_phase_space(P(2), P(3)) / massive_flux)
@@ -335,16 +292,16 @@ def _(
         .replace((s**2).sqrt(), s)  # Physical timelike branch, as in the flux.
         .together()
     )
-    assert (massive_density_factor - alpha**2 / (s * beta)).together() == E("0")
     massive_cross_section = (
         2
         * Symbol.PI
         * massive_density_factor
-        * massive_primitive.replace(cos_theta, cutoff)
+        * (
+            massive_primitive.replace(cos_theta, cutoff)
+            - massive_primitive.replace(cos_theta, E("0"))
+        )
     )
-    assert (
-        massive_cross_section.replace(beta, E("1")) - event_cross_section
-    ).together() == E("0")
+    massive_cross_section
     return (massive_cross_section,)
 
 

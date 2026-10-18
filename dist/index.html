@@ -17,7 +17,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <meta name="color-scheme" content="light dark">
   <script src="theme.js"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=fc0a460929">
   <link rel="stylesheet" href="/search/search.css">
   <script type="module" src="/search/search.js"></script>
 </head>
@@ -80,68 +80,54 @@ result = process.generate_diagrams(loops=<span class="code-number">1</span>)</co
           </div>
         </div>
         <!-- GALLERY:START -->
-        <div class="gallery-grid">
-          <article class="gallery-card">
-            <div class="gallery-art hepkit-art" aria-hidden="true"><span class="gallery-art-label">FOUR-LOOP QCD</span>
-              <div>g → g</div>
-            </div>
-            <div class="gallery-card-body">
-              <div class="gallery-card-tags"><span>HEPkit</span></div>
-              <h3>Four-loop gluon numerators</h3>
-              <p>Generate four-loop gluon propagator diagrams, select a topology, and reduce its projected numerator.
-              </p>
-              <div class="gallery-card-actions"><a class="gallery-open"
-                  href="gallery/notebooks/four_loop_numerator.html" data-gallery-notebook="four_loop_numerator"
-                  data-title="HEPkit · Four-loop gluon numerators">Open notebook</a></div>
-            </div>
-          </article>
-
-          <!--<article class="gallery-card">
-            <div class="gallery-art hepkit-art" aria-hidden="true"><span class="gallery-art-label">ONE-LOOP
-                AMPLITUDES</span>
-              <div>γ γ → d d̄</div>
-            </div>
-            <div class="gallery-card-body">
-              <div class="gallery-card-tags"><span>HEPkit</span></div>
-              <h3>One-loop amplitudes</h3>
-              <p>Compute the full massless QCD one-loop amplitude for a down-quark pair, then evaluate its tree
-                interference.</p>
-              <div class="gallery-card-actions"><a class="gallery-open" href="gallery/notebooks/one_loop_reduce.html"
-                  data-gallery-notebook="one_loop_reduce" data-title="HEPkit · One-loop amplitudes">Open notebook</a>
-              </div>
-            </div>
-          </article>-->
-          <article class="gallery-card">
-            <div class="gallery-art hepkit-art" aria-hidden="true"><span class="gallery-art-label">DIPHOTON
-                PRODUCTION</span>
-              <div>e⁻ e⁺ → γ γ</div>
-            </div>
-            <div class="gallery-card-body">
-              <div class="gallery-card-tags"><span>HEPkit</span></div>
-              <h3>Electron–positron annihilation</h3>
-              <p>Calculate the spin-averaged squared amplitude and angular cross section, including the electron mass
-                and photon interference.</p>
-              <div class="gallery-card-actions"><a class="gallery-open" href="gallery/notebooks/diphoton.html"
-                  data-gallery-notebook="diphoton" data-title="HEPkit · Electron–positron annihilation">Open
-                  notebook</a></div>
-            </div>
-          </article>
-          <article class="gallery-card">
-            <div class="gallery-art hepkit-art" aria-hidden="true"><span class="gallery-art-label">LOOP INTEGRALS</span>
-              <div>(k · p)²</div>
-            </div>
-            <div class="gallery-card-body">
-              <div class="gallery-card-tags"><span>HEPkit</span></div>
-              <h3>Covariant tensor reduction</h3>
-              <p>Reduce loop-momentum tensor numerators in symbolic dimension using HEPkit’s covariant tensor reducer.
-              </p>
-              <div class="gallery-card-actions"><a class="gallery-open" href="gallery/notebooks/tensor_reduction.html"
-                  data-gallery-notebook="tensor_reduction" data-title="HEPkit · Covariant tensor reduction">Open
-                  notebook</a></div>
-            </div>
-          </article>
-        </div>
-        <!-- GALLERY:END -->
+<div class="gallery-grid">
+    <article class="gallery-card">
+      <div class="gallery-art hepkit-art" aria-hidden="true"><span class="gallery-art-label">FOUR-LOOP QCD</span><div>g → g</div></div>
+      <div class="gallery-card-body">
+        <div class="gallery-card-tags"><span>HEPkit</span></div>
+        <h3 id="notebook-four-loop-gluon-numerators">Four-loop gluon numerators</h3>
+        <p>Generate four-loop gluon propagator diagrams, select a topology, and reduce its projected numerator.</p>
+        <div class="gallery-card-actions"><a class="gallery-open" href="gallery/notebooks/four_loop_numerator.html" data-gallery-notebook="four_loop_numerator" data-title="HEPkit · Four-loop gluon numerators">Run in browser</a><a class="gallery-download" href="gallery/notebooks/four_loop_numerator.py" download title="Download notebook to run locally">Run locally</a></div>
+      </div>
+    </article>
+    <article class="gallery-card">
+      <div class="gallery-art hepkit-art" aria-hidden="true"><span class="gallery-art-label">DIPHOTON PRODUCTION</span><div>e⁻ e⁺ → γ γ</div></div>
+      <div class="gallery-card-body">
+        <div class="gallery-card-tags"><span>HEPkit</span></div>
+        <h3 id="notebook-electron-positron">Electron–positron annihilation</h3>
+        <p>Calculate the spin-averaged squared amplitude and angular cross section, including the electron mass and photon interference.</p>
+        <div class="gallery-card-actions"><a class="gallery-open" href="gallery/notebooks/diphoton.html" data-gallery-notebook="diphoton" data-title="HEPkit · Electron–positron annihilation">Run in browser</a><a class="gallery-download" href="gallery/notebooks/diphoton.py" download title="Download notebook to run locally">Run locally</a></div>
+      </div>
+    </article>
+    <article class="gallery-card">
+      <div class="gallery-art hepkit-art" aria-hidden="true"><span class="gallery-art-label">LOOP INTEGRALS</span><div>(k · p)²</div></div>
+      <div class="gallery-card-body">
+        <div class="gallery-card-tags"><span>HEPkit</span></div>
+        <h3 id="notebook-covariant-tensor-reduction">Covariant tensor reduction</h3>
+        <p>Reduce loop-momentum tensor numerators in symbolic dimension using HEPkit’s covariant tensor reducer.</p>
+        <div class="gallery-card-actions"><a class="gallery-open" href="gallery/notebooks/tensor_reduction.html" data-gallery-notebook="tensor_reduction" data-title="HEPkit · Covariant tensor reduction">Run in browser</a><a class="gallery-download" href="gallery/notebooks/tensor_reduction.py" download title="Download notebook to run locally">Run locally</a></div>
+      </div>
+    </article>
+    <article class="gallery-card">
+      <div class="gallery-art hepkit-art" aria-hidden="true"><span class="gallery-art-label">THREE-LOOP IBP REDUCTION</span><div>I(n₁, …, n₆)</div></div>
+      <div class="gallery-card-body">
+        <div class="gallery-card-tags"><span>HEPkit</span></div>
+        <h3 id="notebook-three-loop-vacuum">Three-loop massive vacuum reduction</h3>
+        <p>Generate and certify IBP rules for the equal-mass Mercedes graph, explore the rules, and reduce integrals in symbolic dimension.</p>
+        <div class="gallery-card-actions"><a class="gallery-open" href="gallery/notebooks/three_loop_reduction.html" data-gallery-notebook="three_loop_reduction" data-title="HEPkit · Three-loop massive vacuum reduction">Run in browser</a><a class="gallery-download" href="gallery/notebooks/three_loop_reduction.py" download title="Download notebook to run locally">Run locally</a></div>
+      </div>
+    </article>
+    <article class="gallery-card">
+      <div class="gallery-art hepkit-art" aria-hidden="true"><span class="gallery-art-label">TWO-LOOP KITE INTEGRAL</span><div>f(ρ, r)</div></div>
+      <div class="gallery-card-body">
+        <div class="gallery-card-tags"><span>HEPkit</span></div>
+        <h3 id="notebook-massive-kite">Massive kite integral</h3>
+        <p>Compare exact hyperlogarithmic integration with AMFlow and DiffExp, varying the masses and spacelike momentum of a two-loop kite.</p>
+        <div class="gallery-card-actions"><a class="gallery-open" href="gallery/notebooks/massive_kite.html" data-gallery-notebook="massive_kite" data-title="HEPkit · Massive kite integral">Run in browser</a><a class="gallery-download" href="gallery/notebooks/massive_kite.py" download title="Download notebook to run locally">Run locally</a></div>
+      </div>
+    </article>
+    </div>
+<!-- GALLERY:END -->
         <p class="gallery-note">Open a notebook and choose <strong>Run</strong> to start calculating. The first notebook
           downloads about 40 MB.</p>
       </section>
@@ -314,6 +300,16 @@ result = process.generate_diagrams(loops=<span class="code-number">1</span>)</co
           href="https://github.com/symbolica-dev/symbolica-community">Source &amp; contributions</a></div>
     </div>
   </footer>
+  <dialog id="gallery-local-dialog" class="gallery-local-dialog" aria-labelledby="local-title">
+    <button id="local-close" class="gallery-local-close" type="button" aria-label="Close run at home instructions">×</button>
+    <h2 id="local-title" tabindex="-1" autofocus>Run this notebook at home</h2>
+    <ol class="gallery-local-steps">
+      <li><strong>Install uv <span class="gallery-local-once">(once)</span></strong><p><a href="https://docs.astral.sh/uv/getting-started/installation/" target="_blank" rel="noopener">Get uv <span aria-hidden="true">↗</span></a> — it takes care of Python and the packages you need.</p></li>
+      <li><strong>Download the notebook</strong><a id="local-download" class="gallery-local-download" href="gallery/notebooks/four_loop_numerator.py" download><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v4h14v-4"/></svg><span id="local-filename">four_loop_numerator.py</span></a></li>
+      <li><strong>Open it on your computer</strong><p>In the download folder, open a terminal and run:</p><div class="gallery-local-command"><pre><code id="local-command"></code></pre><button id="local-copy" type="button">Copy</button></div><p id="local-copy-status" class="gallery-local-copy-status" role="status"></p></li>
+    </ol>
+    <p class="gallery-local-result">Your notebook opens in your browser, ready to run. If prompted for a missing package, click <strong>Install</strong>.</p>
+  </dialog>
   <dialog id="gallery-notebook" class="gallery-notebook" aria-labelledby="notebook-title">
     <div class="gallery-notebook-heading">
       <h2 id="notebook-title" tabindex="-1" autofocus></h2>

@@ -13,18 +13,21 @@ python3 scripts/serve.py
 ```
 
 Open http://localhost:8766/. Use `--port 8080` to choose another port.
-The preview server serves the provided Brotli or gzip sidecars when supported
-by the browser. It is a development server, not a production server.
+The preview server serves current text files directly, so retired compressed
+loaders cannot mask an update. It supports Brotli or gzip sidecars for binary
+archives and WASM. It is a development server, not a production server.
 
 ## Contents
 
-- `dist/index.html`: introduction, four live HEPkit examples, ten contributing
+- `dist/index.html`: introduction, five live HEPkit examples, ten contributing
   projects with authors and citations, optional backend credits, and links to
   the local documentation. Page content works without JavaScript.
 - `dist/styles.css`: responsive layout and notebook dialog styles.
 - `dist/theme.js`: persistent light/dark preference with a system default.
 - `dist/gallery.js`: Symbolica gallery's lazy-loading notebook dialog, source
-  draft preservation, keyboard dismissal, and focus restoration.
+  draft preservation, keyboard dismissal, focus restoration, and per-notebook
+  “Run locally” dialog with a copyable uv command and the notebook download. Direct
+  `.py` downloads still work without JavaScript or with modified clicks.
 - `dist/assets/`: existing HEPkit branding from the Symbolica website.
 - `dist/gallery/notebooks/`: original Python notebook sources, generated
   notebook HTML, local editor CSS, execution/save workers and their bootstrap,
@@ -63,6 +66,12 @@ and verifies every CDN URL's availability, CORS headers, and content type
 before writing `dist/`. New asset versions must already be published on
 Symbolica's CDN; the sync refuses unavailable or incompatible assets.
 
+The full notebook wheel is pinned by the gallery's
+`scripts/gallery/live-python-config.json`, independently of the lightweight
+documentation snippets. The sync validates that pin against the notebook build
+manifest. `cdn-assets.json` records the Symbolica version, wheel, native WASM,
+and whether all CDN checks passed. The current gallery uses Symbolica 3.0.2.
+
 Notebook HTML, execution/save worker entry points and their bootstrap, the
 type-checker worker, editor CSS, and the package lockfile remain local. An
 adapter installed before the editor loads routes its known worker URLs to the
@@ -74,6 +83,11 @@ The sync records CDN references in `dist/gallery/notebooks/cdn-assets.json`
 and prunes previously imported frontend and runtime assets. The deployment
 contains the current release's required local files without accumulating
 duplicate editor bundles or local copies of CDN dependencies.
+
+To prepare a review copy while a new CDN release is pending, run
+`python3 scripts/sync-gallery.py ../website --stage /tmp/hepkit-review`.
+This leaves `dist/` unchanged and marks the review manifest as unverified.
+Rerun the ordinary sync after the assets are available on the CDN.
 
 Keep the `GALLERY:START` and `GALLERY:END` comments in `dist/index.html` when
 editing the page. The rest of the page, including project credits, is edited
@@ -150,12 +164,18 @@ directory structure. You can also copy the entire `hepkit` folder and configure
 the server's document root to point to `hepkit/dist`. No build step, backend,
 Python installation, or source checkout is needed on the server.
 
+Synchronize a deployment so retired files are removed, or use a fresh document
+root. Merely overwriting existing files can leave old compressed loaders or
+lockfiles that still request removed wheels. The sync removes text `.br`,
+`.gz`, and `.zst` sidecars from `dist/`; use dynamic server compression for text.
+
 Serve the site over HTTPS at the domain root. Paths such as `/docs/` assume
 this location; publishing it under a `/hepkit/` URL prefix is not supported.
 Serve `.wasm` files with `Content-Type: application/wasm` and `.mjs` files as
-JavaScript. Compression is useful for the local JavaScript and CSS. If serving
-precompressed `.br`, `.gz`, or `.zst` sidecars, negotiate them for the original
-URL with the correct `Content-Encoding` and `Vary: Accept-Encoding` headers.
+JavaScript. Compress local JavaScript, CSS, and JSON dynamically. Restrict
+precompressed sidecars to maintained binary assets and negotiate them for the
+original URL with the correct `Content-Encoding` and `Vary: Accept-Encoding`
+headers.
 
 Editor JavaScript and the large Python, Symbolica, and type-checker runtimes
 are served by Symbolica's CDN with its compression and caching; visitors need
@@ -165,6 +185,12 @@ packages from the Pyodide CDN or PyPI.
 Metadata uses `https://hepkit.org/` as the canonical origin. This checkout does
 not configure DNS or deploy the domain. Preserve upstream license notices and
 the relevant software licensing terms when publishing the site.
+
+Runtime pin and compressed-loader regression tests:
+
+```sh
+python3 scripts/test-gallery-sync.py
+```
 
 ## Content provenance
 

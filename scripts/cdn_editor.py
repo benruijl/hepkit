@@ -37,6 +37,11 @@ def _worker_literals(text: str):
         literal = QUOTED_JS.search(argument)
         if literal:
             yield literal[2]
+    # Marimo also stores URL objects before passing them to its worker helper.
+    for match in re.finditer(r"\bnew\s+URL\s*\(", text):
+        literal = QUOTED_JS.match(text[match.end():].lstrip())
+        if literal and re.fullmatch(r"(?:save-)?worker-[\w-]+\.js", Path(urlsplit(literal[2]).path).name):
+            yield literal[2]
 
 
 def _adapter(cdn: str, paths: dict[str, str]) -> str:
@@ -50,9 +55,18 @@ def _adapter(cdn: str, paths: dict[str, str]) -> str:
   if (!NativeWorker) return;
   const cdnOrigin = CDN_ORIGIN;
   const localWorkers = WORKER_PATHS;
+  // Map worker URL objects before Marimo chooses its cross-origin blob helper.
+  const NativeURL = window.URL;
+  window.URL = class HEPkitURL extends NativeURL {
+    constructor(input, base) {
+      super(input, base);
+      const local = this.origin === cdnOrigin && localWorkers[this.pathname];
+      if (local) this.href = new NativeURL(local + this.search + this.hash, window.location.origin).href;
+    }
+  };
   window.Worker = class HEPkitWorker extends NativeWorker {
     constructor(scriptURL, options) {
-      const url = new URL(String(scriptURL), document.baseURI);
+      const url = new NativeURL(String(scriptURL), document.baseURI);
       let target = scriptURL;
       if (url.protocol !== 'blob:' && url.origin === cdnOrigin) {
         const local = localWorkers[url.pathname];
@@ -61,7 +75,7 @@ def _adapter(cdn: str, paths: dict[str, str]) -> str:
             'HEPkit has no local adapter for CDN worker ' + url.pathname +
             '. Refresh this page or update the notebook export.', 'SecurityError');
         }
-        target = new URL(local + url.search + url.hash, window.location.origin).href;
+        target = new NativeURL(local + url.search + url.hash, window.location.origin).href;
       }
       super(target, options);
     }

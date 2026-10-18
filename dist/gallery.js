@@ -7,6 +7,55 @@ for (const button of filters) {
   });
 }
 
+const localPanel = document.querySelector("#gallery-local-dialog");
+const localTitle = document.querySelector("#local-title");
+const localDownload = document.querySelector("#local-download");
+const localCommand = document.querySelector("#local-command");
+const localCopy = document.querySelector("#local-copy");
+const localCopyStatus = document.querySelector("#local-copy-status");
+for (const link of document.querySelectorAll(".gallery-download")) {
+  const name = link.closest(".gallery-card").querySelector("h3").textContent;
+  link.setAttribute("aria-haspopup", "dialog");
+  link.setAttribute("aria-controls", localPanel.id);
+  link.setAttribute("aria-label", `Run locally: ${name}`);
+  link.title = "Download and run locally";
+  link.addEventListener("click", event => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    const filename = new URL(link.href).pathname.split("/").pop();
+    document.querySelector("#local-filename").textContent = filename;
+    localDownload.href = link.href;
+    localDownload.download = filename;
+    localCommand.textContent = `uvx --refresh --python 3.14 --with symbolica marimo edit ${filename}`;
+    localCopy.textContent = "Copy";
+    localCopyStatus.textContent = "";
+    localPanel.showModal();
+    document.documentElement.classList.add("gallery-local-open");
+    localTitle.focus({ preventScroll: true });
+  });
+}
+document.querySelector("#local-close").addEventListener("click", () => localPanel.close());
+localPanel.addEventListener("click", event => {
+  if (event.target !== localPanel) return;
+  const bounds = localPanel.getBoundingClientRect();
+  if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) localPanel.close();
+});
+localPanel.addEventListener("close", () => document.documentElement.classList.remove("gallery-local-open"));
+localCopy.addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(localCommand.textContent);
+    localCopy.textContent = "Copied!";
+    localCopyStatus.textContent = "Command copied. Paste it into your terminal.";
+  } catch {
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(localCommand);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    localCopyStatus.textContent = "Select and copy the command above, then paste it into your terminal.";
+  }
+});
+
 const panel = document.querySelector("#gallery-notebook");
 const frameHost = document.querySelector("#notebook-frame");
 const heading = document.querySelector("#notebook-title");
@@ -53,6 +102,9 @@ for (const link of document.querySelectorAll("[data-gallery-notebook]")) {
       frame.title = link.dataset.title + " — editable marimo notebook";
       frame.src = link.href;
       frame.addEventListener("load", () => {
+        // Inline Linnet viewers must not resize the whole notebook iframe.
+        // Nested output frames still own and resize their individual viewers.
+        frame.contentDocument?.documentElement.setAttribute("data-linnet-frame-owner", "");
         frame.dataset.loaded = "true";
         if (activeLink === link) status.textContent = "";
       });

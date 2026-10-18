@@ -15,6 +15,38 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 CDN = "https://cdn.symbolica.io"
+TEXT_SUFFIXES = {".html", ".css", ".js", ".mjs", ".json"}
+SIDECARS = {".gz", ".br", ".zst"}
+
+
+def local_run_links(markup):
+    """Give the standalone site's local instructions a visible secondary action."""
+    def relabel(match):
+        opening = re.sub(r'''\s+(?:aria-label|title)=(["']).*?\1''', "", match[1])
+        opening = opening[:-1] + ' title="Download notebook to run locally">'
+        return opening + "Run locally</a>"
+    return re.sub(
+        r'''(<a\b[^>]*\bclass=(["'])[^"']*\bgallery-download\b[^"']*\2[^>]*>).*?</a>''',
+        relabel, markup, flags=re.S,
+    )
+
+
+def gallery_config(source, manifest):
+    """The full notebook wheel is pinned separately from lightweight snippets."""
+    path = source / "scripts/gallery/live-python-config.json"
+    if hashlib.sha256(path.read_bytes()).hexdigest() != manifest["liveConfigSha256"]:
+        raise ValueError("Gallery runtime configuration changed; rebuild the Symbolica gallery before syncing")
+    config = json.loads(path.read_text())
+    if Path(config["wheel"]).name != Path(manifest["symbolicaNative"]["wheel"]).name:
+        raise ValueError("Gallery wheel does not match its native WASM manifest")
+    return config
+
+
+def prune_text_sidecars(directory):
+    """Text is compressed by the server, so retired copies cannot mask updates."""
+    for path in directory.rglob("*"):
+        if path.is_file() and path.suffix in SIDECARS and path.with_suffix("").suffix in TEXT_SUFFIXES:
+            path.unlink()
 
 
 def copy(src, dst):
@@ -49,14 +81,15 @@ def check_asset(url):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source", type=Path, help="Path to the Symbolica website checkout")
+    parser.add_argument("--stage", type=Path,
+                        help="Prepare a review copy without CDN checks or replacing dist")
     args = parser.parse_args()
     source = args.source.resolve()
     dist = ROOT / "dist"
     notebooks = source / "gallery/notebooks"
     manifest = json.loads((notebooks / "build.json").read_text())
+    gallery = gallery_config(source, manifest)
     config_source = source / "docs/live-python/config.json"
-    if hashlib.sha256(config_source.read_bytes()).hexdigest() != manifest["liveConfigSha256"]:
-        raise ValueError("Live Python configuration changed; rebuild the Symbolica gallery before syncing")
     previous_path = dist / "gallery/notebooks/cdn-assets.json"
     previous = json.loads(previous_path.read_text()) if previous_path.exists() else {}
     catalog = (source / "gallery/index.qmd").read_text()
@@ -77,6 +110,8 @@ def main():
     grid = section[section.index('    <div class="gallery-grid">'):].strip()
     grid = grid.replace('href="notebooks/', 'href="gallery/notebooks/')
     grid = grid.replace(' <span aria-hidden="true">→</span>', '')
+    grid = grid.replace('>Open notebook</a>', '>Run in browser</a>')
+    grid = local_run_links(grid)
     index = dist / "index.html"
     page, count = re.subn(r'<!-- GALLERY:START -->.*?<!-- GALLERY:END -->',
                          lambda _: '<!-- GALLERY:START -->\n' + grid + '\n<!-- GALLERY:END -->',
@@ -96,6 +131,7 @@ def main():
         # Keep executable chunks, worker entry points and editor CSS local.
         # Dynamic imports extend beyond the statically imported frontend.files.
         shutil.copytree(notebooks / "assets", destination / "assets")
+        prune_text_sidecars(stage)
         for relative, expected in manifest["artifacts"].items():
             if relative.startswith("immutable/"):
                 continue
@@ -138,6 +174,32 @@ def main():
         urls.update(urljoin(CDN + "/gallery/notebooks/", package["file_name"])
                     for package in lock["packages"].values()
                     if not urlsplit(package["file_name"]).scheme)
+        if args.stage:
+            review = args.stage.resolve()
+            if review == dist.resolve() or dist.resolve() in review.parents:
+                raise ValueError("The review copy must be outside dist")
+            shutil.copytree(dist, review, dirs_exist_ok=True)
+            shutil.copytree(stage, review, dirs_exist_ok=True)
+            (review / "index.html").write_text(page)
+            (review / "gallery/notebooks/cdn-assets.json").write_text(json.dumps({
+                "origin": CDN, "version": manifest["version"], "urls": sorted(urls),
+                "notebooks": slugs, "cdnVerified": False,
+                "symbolicaVersion": gallery["version"],
+                "symbolicaWheel": urljoin(CDN + "/gallery/notebooks/", manifest["symbolicaNative"]["wheel"]),
+                "symbolicaWasm": urljoin(CDN + "/gallery/notebooks/", manifest["symbolicaNative"]["url"]),
+                "localAssets": sorted(p.name for p in (destination / "assets").iterdir()),
+            }, indent=2) + "\n")
+            for suffix in (".gz", ".br", ".zst"):
+                Path(str(review / "index.html") + suffix).unlink(missing_ok=True)
+            for path in stage.rglob("*"):
+                if path.is_file() and path.suffix in {".html", ".css", ".js", ".mjs", ".json"}:
+                    target = review / path.relative_to(stage)
+                    for suffix in (".gz", ".br", ".zst"):
+                        if not Path(str(path) + suffix).exists():
+                            Path(str(target) + suffix).unlink(missing_ok=True)
+            prune_text_sidecars(review)
+            print(f"Prepared {len(slugs)} notebooks in {review}; CDN availability has not been verified.")
+            return
         print(f"Checking {len(urls)} shared CDN assets before updating the site…", flush=True)
         with ThreadPoolExecutor(max_workers=8) as executor:
             failures = [error for error in executor.map(check_asset, sorted(urls)) if error]
@@ -145,7 +207,10 @@ def main():
             raise SystemExit("CDN assets are not ready; existing site left unchanged.\n" + "\n".join(failures))
         (destination / "cdn-assets.json").write_text(json.dumps({
             "origin": CDN, "version": manifest["version"], "urls": sorted(urls),
-            "notebooks": slugs,
+            "notebooks": slugs, "cdnVerified": True,
+            "symbolicaVersion": gallery["version"],
+            "symbolicaWheel": urljoin(CDN + "/gallery/notebooks/", manifest["symbolicaNative"]["wheel"]),
+            "symbolicaWasm": urljoin(CDN + "/gallery/notebooks/", manifest["symbolicaNative"]["url"]),
             "localAssets": sorted(p.name for p in (destination / "assets").iterdir()),
         }, indent=2) + "\n")
 
@@ -178,7 +243,8 @@ def main():
                     if not Path(str(path) + suffix).exists():
                         Path(str(target) + suffix).unlink(missing_ok=True)
 
-    print(f"Imported {len(slugs)} live HEPkit notebooks; shared assets use {CDN}.")
+    prune_text_sidecars(dist)
+    print(f"Imported {len(slugs)} live HEPkit notebooks with Symbolica {gallery['version']}; shared assets use {CDN}.")
 
 
 if __name__ == "__main__":

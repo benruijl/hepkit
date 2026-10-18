@@ -6,10 +6,19 @@
   const NativeWorker = window.Worker;
   if (!NativeWorker) return;
   const cdnOrigin = "https://cdn.symbolica.io";
-  const localWorkers = {"/docs/live-python/ty-worker.js": "/docs/live-python/ty-worker.js", "/gallery/notebooks/assets/save-worker-_Qc1hOeF.js": "/gallery/notebooks/assets/save-worker-_Qc1hOeF.js", "/gallery/notebooks/assets/worker-BM73L67p.js": "/gallery/notebooks/assets/worker-BM73L67p.js"};
+  const localWorkers = {"/docs/live-python/ty-worker.js": "/docs/live-python/ty-worker.js", "/gallery/notebooks/assets/save-worker-Dw8ybFWq.js": "/gallery/notebooks/assets/save-worker-Dw8ybFWq.js", "/gallery/notebooks/assets/worker-ByzyDs4N.js": "/gallery/notebooks/assets/worker-ByzyDs4N.js"};
+  // Map worker URL objects before Marimo chooses its cross-origin blob helper.
+  const NativeURL = window.URL;
+  window.URL = class HEPkitURL extends NativeURL {
+    constructor(input, base) {
+      super(input, base);
+      const local = this.origin === cdnOrigin && localWorkers[this.pathname];
+      if (local) this.href = new NativeURL(local + this.search + this.hash, window.location.origin).href;
+    }
+  };
   window.Worker = class HEPkitWorker extends NativeWorker {
     constructor(scriptURL, options) {
-      const url = new URL(String(scriptURL), document.baseURI);
+      const url = new NativeURL(String(scriptURL), document.baseURI);
       let target = scriptURL;
       if (url.protocol !== 'blob:' && url.origin === cdnOrigin) {
         const local = localWorkers[url.pathname];
@@ -18,7 +27,7 @@
             'HEPkit has no local adapter for CDN worker ' + url.pathname +
             '. Refresh this page or update the notebook export.', 'SecurityError');
         }
-        target = new URL(local + url.search + url.hash, window.location.origin).href;
+        target = new NativeURL(local + url.search + url.hash, window.location.origin).href;
       }
       super(target, options);
     }
@@ -28,8 +37,8 @@
     <meta charset="utf-8" /><script>// Inline in notebook HTML: start Python while the editor bundle loads.
 // The catalog never runs this script until a notebook iframe is opened.
 (() => {
-  const worker = new Worker(new URL('./assets/worker-BM73L67p.js?v=9f89a53efb79bf92', document.baseURI), {
-    type: 'module', name: '0.24.0',
+  const worker = new Worker(new URL('./assets/worker-ByzyDs4N.js?v=0dfb602e4944f1f4', document.baseURI), {
+    type: 'module', name: '0.25.1',
   });
   const messages = [];
   const buffer = event => messages.push(event.data);
@@ -111,116 +120,22 @@
     <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
     <!-- /TODO -->
     <title>Four-loop gluon propagator numerators · Symbolica Gallery</title>
-    <link rel="stylesheet" crossorigin href="/gallery/notebooks/assets/cells-BE1kpmPF.css">
-<link rel="stylesheet" crossorigin href="/gallery/notebooks/assets/markdown-renderer-DdDKmWlR.css">
-<link rel="stylesheet" crossorigin href="/gallery/notebooks/assets/JsonOutput-BQtz7-np.css">
-<link rel="stylesheet" crossorigin href="/gallery/notebooks/assets/index-WoaGtlKd.css">
-<link rel="stylesheet" href="/gallery/notebooks/assets/CellStatus-2Psjnl5F.css">
-<link rel="stylesheet" href="/gallery/notebooks/assets/Inputs-C4Oo7q-H.css">
-<link rel="stylesheet" href="/gallery/notebooks/assets/agent-panel-uD4NfS9H.css">
-<link rel="stylesheet" href="/gallery/notebooks/assets/cell-editor-_cVIHMNI.css">
-<link rel="stylesheet" href="/gallery/notebooks/assets/dependency-graph-panel-DZccg5W0.css">
+    <link rel="stylesheet" crossorigin href="/gallery/notebooks/assets/cells-0PFKL3SH.css">
+<link rel="stylesheet" crossorigin href="/gallery/notebooks/assets/index--sT8xf-8.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/RunButton-Czeyf3Pi.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/agent-panel-Dv8WKmpM.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/dependency-graph-panel-R9xj8G8p.css">
 <link rel="stylesheet" href="/gallery/notebooks/assets/edit-page-Dstp9NQ5.css">
-<link rel="stylesheet" href="/gallery/notebooks/assets/glide-data-editor-Bt_UJyRV.css">
-<link rel="stylesheet" href="/gallery/notebooks/assets/layout-BjXzDXoG.css">
-<link rel="stylesheet" href="/gallery/notebooks/assets/multi-icon-CW3_9bja.css">
-<link rel="stylesheet" href="/gallery/notebooks/assets/name-cell-input-ujOhus_y.css">
-<link rel="stylesheet" href="/gallery/notebooks/assets/outline-panel-DHPbKZNT.css">
-<link rel="stylesheet" href="/gallery/notebooks/assets/panels-DDsRoC3H.css">
-<link rel="stylesheet" href="/gallery/notebooks/assets/reveal-component-55QLSQaY.css">
-<link rel="stylesheet" href="/gallery/notebooks/assets/slides-DkEgzTJB.css">
-<link rel="stylesheet" href="/gallery/notebooks/assets/snippets-panel-Qc3aWbYx.css">
-<link rel="stylesheet" href="/gallery/notebooks/assets/swiper-component-UB_Zmrma.css">
-<link rel="stylesheet" href="/gallery/notebooks/assets/terminal-ByuMlBP_.css">
-<script type="module" crossorigin src="https://cdn.symbolica.io/gallery/notebooks/assets/symbolica-editor-CdsimbYJ.js?v=9f89a53efb79bf92"></script>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+<link rel="stylesheet" href="/gallery/notebooks/assets/glide-data-editor-CDvI1PvV.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/outline-panel-G_AbIGBr.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/panels-CsyUBsel.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/reveal-component-wEV_sB3u.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/slides-BQsAdh8K.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/snippets-panel-CCGRX5CK.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/swiper-component-BCzCewjh.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/terminal-Cxb9RMua.css">
+<link rel="stylesheet" href="/gallery/notebooks/assets/useInterval-CV_Lf9-w.css">
+<script type="module" crossorigin src="https://cdn.symbolica.io/gallery/notebooks/assets/symbolica-editor-CqZbTqo-.js?v=0dfb602e4944f1f4"></script>
     
     
     
@@ -336,13 +251,13 @@
     Object.defineProperty(window, "__MARIMO_EXPORT_CONTEXT__", {
         value: Object.freeze({
             trusted: true,
-            notebookCode: "# /// script\n# requires-python = \"\u003E=3.13\"\n# dependencies = [\n#     \"marimo==0.24.0\",\n#     \"symbolica==3.0.0\",\n# ]\n# ///\n\nimport marimo\n\n__generated_with = \"0.24.0\"\napp = marimo.App(\n    width=\"medium\",\n    app_title=\"Four-loop gluon propagator numerators\",\n)\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(r\"\"\"\n    # Four-loop gluon propagator numerators\n\n    Generate all **four-loop 1PI gluon propagator graphs** in QCD with\n    **one massless quark flavor**, and apply the Feynman rules of the numerator.\n\n    Performed naively, the application of the Feynman rules may take a long time and generate large intermediate expressions. HEPkit tries to keep the expression factored as much as possible, optimizes its partial expansions and performs the contractions in an informed order.\n    \"\"\")\n    return\n\n\n@app.cell\ndef _():\n    import marimo as mo\n    from collections import Counter\n    from symbolica import S\n    from symbolica.community.hepkit import Model\n    from symbolica.community.tensor import TensorExpression\n\n    return Counter, Model, S, TensorExpression, mo\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(\"\"\"\n    ## Generate the graphs\n\n    Choose the model, create the process and generate the 4-loop diagrams.\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(Model):\n    model = Model.qcd()\n\n    process = model.process([\"g\"], [\"g\"], particle_veto=[\"u\", \"c\", \"s\", \"t\", \"b\"])\n\n    generation_result = process.generate_diagrams(loops=4)\n    return generation_result, model, process\n\n\n@app.cell\ndef _(process):\n    process\n    return\n\n\n@app.cell(hide_code=True)\ndef _(Counter, generation_result, mo):\n    mo.stop(\n        not generation_result.report.completed,\n        mo.md(\"Generation was interrupted. Rerun the generation cell to continue.\"),\n    )\n    _diagrams = generation_result.diagrams\n    mo.stop(\n        not _diagrams, mo.md(\"No four-loop gluon propagator graphs were generated.\")\n    )\n    _options = {}\n    for _index, _diagram in enumerate(_diagrams):\n        _counts = Counter(edge.particle_name for edge in _diagram.internal_edges)\n        _content = \", \".join(\n            f\"{count} {particle}\" for particle, count in sorted(_counts.items())\n        )\n        _options[f\"{_index + 1}: {_diagram.name} \u2014 {_content}\"] = _index\n    topology_choice = mo.ui.dropdown(\n        options=_options,\n        value=next(iter(_options)),\n        allow_select_none=False,\n        searchable=True,\n        full_width=True,\n        label=\"Topology\",\n    )\n    mo.vstack(\n        [\n            mo.md(\n                f\"Generated **{len(_diagrams):,} graphs**. \"\n                \"Search by graph name or internal particle content.\"\n            ),\n            topology_choice,\n        ]\n    )\n    return (topology_choice,)\n\n\n@app.cell\ndef _(generation_result, topology_choice):\n    diagram = generation_result[topology_choice.value]\n    diagram\n    return (diagram,)\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(r\"\"\"\n    ## Build the numerator and projector\n\n    Build a $D$-dimensional numerator and display its structure. Then, construct a projector to turn the tensor a scalar.\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(S, diagram, model):\n    numerator = diagram.numerator_expression(in_lmb=True) * diagram.overall_factor_expression(evaluate=True)\n    numerator = model.expand_couplings(numerator)\n    numerator = numerator.with_lorentz_dimension(S(\"D\")).collect_factors()\n    numerator.structure\n    return (numerator,)\n\n\n@app.cell\ndef _(TensorExpression, numerator):\n    slots = numerator.structure.slots()\n    projector = (\n        TensorExpression.g(slots[0], slots[1])\n        * TensorExpression.g(slots[2], slots[3])\n        / 8\n    )\n    projector\n    return (projector,)\n\n\n@app.cell\ndef _(numerator, projector):\n    projected_numerator = projector * numerator\n    projected_numerator\n    return (projected_numerator,)\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(r\"\"\"\n    ## Perform simple contractions that do not generate new terms\n\n    Apply a subset of contractions to the tensor that do not generate new terms. Also fully simplify the graph's color tensor down to scalars.\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(projected_numerator):\n    projected_numerator.simplify_algebra(\n        contract=\"minimal\", color=True, gamma=False\n    ).to_dots()\n    return\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(\"\"\"\n    ## Contract to dot products\n\n    Reduce the projected tensor in one call, including color and Dirac identities\n    and Lorentz contractions. The order of contractions is optimized by studying the tensor network.\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(projected_numerator):\n    reduced = projected_numerator.simplify_algebra(contract=\"dots\")\n    reduced\n    return (reduced,)\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(\"\"\"\n    Number of terms after a full expansion:\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(reduced):\n    len(reduced.expand().to_expression())\n    return\n\n\nif __name__ == \"__main__\":\n    app.run()\n",
+            notebookCode: "# /// script\n# requires-python = \"\u003E=3.13\"\n# dependencies = [\n#     \"marimo==0.24.0\",\n#     \"symbolica==3.0.0\",\n# ]\n# ///\n\nimport marimo\n\n__generated_with = \"0.25.1\"\napp = marimo.App(\n    width=\"medium\",\n    app_title=\"Four-loop gluon propagator numerators\",\n)\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(r\"\"\"\n    # Four-loop gluon propagator numerators\n\n    Generate all **four-loop 1PI gluon propagator graphs** in QCD with\n    **one massless quark flavor**, and apply the Feynman rules of the numerator.\n\n    Performed naively, the application of the Feynman rules may take a long time and generate large intermediate expressions. HEPkit tries to keep the expression factored as much as possible, optimizes its partial expansions and performs the contractions in an informed order.\n    \"\"\")\n    return\n\n\n@app.cell\ndef _():\n    import marimo as mo\n    from collections import Counter\n    from symbolica import S\n    from symbolica.community.hepkit import Model\n    from symbolica.community.tensor import TensorExpression\n\n    return Counter, Model, S, TensorExpression, mo\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(\"\"\"\n    ## Generate the graphs\n\n    Choose the model, create the process and generate the 4-loop diagrams.\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(Model):\n    model = Model.qcd()\n\n    process = model.process([\"g\"], [\"g\"], particle_veto=[\"u\", \"c\", \"s\", \"t\", \"b\"])\n\n    generation_result = process.generate_diagrams(loops=4)\n    return generation_result, model, process\n\n\n@app.cell\ndef _(process):\n    process\n    return\n\n\n@app.cell(hide_code=True)\ndef _(Counter, generation_result, mo):\n    mo.stop(\n        not generation_result.report.completed,\n        mo.md(\"Generation was interrupted. Rerun the generation cell to continue.\"),\n    )\n    _diagrams = generation_result.diagrams\n    mo.stop(\n        not _diagrams, mo.md(\"No four-loop gluon propagator graphs were generated.\")\n    )\n    _options = {}\n    for _index, _diagram in enumerate(_diagrams):\n        _counts = Counter(edge.particle_name for edge in _diagram.internal_edges)\n        _content = \", \".join(\n            f\"{count} {particle}\" for particle, count in sorted(_counts.items())\n        )\n        _options[f\"{_index + 1}: {_diagram.name} \u2014 {_content}\"] = _index\n    topology_choice = mo.ui.dropdown(\n        options=_options,\n        value=next(iter(_options)),\n        allow_select_none=False,\n        searchable=True,\n        full_width=True,\n        label=\"Topology\",\n    )\n    mo.vstack(\n        [\n            mo.md(\n                f\"Generated **{len(_diagrams):,} graphs**. \"\n                \"Search by graph name or internal particle content.\"\n            ),\n            topology_choice,\n        ]\n    )\n    return (topology_choice,)\n\n\n@app.cell\ndef _(generation_result, topology_choice):\n    diagram = generation_result[topology_choice.value]\n    diagram\n    return (diagram,)\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(r\"\"\"\n    ## Build the numerator and projector\n\n    Build a $D$-dimensional numerator and display its structure. Then, construct a projector to turn the tensor a scalar.\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(S, diagram, model):\n    numerator = diagram.numerator_expression(in_lmb=True) * diagram.overall_factor_expression(evaluate=True)\n    numerator = model.expand_couplings(numerator)\n    numerator = numerator.with_lorentz_dimension(S(\"D\")).collect_factors()\n    numerator.structure\n    return (numerator,)\n\n\n@app.cell\ndef _(TensorExpression, numerator):\n    slots = numerator.structure.slots()\n    projector = (\n        TensorExpression.g(slots[0], slots[1])\n        * TensorExpression.g(slots[2], slots[3])\n        / 8\n    )\n    projector\n    return (projector,)\n\n\n@app.cell\ndef _(numerator, projector):\n    projected_numerator = projector * numerator\n    projected_numerator\n    return (projected_numerator,)\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(r\"\"\"\n    ## Perform simple contractions that do not generate new terms\n\n    Apply a subset of contractions to the tensor that do not generate new terms. Also fully simplify the graph's color tensor down to scalars.\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(projected_numerator):\n    projected_numerator.simplify_algebra(\n        contract=\"minimal\", color=True, gamma=False\n    ).to_dots()\n    return\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(\"\"\"\n    ## Contract to dot products\n\n    Reduce the projected tensor in one call, including color and Dirac identities\n    and Lorentz contractions. The order of contractions is optimized by studying the tensor network.\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(projected_numerator):\n    reduced = projected_numerator.simplify_algebra(contract=\"dots\")\n    reduced\n    return (reduced,)\n\n\n@app.cell(hide_code=True)\ndef _(mo):\n    mo.md(\"\"\"\n    Number of terms after a full expansion:\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(reduced):\n    len(reduced.expand().to_expression())\n    return\n\n\nif __name__ == \"__main__\":\n    app.run()\n",
         }),
         writable: false,
         configurable: false,
     });
 </script>
-<marimo-code hidden="">%23%20%2F%2F%2F%20script%0A%23%20requires-python%20%3D%20%22%3E%3D3.13%22%0A%23%20dependencies%20%3D%20%5B%0A%23%20%20%20%20%20%22marimo%3D%3D0.24.0%22%2C%0A%23%20%20%20%20%20%22symbolica%3D%3D3.0.0%22%2C%0A%23%20%5D%0A%23%20%2F%2F%2F%0A%0Aimport%20marimo%0A%0A__generated_with%20%3D%20%220.24.0%22%0Aapp%20%3D%20marimo.App(%0A%20%20%20%20width%3D%22medium%22%2C%0A%20%20%20%20app_title%3D%22Four-loop%20gluon%20propagator%20numerators%22%2C%0A)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%20Four-loop%20gluon%20propagator%20numerators%0A%0A%20%20%20%20Generate%20all%20**four-loop%201PI%20gluon%20propagator%20graphs**%20in%20QCD%20with%0A%20%20%20%20**one%20massless%20quark%20flavor**%2C%20and%20apply%20the%20Feynman%20rules%20of%20the%20numerator.%0A%0A%20%20%20%20Performed%20naively%2C%20the%20application%20of%20the%20Feynman%20rules%20may%20take%20a%20long%20time%20and%20generate%20large%20intermediate%20expressions.%20HEPkit%20tries%20to%20keep%20the%20expression%20factored%20as%20much%20as%20possible%2C%20optimizes%20its%20partial%20expansions%20and%20performs%20the%20contractions%20in%20an%20informed%20order.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20from%20collections%20import%20Counter%0A%20%20%20%20from%20symbolica%20import%20S%0A%20%20%20%20from%20symbolica.community.hepkit%20import%20Model%0A%20%20%20%20from%20symbolica.community.tensor%20import%20TensorExpression%0A%0A%20%20%20%20return%20Counter%2C%20Model%2C%20S%2C%20TensorExpression%2C%20mo%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(%22%22%22%0A%20%20%20%20%23%23%20Generate%20the%20graphs%0A%0A%20%20%20%20Choose%20the%20model%2C%20create%20the%20process%20and%20generate%20the%204-loop%20diagrams.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(Model)%3A%0A%20%20%20%20model%20%3D%20Model.qcd()%0A%0A%20%20%20%20process%20%3D%20model.process(%5B%22g%22%5D%2C%20%5B%22g%22%5D%2C%20particle_veto%3D%5B%22u%22%2C%20%22c%22%2C%20%22s%22%2C%20%22t%22%2C%20%22b%22%5D)%0A%0A%20%20%20%20generation_result%20%3D%20process.generate_diagrams(loops%3D4)%0A%20%20%20%20return%20generation_result%2C%20model%2C%20process%0A%0A%0A%40app.cell%0Adef%20_(process)%3A%0A%20%20%20%20process%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(Counter%2C%20generation_result%2C%20mo)%3A%0A%20%20%20%20mo.stop(%0A%20%20%20%20%20%20%20%20not%20generation_result.report.completed%2C%0A%20%20%20%20%20%20%20%20mo.md(%22Generation%20was%20interrupted.%20Rerun%20the%20generation%20cell%20to%20continue.%22)%2C%0A%20%20%20%20)%0A%20%20%20%20_diagrams%20%3D%20generation_result.diagrams%0A%20%20%20%20mo.stop(%0A%20%20%20%20%20%20%20%20not%20_diagrams%2C%20mo.md(%22No%20four-loop%20gluon%20propagator%20graphs%20were%20generated.%22)%0A%20%20%20%20)%0A%20%20%20%20_options%20%3D%20%7B%7D%0A%20%20%20%20for%20_index%2C%20_diagram%20in%20enumerate(_diagrams)%3A%0A%20%20%20%20%20%20%20%20_counts%20%3D%20Counter(edge.particle_name%20for%20edge%20in%20_diagram.internal_edges)%0A%20%20%20%20%20%20%20%20_content%20%3D%20%22%2C%20%22.join(%0A%20%20%20%20%20%20%20%20%20%20%20%20f%22%7Bcount%7D%20%7Bparticle%7D%22%20for%20particle%2C%20count%20in%20sorted(_counts.items())%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%20%20%20%20_options%5Bf%22%7B_index%20%2B%201%7D%3A%20%7B_diagram.name%7D%20%E2%80%94%20%7B_content%7D%22%5D%20%3D%20_index%0A%20%20%20%20topology_choice%20%3D%20mo.ui.dropdown(%0A%20%20%20%20%20%20%20%20options%3D_options%2C%0A%20%20%20%20%20%20%20%20value%3Dnext(iter(_options))%2C%0A%20%20%20%20%20%20%20%20allow_select_none%3DFalse%2C%0A%20%20%20%20%20%20%20%20searchable%3DTrue%2C%0A%20%20%20%20%20%20%20%20full_width%3DTrue%2C%0A%20%20%20%20%20%20%20%20label%3D%22Topology%22%2C%0A%20%20%20%20)%0A%20%20%20%20mo.vstack(%0A%20%20%20%20%20%20%20%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20f%22Generated%20**%7Blen(_diagrams)%3A%2C%7D%20graphs**.%20%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22Search%20by%20graph%20name%20or%20internal%20particle%20content.%22%0A%20%20%20%20%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20topology_choice%2C%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20)%0A%20%20%20%20return%20(topology_choice%2C)%0A%0A%0A%40app.cell%0Adef%20_(generation_result%2C%20topology_choice)%3A%0A%20%20%20%20diagram%20%3D%20generation_result%5Btopology_choice.value%5D%0A%20%20%20%20diagram%0A%20%20%20%20return%20(diagram%2C)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%20Build%20the%20numerator%20and%20projector%0A%0A%20%20%20%20Build%20a%20%24D%24-dimensional%20numerator%20and%20display%20its%20structure.%20Then%2C%20construct%20a%20projector%20to%20turn%20the%20tensor%20a%20scalar.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(S%2C%20diagram%2C%20model)%3A%0A%20%20%20%20numerator%20%3D%20diagram.numerator_expression(in_lmb%3DTrue)%20*%20diagram.overall_factor_expression(evaluate%3DTrue)%0A%20%20%20%20numerator%20%3D%20model.expand_couplings(numerator)%0A%20%20%20%20numerator%20%3D%20numerator.with_lorentz_dimension(S(%22D%22)).collect_factors()%0A%20%20%20%20numerator.structure%0A%20%20%20%20return%20(numerator%2C)%0A%0A%0A%40app.cell%0Adef%20_(TensorExpression%2C%20numerator)%3A%0A%20%20%20%20slots%20%3D%20numerator.structure.slots()%0A%20%20%20%20projector%20%3D%20(%0A%20%20%20%20%20%20%20%20TensorExpression.g(slots%5B0%5D%2C%20slots%5B1%5D)%0A%20%20%20%20%20%20%20%20*%20TensorExpression.g(slots%5B2%5D%2C%20slots%5B3%5D)%0A%20%20%20%20%20%20%20%20%2F%208%0A%20%20%20%20)%0A%20%20%20%20projector%0A%20%20%20%20return%20(projector%2C)%0A%0A%0A%40app.cell%0Adef%20_(numerator%2C%20projector)%3A%0A%20%20%20%20projected_numerator%20%3D%20projector%20*%20numerator%0A%20%20%20%20projected_numerator%0A%20%20%20%20return%20(projected_numerator%2C)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%20Perform%20simple%20contractions%20that%20do%20not%20generate%20new%20terms%0A%0A%20%20%20%20Apply%20a%20subset%20of%20contractions%20to%20the%20tensor%20that%20do%20not%20generate%20new%20terms.%20Also%20fully%20simplify%20the%20graph's%20color%20tensor%20down%20to%20scalars.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(projected_numerator)%3A%0A%20%20%20%20projected_numerator.simplify_algebra(%0A%20%20%20%20%20%20%20%20contract%3D%22minimal%22%2C%20color%3DTrue%2C%20gamma%3DFalse%0A%20%20%20%20).to_dots()%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(%22%22%22%0A%20%20%20%20%23%23%20Contract%20to%20dot%20products%0A%0A%20%20%20%20Reduce%20the%20projected%20tensor%20in%20one%20call%2C%20including%20color%20and%20Dirac%20identities%0A%20%20%20%20and%20Lorentz%20contractions.%20The%20order%20of%20contractions%20is%20optimized%20by%20studying%20the%20tensor%20network.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(projected_numerator)%3A%0A%20%20%20%20reduced%20%3D%20projected_numerator.simplify_algebra(contract%3D%22dots%22)%0A%20%20%20%20reduced%0A%20%20%20%20return%20(reduced%2C)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(%22%22%22%0A%20%20%20%20Number%20of%20terms%20after%20a%20full%20expansion%3A%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(reduced)%3A%0A%20%20%20%20len(reduced.expand().to_expression())%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code><style>/* The notebook iframe does not inherit Quarto's syntax styles. */
+<marimo-code hidden="">%23%20%2F%2F%2F%20script%0A%23%20requires-python%20%3D%20%22%3E%3D3.13%22%0A%23%20dependencies%20%3D%20%5B%0A%23%20%20%20%20%20%22marimo%3D%3D0.24.0%22%2C%0A%23%20%20%20%20%20%22symbolica%3D%3D3.0.0%22%2C%0A%23%20%5D%0A%23%20%2F%2F%2F%0A%0Aimport%20marimo%0A%0A__generated_with%20%3D%20%220.25.1%22%0Aapp%20%3D%20marimo.App(%0A%20%20%20%20width%3D%22medium%22%2C%0A%20%20%20%20app_title%3D%22Four-loop%20gluon%20propagator%20numerators%22%2C%0A)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%20Four-loop%20gluon%20propagator%20numerators%0A%0A%20%20%20%20Generate%20all%20**four-loop%201PI%20gluon%20propagator%20graphs**%20in%20QCD%20with%0A%20%20%20%20**one%20massless%20quark%20flavor**%2C%20and%20apply%20the%20Feynman%20rules%20of%20the%20numerator.%0A%0A%20%20%20%20Performed%20naively%2C%20the%20application%20of%20the%20Feynman%20rules%20may%20take%20a%20long%20time%20and%20generate%20large%20intermediate%20expressions.%20HEPkit%20tries%20to%20keep%20the%20expression%20factored%20as%20much%20as%20possible%2C%20optimizes%20its%20partial%20expansions%20and%20performs%20the%20contractions%20in%20an%20informed%20order.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20from%20collections%20import%20Counter%0A%20%20%20%20from%20symbolica%20import%20S%0A%20%20%20%20from%20symbolica.community.hepkit%20import%20Model%0A%20%20%20%20from%20symbolica.community.tensor%20import%20TensorExpression%0A%0A%20%20%20%20return%20Counter%2C%20Model%2C%20S%2C%20TensorExpression%2C%20mo%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(%22%22%22%0A%20%20%20%20%23%23%20Generate%20the%20graphs%0A%0A%20%20%20%20Choose%20the%20model%2C%20create%20the%20process%20and%20generate%20the%204-loop%20diagrams.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(Model)%3A%0A%20%20%20%20model%20%3D%20Model.qcd()%0A%0A%20%20%20%20process%20%3D%20model.process(%5B%22g%22%5D%2C%20%5B%22g%22%5D%2C%20particle_veto%3D%5B%22u%22%2C%20%22c%22%2C%20%22s%22%2C%20%22t%22%2C%20%22b%22%5D)%0A%0A%20%20%20%20generation_result%20%3D%20process.generate_diagrams(loops%3D4)%0A%20%20%20%20return%20generation_result%2C%20model%2C%20process%0A%0A%0A%40app.cell%0Adef%20_(process)%3A%0A%20%20%20%20process%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(Counter%2C%20generation_result%2C%20mo)%3A%0A%20%20%20%20mo.stop(%0A%20%20%20%20%20%20%20%20not%20generation_result.report.completed%2C%0A%20%20%20%20%20%20%20%20mo.md(%22Generation%20was%20interrupted.%20Rerun%20the%20generation%20cell%20to%20continue.%22)%2C%0A%20%20%20%20)%0A%20%20%20%20_diagrams%20%3D%20generation_result.diagrams%0A%20%20%20%20mo.stop(%0A%20%20%20%20%20%20%20%20not%20_diagrams%2C%20mo.md(%22No%20four-loop%20gluon%20propagator%20graphs%20were%20generated.%22)%0A%20%20%20%20)%0A%20%20%20%20_options%20%3D%20%7B%7D%0A%20%20%20%20for%20_index%2C%20_diagram%20in%20enumerate(_diagrams)%3A%0A%20%20%20%20%20%20%20%20_counts%20%3D%20Counter(edge.particle_name%20for%20edge%20in%20_diagram.internal_edges)%0A%20%20%20%20%20%20%20%20_content%20%3D%20%22%2C%20%22.join(%0A%20%20%20%20%20%20%20%20%20%20%20%20f%22%7Bcount%7D%20%7Bparticle%7D%22%20for%20particle%2C%20count%20in%20sorted(_counts.items())%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%20%20%20%20_options%5Bf%22%7B_index%20%2B%201%7D%3A%20%7B_diagram.name%7D%20%E2%80%94%20%7B_content%7D%22%5D%20%3D%20_index%0A%20%20%20%20topology_choice%20%3D%20mo.ui.dropdown(%0A%20%20%20%20%20%20%20%20options%3D_options%2C%0A%20%20%20%20%20%20%20%20value%3Dnext(iter(_options))%2C%0A%20%20%20%20%20%20%20%20allow_select_none%3DFalse%2C%0A%20%20%20%20%20%20%20%20searchable%3DTrue%2C%0A%20%20%20%20%20%20%20%20full_width%3DTrue%2C%0A%20%20%20%20%20%20%20%20label%3D%22Topology%22%2C%0A%20%20%20%20)%0A%20%20%20%20mo.vstack(%0A%20%20%20%20%20%20%20%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20f%22Generated%20**%7Blen(_diagrams)%3A%2C%7D%20graphs**.%20%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22Search%20by%20graph%20name%20or%20internal%20particle%20content.%22%0A%20%20%20%20%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20topology_choice%2C%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20)%0A%20%20%20%20return%20(topology_choice%2C)%0A%0A%0A%40app.cell%0Adef%20_(generation_result%2C%20topology_choice)%3A%0A%20%20%20%20diagram%20%3D%20generation_result%5Btopology_choice.value%5D%0A%20%20%20%20diagram%0A%20%20%20%20return%20(diagram%2C)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%20Build%20the%20numerator%20and%20projector%0A%0A%20%20%20%20Build%20a%20%24D%24-dimensional%20numerator%20and%20display%20its%20structure.%20Then%2C%20construct%20a%20projector%20to%20turn%20the%20tensor%20a%20scalar.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(S%2C%20diagram%2C%20model)%3A%0A%20%20%20%20numerator%20%3D%20diagram.numerator_expression(in_lmb%3DTrue)%20*%20diagram.overall_factor_expression(evaluate%3DTrue)%0A%20%20%20%20numerator%20%3D%20model.expand_couplings(numerator)%0A%20%20%20%20numerator%20%3D%20numerator.with_lorentz_dimension(S(%22D%22)).collect_factors()%0A%20%20%20%20numerator.structure%0A%20%20%20%20return%20(numerator%2C)%0A%0A%0A%40app.cell%0Adef%20_(TensorExpression%2C%20numerator)%3A%0A%20%20%20%20slots%20%3D%20numerator.structure.slots()%0A%20%20%20%20projector%20%3D%20(%0A%20%20%20%20%20%20%20%20TensorExpression.g(slots%5B0%5D%2C%20slots%5B1%5D)%0A%20%20%20%20%20%20%20%20*%20TensorExpression.g(slots%5B2%5D%2C%20slots%5B3%5D)%0A%20%20%20%20%20%20%20%20%2F%208%0A%20%20%20%20)%0A%20%20%20%20projector%0A%20%20%20%20return%20(projector%2C)%0A%0A%0A%40app.cell%0Adef%20_(numerator%2C%20projector)%3A%0A%20%20%20%20projected_numerator%20%3D%20projector%20*%20numerator%0A%20%20%20%20projected_numerator%0A%20%20%20%20return%20(projected_numerator%2C)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%23%20Perform%20simple%20contractions%20that%20do%20not%20generate%20new%20terms%0A%0A%20%20%20%20Apply%20a%20subset%20of%20contractions%20to%20the%20tensor%20that%20do%20not%20generate%20new%20terms.%20Also%20fully%20simplify%20the%20graph's%20color%20tensor%20down%20to%20scalars.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(projected_numerator)%3A%0A%20%20%20%20projected_numerator.simplify_algebra(%0A%20%20%20%20%20%20%20%20contract%3D%22minimal%22%2C%20color%3DTrue%2C%20gamma%3DFalse%0A%20%20%20%20).to_dots()%0A%20%20%20%20return%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(%22%22%22%0A%20%20%20%20%23%23%20Contract%20to%20dot%20products%0A%0A%20%20%20%20Reduce%20the%20projected%20tensor%20in%20one%20call%2C%20including%20color%20and%20Dirac%20identities%0A%20%20%20%20and%20Lorentz%20contractions.%20The%20order%20of%20contractions%20is%20optimized%20by%20studying%20the%20tensor%20network.%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(projected_numerator)%3A%0A%20%20%20%20reduced%20%3D%20projected_numerator.simplify_algebra(contract%3D%22dots%22)%0A%20%20%20%20reduced%0A%20%20%20%20return%20(reduced%2C)%0A%0A%0A%40app.cell(hide_code%3DTrue)%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(%22%22%22%0A%20%20%20%20Number%20of%20terms%20after%20a%20full%20expansion%3A%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(reduced)%3A%0A%20%20%20%20len(reduced.expand().to_expression())%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code><style>/* The notebook iframe does not inherit Quarto's syntax styles. */
 .gallery-type-docs {
   --hint-keyword: #003b4f;
   --hint-import: #00769e;
@@ -378,15 +293,16 @@
             "cwd": "",
             "lspWorkspace": null,
             "mode": "edit",
-            "version": "0.24.0",
+            "version": "0.25.1",
             "serverToken": "unused",
-            "config": {"completion": {"activate_on_typing": true, "signature_hint_on_typing": true, "copilot": false, "auto_close_pairs": true}, "display": {"theme": "system", "code_editor_font_size": 14, "cell_output": "below", "default_width": "medium", "dataframes": "rich", "default_table_page_size": 10, "default_table_max_columns": 50, "reference_highlighting": true, "code_lens": true}, "formatting": {"line_length": 79}, "keymap": {"preset": "default", "overrides": {}}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "reactive_tests": true, "on_cell_change": "autorun", "watcher_on_save": "lazy", "output_max_bytes": 8000000, "std_stream_max_bytes": 1000000, "default_sql_output": "auto", "default_csv_encoding": "utf-8", "show_tracebacks": false}, "save": {"autosave": "after_delay", "autosave_delay": 1000, "format_on_save": false}, "package_management": {"manager": "pip"}, "server": {"browser": "default", "follow_symlink": false}, "language_servers": {"pylsp": {"enabled": false, "enable_mypy": true, "enable_ruff": true, "enable_flake8": false, "enable_pydocstyle": false, "enable_pylint": false, "enable_pyflakes": false}}, "ai": {"enabled": true, "models": {"displayed_models": [], "custom_models": []}, "custom_providers": {}}, "snippets": {"custom_paths": [], "include_default_snippets": true}, "mcp": {"mcpServers": {}, "presets": []}, "diagnostics": {"sql_linter": true}},
+            "config": {"completion": {"activate_on_typing": true, "signature_hint_on_typing": true, "copilot": false, "auto_close_pairs": true}, "display": {"theme": "system", "code_editor_font_size": 14, "cell_output": "below", "default_width": "medium", "dataframes": "rich", "default_table_page_size": 10, "default_table_max_columns": 50, "reference_highlighting": true, "code_lens": true}, "formatting": {"line_length": 79}, "keymap": {"preset": "default", "overrides": {}}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "reactive_tests": true, "on_cell_change": "autorun", "watcher_on_save": "lazy", "output_max_bytes": 8000000, "std_stream_max_bytes": 1000000, "default_sql_output": "auto", "default_csv_encoding": "utf-8", "show_tracebacks": false}, "save": {"autosave": "after_delay", "autosave_delay": 1000, "format_on_save": false}, "package_management": {"manager": "uv"}, "server": {"browser": "default", "follow_symlink": false}, "language_servers": {"pylsp": {"enabled": false, "enable_mypy": true, "enable_ruff": true, "enable_flake8": false, "enable_pydocstyle": false, "enable_pylint": false, "enable_pyflakes": false}}, "ai": {"enabled": true, "allow_provider_config": true, "models": {"displayed_models": [], "custom_models": []}, "custom_providers": {}}, "snippets": {"custom_paths": [], "include_default_snippets": true}, "mcp": {"mcpServers": {}, "presets": []}, "diagnostics": {"sql_linter": true}},
             "configOverrides": {},
             "appConfig": {"app_title": "Four-loop gluon propagator numerators", "sql_output": "auto", "width": "medium"},
+            "layout": null,
             "view": {"showAppCode": false},
             "notebook": null,
             "session": null,
-            "runtimeConfig": null,
+            "runtimeConfig": null
         }),
         writable: false,
         configurable: false,

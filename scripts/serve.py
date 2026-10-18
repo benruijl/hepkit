@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Serve the standalone site, using precompressed assets when available."""
+"""Serve the standalone site without letting retired text sidecars mask updates."""
 import argparse
 import functools
 import os
@@ -13,7 +13,7 @@ class Handler(SimpleHTTPRequestHandler):
     def send_head(self):
         path = self.translate_path(self.path)
         accepted = self.headers.get("Accept-Encoding", "")
-        if os.path.isfile(path):
+        if os.path.isfile(path) and Path(path).suffix in {".wasm", ".whl", ".zip"}:
             for encoding, suffix in (("br", ".br"), ("gzip", ".gz")):
                 # Respect clients that explicitly disable an encoding.
                 encodings = [entry.strip() for entry in accepted.split(",")]
