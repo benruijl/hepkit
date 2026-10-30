@@ -192,6 +192,8 @@ def _(Counter, hep, is_kite):
 
 @app.cell(hide_code=True)
 def _(diagram, edges, hep, massive_slots, massless, mo):
+    from symbolica.community.graph import RenderSettings
+
     # The interactive viewer moves SVG nodes and styles its document. Keep
     # it in a separate frame so reactive mass changes cannot disrupt marimo.
     mo.output.append(
@@ -203,8 +205,8 @@ def _(diagram, edges, hep, massive_slots, massless, mo):
                     if massless.value
                     else diagram.subgraph(edges=[edges[i].id for i in massive_slots])
                 ),
-                config=hep.RenderSettings(
-                    show_particle=False,
+                style=hep.DiagramStyle(show_particle=False),
+                config=RenderSettings(
                     title="Massless kite"
                     if massless.value
                     else "Two massive propagators on one arm",

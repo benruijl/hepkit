@@ -30,8 +30,9 @@ def _(mo):
 
 @app.cell
 def _():
-    import marimo as mo
     from collections import Counter
+
+    import marimo as mo
     from symbolica import S
     from symbolica.community.hepkit import Model
     from symbolica.community.tensor import TensorExpression
@@ -52,6 +53,22 @@ def _(mo):
 @app.cell
 def _(Model):
     model = Model.qcd()
+    # This example uses a massless down quark explicitly, independent of
+    # the Standard Model's default masses. ZERO also fixes symbolic masses.
+    import json as _json
+    import re as _re
+
+    _model_data = _json.loads(model.to_json())
+    for _particle in _model_data["particles"]:
+        if abs(_particle["pdg_code"]) == 1:
+            _particle["mass"] = "ZERO"
+    # Parameter cards change numerical values; these symbolic propagator
+    # formulas must also be specialized for the massless calculation.
+    for _propagator in _model_data["propagators"]:
+        if _propagator["particle"] in {"d", "d~"}:
+            for _field in ("numerator", "denominator"):
+                _propagator[_field] = _re.sub(r"\bMD\b", "0", _propagator[_field])
+    model = Model.from_json(_json.dumps(_model_data))
 
     process = model.process(["g"], ["g"], particle_veto=["u", "c", "s", "t", "b"])
 
@@ -121,7 +138,9 @@ def _(mo):
 
 @app.cell
 def _(S, diagram, model):
-    numerator = diagram.numerator_expression(in_lmb=True) * diagram.overall_factor_expression(evaluate=True)
+    numerator = diagram.numerator_expression(
+        in_lmb=True
+    ) * diagram.overall_factor_expression(evaluate=True)
     numerator = model.expand_couplings(numerator)
     numerator = numerator.with_lorentz_dimension(S("D")).collect_factors()
     numerator.structure

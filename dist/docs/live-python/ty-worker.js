@@ -48,6 +48,7 @@ var workspace;
 var document;
 var initialized;
 var Position;
+var documentSource = "";
 async function initialize(config) {
   postMessage({ type: "status", text: "Loading ty type hints\u2026" });
   const stopWatching = watchDownloads(import.meta.url, [
@@ -79,6 +80,7 @@ async function initialize(config) {
     workspace.openFile(`/project/${path}`, contents).free();
   }
   document = workspace.openFile("/project/playground.py", "");
+  documentSource = "";
   postMessage({ type: "ready", version: version() });
 }
 self.onmessage = async ({ data }) => {
@@ -90,7 +92,11 @@ self.onmessage = async ({ data }) => {
   if (!["hover", "complete", "signature"].includes(data.type)) return;
   try {
     await initialized;
-    workspace.updateFile(document, data.source);
+    if (data.source !== documentSource) {
+      workspace.closeFile(document);
+      document = workspace.openFile("/project/playground.py", data.source);
+      documentSource = data.source;
+    }
     if (data.type === "signature") {
       const result2 = workspace.signatureHelp(document, new Position(data.line, data.column));
       if (!result2) {

@@ -70,7 +70,7 @@ The full notebook wheel is pinned by the gallery's
 `scripts/gallery/live-python-config.json`, independently of the lightweight
 documentation snippets. The sync validates that pin against the notebook build
 manifest. `cdn-assets.json` records the Symbolica version, wheel, native WASM,
-and whether all CDN checks passed. The current gallery uses Symbolica 3.0.2.
+and whether all CDN checks passed. The current gallery uses Symbolica 3.0.10.
 
 Notebook HTML, execution/save worker entry points and their bootstrap, the
 type-checker worker, editor CSS, and the package lockfile remain local. An

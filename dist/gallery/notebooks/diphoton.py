@@ -65,9 +65,9 @@ def _(model):
 
 
 @app.cell
-def _(process):
+def _(mo, process):
     amplitude = process.generate_amplitude()
-    amplitude
+    mo.iframe(amplitude._repr_mimebundle_()["text/html"])
     return (amplitude,)
 
 
